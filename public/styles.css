@@ -122,7 +122,7 @@ html {
   background-color: var(--bg-body);
   min-height: 100%;
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -133,7 +133,7 @@ body {
   min-height: 100vh;
   min-height: 100dvh;
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
   position: relative;
   padding-left: env(safe-area-inset-left, 0px);
   padding-right: env(safe-area-inset-right, 0px);
@@ -437,7 +437,7 @@ button, input, select, textarea {
   transition: transform var(--transition-fast);
 }
 
-/* Sticky Frosted Header / Floating Island Navbar */
+/* Sticky Frosted Header / Floating Glass Navbar */
 .site-header {
   position: sticky;
   top: 0;
@@ -448,40 +448,23 @@ button, input, select, textarea {
   border-bottom: 1px solid var(--glass-border);
   padding: 12px 0;
   width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  border-radius: 0;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  will-change: transform, max-width, border-radius, box-shadow, padding;
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Floating Frosted Glass Navbar on Scroll (Never Disappears) */
+/* Elevated Frosted Glass Navbar on Scroll (Always Visible) */
 .site-header.header-scrolled {
-  top: 12px;
-  width: calc(100% - 32px);
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 8px 18px;
-  border-radius: var(--radius-full);
   background: var(--bg-glass-scrolled);
-  border: 1px solid var(--glass-border-scrolled);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35),
-              inset 0 1px 1px 0 rgba(255, 255, 255, 0.18),
-              inset 0 -1px 1px 0 rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(28px) saturate(190%);
-  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border-bottom: 1px solid var(--glass-border-scrolled);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.14);
+  padding: 9px 0;
 }
 
 [data-theme="light"] .site-header.header-scrolled {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08),
-              inset 0 1px 2px 0 rgba(255, 255, 255, 1),
-              inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04);
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08),
+              inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
 }
 
 .header-container {
@@ -2403,29 +2386,26 @@ button, input, select, textarea {
     font-size: 0.95rem;
   }
 
-  /* Sticky Floating Header Mobile */
+  /* Sticky Header Mobile */
   .site-header {
     padding: 10px 0;
   }
   .site-header.header-scrolled {
-    top: 8px;
-    width: calc(100% - 20px);
-    padding: 6px 14px;
-    border-radius: 20px;
+    padding: 8px 0;
   }
 
   /* Navigation & Mobile Drawer */
   .nav-menu {
     display: block;
     position: absolute;
-    top: calc(100% + 8px);
+    top: 100%;
     left: 0;
     width: 100%;
     background: rgba(14, 16, 22, 0.95);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
+    border-bottom: 1px solid var(--glass-border);
+    border-radius: 0 0 24px 24px;
     padding: 16px 20px 22px;
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.06);
     opacity: 0;
