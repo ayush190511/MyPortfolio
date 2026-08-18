@@ -1,12 +1,16 @@
-/**
- * Ayush Mishra — Academic & Researcher Portfolio
- * Client-side Interactions & Theme Engine
- */
+// Immediate theme apply to prevent flash of unstyled theme
+(function() {
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', initialTheme);
+})();
 
-document.addEventListener('DOMContentLoaded', () => {
+function initPortfolio() {
   // 1. THEME ENGINE (Apple Light / Dark Mode)
   const htmlEl = document.documentElement;
   const themeToggleBtn = document.getElementById('themeToggle');
+  const themeColorMeta = document.getElementById('themeColorMeta');
 
   // Initialize theme from storage or system preference
   const savedTheme = localStorage.getItem('theme');
@@ -15,15 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
   setTheme(initialTheme);
 
   if (themeToggleBtn) {
-    themeToggleBtn.addEventListener('click', () => {
+    themeToggleBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       const currentTheme = htmlEl.getAttribute('data-theme') || 'dark';
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       setTheme(newTheme);
       showToast(`Switched to ${newTheme === 'dark' ? 'Dark' : 'Light'} Mode`, newTheme === 'dark' ? '🌙' : '☀️');
     });
   }
-
-  const themeColorMeta = document.getElementById('themeColorMeta');
 
   function setTheme(theme) {
     htmlEl.setAttribute('data-theme', theme);
@@ -362,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (backToTopBtn) {
     const handleScroll = () => {
       const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
-      if (scrollPos > 100) {
+      if (scrollPos > 60) {
         backToTopBtn.classList.add('visible');
       } else {
         backToTopBtn.classList.remove('visible');
@@ -370,6 +373,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll, { passive: true });
     handleScroll(); // Check once initially
 
     backToTopBtn.addEventListener('click', (e) => {
@@ -380,4 +384,11 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   }
-});
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPortfolio);
+} else {
+  initPortfolio();
+}
+
