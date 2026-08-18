@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 480" width="100%" height="100%">
+  <defs>
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A84FF" />
+      <stop offset="100%" stop-color="#0066CC" />
+    </linearGradient>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BF5AF2" />
+      <stop offset="100%" stop-color="#5E5CE6" />
+    </linearGradient>
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF9F0A" />
+      <stop offset="100%" stop-color="#FF375F" />
+    </linearGradient>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64D2FF" />
+      <stop offset="100%" stop-color="#0A84FF" />
+    </linearGradient>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="rgba(255,255,255,0.08)" />
+      <stop offset="100%" stop-color="rgba(255,255,255,0.02)" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background Base -->
+  <rect width="900" height="480" rx="24" fill="#0C0D12" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+
+  <!-- Grid Pattern Overlay -->
+  <g opacity="0.15">
+    <path d="M 0,60 L 900,60 M 0,120 L 900,120 M 0,180 L 900,180 M 0,240 L 900,240 M 0,300 L 900,300 M 0,360 L 900,360 M 0,420 L 900,420" stroke="#FFFFFF" stroke-dasharray="3 3"/>
+    <path d="M 150,0 L 150,480 M 300,0 L 300,480 M 450,0 L 450,480 M 600,0 L 600,480 M 750,0 L 750,480" stroke="#FFFFFF" stroke-dasharray="3 3"/>
+  </g>
+
+  <!-- Header Text inside diagram -->
+  <text x="450" y="42" text-anchor="middle" fill="#98989D" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" letter-spacing="1.5">CROSS-MODAL GATED FUSION ARCHITECTURE (AYUSH MISHRA ET AL.)</text>
+
+  <!-- INPUT STREAM 1: TEXT MODALITY -->
+  <g id="node-text-input">
+    <rect x="40" y="80" width="180" height="120" rx="16" fill="url(#cardBg)" stroke="#0A84FF" stroke-width="1.5" stroke-opacity="0.6"/>
+    <rect x="52" y="92" width="32" height="32" rx="8" fill="#0A84FF" fill-opacity="0.2"/>
+    <text x="68" y="113" text-anchor="middle" fill="#64D2FF" font-family="sans-serif" font-size="16">📄</text>
+    <text x="94" y="112" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">News Article / Text</text>
+    <text x="52" y="145" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Claim text, headlines, &amp; body</text>
+    <rect x="52" y="160" width="156" height="24" rx="6" fill="rgba(10,132,255,0.15)"/>
+    <text x="130" y="176" text-anchor="middle" fill="#64D2FF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600">Tokenized Sequences</text>
+  </g>
+
+  <!-- INPUT STREAM 2: IMAGE MODALITY -->
+  <g id="node-image-input">
+    <rect x="40" y="280" width="180" height="120" rx="16" fill="url(#cardBg)" stroke="#BF5AF2" stroke-width="1.5" stroke-opacity="0.6"/>
+    <rect x="52" y="292" width="32" height="32" rx="8" fill="#BF5AF2" fill-opacity="0.2"/>
+    <text x="68" y="313" text-anchor="middle" fill="#BF5AF2" font-family="sans-serif" font-size="16">🖼️</text>
+    <text x="94" y="312" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">Associated Image</text>
+    <text x="52" y="345" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Visual evidence &amp; context</text>
+    <rect x="52" y="360" width="156" height="24" rx="6" fill="rgba(191,90,242,0.15)"/>
+    <text x="130" y="376" text-anchor="middle" fill="#BF5AF2" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600">Patched Visual Tensor (224x224)</text>
+  </g>
+
+  <!-- TEXT ENCODER -->
+  <g id="node-text-encoder">
+    <rect x="270" y="80" width="170" height="120" rx="16" fill="url(#cardBg)" stroke="#0A84FF" stroke-width="1.5"/>
+    <text x="355" y="112" text-anchor="middle" fill="#64D2FF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">Text Encoder</text>
+    <text x="355" y="132" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">DeBERTa / BERT</text>
+    <line x1="285" y1="145" x2="425" y2="145" stroke="rgba(255,255,255,0.1)"/>
+    <text x="355" y="165" text-anchor="middle" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5">Contextual Embeddings</text>
+    <text x="355" y="183" text-anchor="middle" fill="#0A84FF" font-family="monospace" font-size="11">h_text ∈ ℝ^(B×d)</text>
+  </g>
+
+  <!-- VISION ENCODER -->
+  <g id="node-vision-encoder">
+    <rect x="270" y="280" width="170" height="120" rx="16" fill="url(#cardBg)" stroke="#BF5AF2" stroke-width="1.5"/>
+    <text x="355" y="312" text-anchor="middle" fill="#BF5AF2" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">Vision Transformer</text>
+    <text x="355" y="332" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">Swin / CLIP-ViT</text>
+    <line x1="285" y1="345" x2="425" y2="345" stroke="rgba(255,255,255,0.1)"/>
+    <text x="355" y="365" text-anchor="middle" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5">Hierarchical Features</text>
+    <text x="355" y="383" text-anchor="middle" fill="#BF5AF2" font-family="monospace" font-size="11">h_vis ∈ ℝ^(B×d)</text>
+  </g>
+
+  <!-- NOVEL GATED CROSS-MODAL FUSION MODULE -->
+  <g id="node-fusion-module">
+    <rect x="490" y="150" width="190" height="180" rx="20" fill="#14151F" stroke="url(#orangeGrad)" stroke-width="2" filter="url(#glow)"/>
+    <rect x="490" y="150" width="190" height="180" rx="20" fill="url(#cardBg)" stroke="url(#orangeGrad)" stroke-width="2"/>
+    
+    <text x="585" y="180" text-anchor="middle" fill="#FF9F0A" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="800">NOVEL GATED FUSION</text>
+    
+    <rect x="508" y="196" width="154" height="28" rx="8" fill="rgba(255,159,10,0.15)"/>
+    <text x="585" y="215" text-anchor="middle" fill="#FFD60A" font-family="monospace" font-size="11">Gate g = σ(W_g · [h_t, h_v])</text>
+
+    <rect x="508" y="232" width="154" height="28" rx="8" fill="rgba(191,90,242,0.15)"/>
+    <text x="585" y="251" text-anchor="middle" fill="#BF5AF2" font-family="monospace" font-size="11">Cross-Attention Alignment</text>
+
+    <rect x="508" y="268" width="154" height="42" rx="8" fill="rgba(100,210,255,0.12)"/>
+    <text x="585" y="286" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600">Adaptive Joint Vector</text>
+    <text x="585" y="302" text-anchor="middle" fill="#64D2FF" font-family="monospace" font-size="10.5">h_fused = g⊙h_t + (1-g)⊙h_v</text>
+  </g>
+
+  <!-- CLASSIFICATION HEAD -->
+  <g id="node-classifier">
+    <rect x="725" y="170" width="135" height="140" rx="16" fill="url(#cardBg)" stroke="#30D158" stroke-width="1.5"/>
+    <text x="792" y="200" text-anchor="middle" fill="#30D158" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">Classification</text>
+    <text x="792" y="218" text-anchor="middle" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">MLP + Softmax</text>
+    
+    <rect x="738" y="232" width="108" height="30" rx="8" fill="rgba(48,209,88,0.2)"/>
+    <text x="792" y="252" text-anchor="middle" fill="#30D158" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Real News</text>
+
+    <rect x="738" y="268" width="108" height="30" rx="8" fill="rgba(255,69,58,0.2)"/>
+    <text x="792" y="288" text-anchor="middle" fill="#FF453A" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Fake News</text>
+  </g>
+
+  <!-- CONNECTING ARROWS & DATA FLOW -->
+  <!-- Text to Text Encoder -->
+  <path d="M 220,140 L 270,140" stroke="#0A84FF" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+  <!-- Image to Vision Encoder -->
+  <path d="M 220,340 L 270,340" stroke="#BF5AF2" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Encoders to Fusion -->
+  <path d="M 440,140 C 465,140 465,200 490,200" fill="none" stroke="#0A84FF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 440,340 C 465,340 465,280 490,280" fill="none" stroke="#BF5AF2" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Fusion to Classifier -->
+  <path d="M 680,240 L 725,240" fill="none" stroke="#FF9F0A" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Pulsing data particles simulation -->
+  <circle cx="245" cy="140" r="4" fill="#64D2FF"/>
+  <circle cx="245" cy="340" r="4" fill="#BF5AF2"/>
+  <circle cx="465" cy="170" r="4" fill="#64D2FF"/>
+  <circle cx="465" cy="310" r="4" fill="#BF5AF2"/>
+  <circle cx="702" cy="240" r="4.5" fill="#FFD60A"/>
+
+  <!-- Dataset Badges Bottom -->
+  <g transform="translate(140, 430)">
+    <rect x="0" y="0" width="280" height="30" rx="15" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="140" y="19" text-anchor="middle" fill="#F5F5F7" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5">📊 <tspan font-weight="700">Fakeddit</tspan>: 91.15% Acc | 89.78% F1</text>
+  </g>
+  <g transform="translate(480, 430)">
+    <rect x="0" y="0" width="280" height="30" rx="15" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="140" y="19" text-anchor="middle" fill="#F5F5F7" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5">⚡ <tspan font-weight="700">SPECTRA</tspan>: 96.66% Acc | 96.75% F1</text>
+  </g>
+</svg>
