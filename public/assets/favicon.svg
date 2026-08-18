@@ -4,18 +4,18 @@
       <stop offset="0%" stop-color="#0A84FF" />
       <stop offset="100%" stop-color="#5E5CE6" />
     </linearGradient>
-    <linearGradient id="glowRim" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#64D2FF" stop-opacity="0.9" />
-      <stop offset="100%" stop-color="#BF5AF2" stop-opacity="0.9" />
+    <linearGradient id="favBorder" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#64D2FF" />
+      <stop offset="100%" stop-color="#BF5AF2" />
     </linearGradient>
   </defs>
 
-  <!-- Solid Vibrant Rounded Tile (Apple App Icon Squircle) -->
-  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#favBg)" stroke="url(#glowRim)" stroke-width="2.5"/>
+  <!-- Solid Vibrant Rounded App Tile -->
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#favBg)" stroke="url(#favBorder)" stroke-width="2.5"/>
 
-  <!-- High-Contrast Bold White Monogram "AM" (Crisp & Razor Sharp at 16x16 / 32x32) -->
-  <text x="32" y="44" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Arial Black', sans-serif" font-size="28" font-weight="900" letter-spacing="-1.5">AM</text>
+  <!-- High-Contrast Bold White Monogram "AM" -->
+  <text x="32" y="44" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', Arial, sans-serif" font-size="29" font-weight="900" letter-spacing="-1.5">AM</text>
   
-  <!-- Solid Glowing Emerald AI Online Indicator -->
-  <circle cx="50" cy="14" r="4.5" fill="#30D158" stroke="#FFFFFF" stroke-width="1.8" />
+  <!-- Glowing Emerald AI Indicator Dot -->
+  <circle cx="51" cy="13" r="5" fill="#30D158" stroke="#FFFFFF" stroke-width="2" />
 </svg>
