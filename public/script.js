@@ -385,62 +385,21 @@ function initPortfolio() {
     });
   }
 
-  // 12. SMART AUTO-HIDING & SLIDING HEADER ON SCROLL (MOBILE & DESKTOP OPTIMIZED)
+  // 12. FLOATING FROSTED GLASS HEADER ON SCROLL (MOBILE & DESKTOP)
   const siteHeader = document.querySelector('.site-header');
   if (siteHeader) {
-    let lastScrollY = Math.max(0, window.pageYOffset || document.documentElement.scrollTop || 0);
     let isHeaderTicking = false;
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    const scrollDeltaThreshold = isMobile ? 5 : 6; // responsive delta sensitivity
 
     const handleHeaderScroll = () => {
       const currentScrollY = Math.max(0, window.pageYOffset || document.documentElement.scrollTop || 0);
-      const docHeight = document.documentElement.scrollHeight;
-      const winHeight = window.innerHeight;
-      const isMobileMenuOpen = navMenu && navMenu.classList.contains('mobile-open');
 
-      // Do not hide header when mobile drawer is open
-      if (isMobileMenuOpen) {
-        siteHeader.classList.remove('header-hidden');
-        lastScrollY = currentScrollY;
-        isHeaderTicking = false;
-        return;
-      }
-
-      // Add elevated frosted glass class when scrolled past top
+      // Morph into floating glass island dock when scrolled past top (30px)
       if (currentScrollY > 30) {
         siteHeader.classList.add('header-scrolled');
       } else {
         siteHeader.classList.remove('header-scrolled');
       }
 
-      // Guard against rubber-band / elastic overscroll at top or bottom
-      if (currentScrollY <= 25) {
-        siteHeader.classList.remove('header-hidden');
-        lastScrollY = currentScrollY;
-        isHeaderTicking = false;
-        return;
-      }
-
-      if (currentScrollY + winHeight >= docHeight - 20) {
-        // At bottom of page, keep header state stable
-        lastScrollY = currentScrollY;
-        isHeaderTicking = false;
-        return;
-      }
-
-      const diff = currentScrollY - lastScrollY;
-
-      // Scrolling DOWN past top threshold -> smoothly hide
-      if (diff > scrollDeltaThreshold && currentScrollY > 65) {
-        siteHeader.classList.add('header-hidden');
-      } 
-      // Scrolling UP with deliberate delta -> smoothly slide down
-      else if (diff < -scrollDeltaThreshold) {
-        siteHeader.classList.remove('header-hidden');
-      }
-
-      lastScrollY = currentScrollY;
       isHeaderTicking = false;
     };
 
@@ -454,17 +413,6 @@ function initPortfolio() {
     window.addEventListener('scroll', onScrollOrTouch, { passive: true });
     window.addEventListener('touchmove', onScrollOrTouch, { passive: true });
     window.addEventListener('resize', onScrollOrTouch, { passive: true });
-
-    // When clicking any anchor/nav link, reveal header
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', () => {
-        siteHeader.classList.remove('header-hidden');
-        setTimeout(() => {
-          siteHeader.classList.remove('header-hidden');
-          lastScrollY = Math.max(0, window.pageYOffset || document.documentElement.scrollTop || 0);
-        }, 150);
-      });
-    });
 
     // Initial check
     handleHeaderScroll();

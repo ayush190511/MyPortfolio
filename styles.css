@@ -437,7 +437,7 @@ button, input, select, textarea {
   transition: transform var(--transition-fast);
 }
 
-/* Sticky Frosted Header with Smart Sliding Show/Hide */
+/* Sticky Frosted Header / Floating Island Navbar */
 .site-header {
   position: sticky;
   top: 0;
@@ -447,37 +447,41 @@ button, input, select, textarea {
   -webkit-backdrop-filter: var(--glass-blur-heavy);
   border-bottom: 1px solid var(--glass-border);
   padding: 12px 0;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  border-radius: 0;
   transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
-  will-change: transform;
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.25s ease,
-              border-color 0.25s ease,
-              box-shadow 0.25s ease,
-              padding 0.25s ease;
+  will-change: transform, max-width, border-radius, box-shadow, padding;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
-/* Smart Header Hidden (Scroll Down) */
-.site-header.header-hidden {
-  transform: translate3d(0, -100%, 0);
-  -webkit-transform: translate3d(0, -100%, 0);
-  pointer-events: none;
-}
-
-/* Smart Header Scrolled (Elevated Frosted Glass) */
+/* Floating Frosted Glass Navbar on Scroll (Never Disappears) */
 .site-header.header-scrolled {
+  top: 12px;
+  width: calc(100% - 32px);
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
   background: var(--bg-glass-scrolled);
-  border-bottom: 1px solid var(--glass-border-scrolled);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28),
-              inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
-  padding: 9px 0;
+  border: 1px solid var(--glass-border-scrolled);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.18),
+              inset 0 -1px 1px 0 rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
 }
 
 [data-theme="light"] .site-header.header-scrolled {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08),
-              inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08),
+              inset 0 1px 2px 0 rgba(255, 255, 255, 1),
+              inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04);
 }
 
 .header-container {
@@ -2399,26 +2403,29 @@ button, input, select, textarea {
     font-size: 0.95rem;
   }
 
-  /* Sticky Header Mobile */
+  /* Sticky Floating Header Mobile */
   .site-header {
     padding: 10px 0;
   }
   .site-header.header-scrolled {
-    padding: 8px 0;
+    top: 8px;
+    width: calc(100% - 20px);
+    padding: 6px 14px;
+    border-radius: 20px;
   }
 
   /* Navigation & Mobile Drawer */
   .nav-menu {
     display: block;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 8px);
     left: 0;
     width: 100%;
     background: rgba(14, 16, 22, 0.95);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
-    border-bottom: 1px solid var(--glass-border);
-    border-radius: 0 0 24px 24px;
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
     padding: 16px 20px 22px;
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.06);
     opacity: 0;
