@@ -455,14 +455,14 @@ button, input, select, textarea {
   border-top: none;
   border-radius: 0;
   box-shadow: none;
-  transition: top 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              max-width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              padding 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-radius 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: top 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              width 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              max-width 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              border-radius 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .header-container {
