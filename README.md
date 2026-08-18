@@ -3,9 +3,8 @@
   <img src="assets/mypic.jpg" alt="Ayush Mishra" width="130" height="130" style="border-radius: 50%; border: 3px solid #0A84FF; object-fit: cover;" />
 
   # Ayush Mishra
-  ### **Assistant Professor & Multimodal AI Researcher**
-  **Department of Information Science and Engineering (ISE)**  
-  *Dayananda Sagar College of Engineering (DSCE), Bengaluru, Karnataka, India*
+  ### **Multimodal AI Researcher & Computer Scientist**
+  *Bengaluru, Karnataka, India • SVNIT Surat Alumnus*
 
   [![GitHub](https://img.shields.io/badge/GitHub-ayush190511-181717?style=for-the-badge&logo=github)](https://github.com/ayush190511)
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-Ayush_Mishra-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/ayush190511/)
@@ -16,9 +15,9 @@
 
 ---
 
-## 👨‍🏫 About Me
+## 👨‍💻 About Me
 
-I am an **Assistant Professor** in the Department of Information Science and Engineering at **Dayananda Sagar College of Engineering (DSCE)**, Bengaluru (since July 2026), and an active **Artificial Intelligence Researcher** specializing in **Multimodal Deep Learning**, **Cross-Modal Representation Learning**, and **Computer Vision & NLP Transformers**.
+I am an **Artificial Intelligence Researcher & Computer Scientist** based in Bengaluru, specializing in **Multimodal Deep Learning**, **Cross-Modal Representation Learning**, and **Computer Vision & NLP Transformers (Vision Transformers, Swin, CLIP-ViT, DeBERTa, BERT)**. Additionally, I mentor and instruct students in machine learning and data science.
 
 - 🎓 **M.Tech in Computer Science and Engineering (Specialization in Data Science)**  
   *Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat (2024–2026)* — **CGPA: 8.42 / 10**
@@ -83,10 +82,9 @@ Accepted and presented at the **International Conference on Intelligent Computin
 
 ---
 
-## 🏫 Teaching & Academic Guidance
+## 🏫 Academic Mentorship & Guidance
 
-- **Current Affiliation**: Assistant Professor at Dayananda Sagar College of Engineering (DSCE), Bengaluru.
-- **Department**: Information Science and Engineering (ISE).
+- **Academic Mentorship**: Department of Information Science and Engineering (ISE), DSCE Bengaluru.
 - **Core Instruction & Mentorship Areas**:
   - Data Science & Machine Learning Foundations
   - Multimodal Deep Learning & Transformers
