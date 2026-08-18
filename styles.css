@@ -2155,3 +2155,48 @@ button, input, select, textarea {
     min-width: unset;
   }
 }
+
+/* ==========================================================================
+   Floating Back to Top Button
+   ========================================================================== */
+.floating-top-btn {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--bg-card-border);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1200;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.9);
+  transition: all var(--transition-normal);
+}
+
+.floating-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.floating-top-btn:hover {
+  background: var(--accent-blue);
+  color: #FFFFFF;
+  border-color: var(--accent-blue);
+  box-shadow: 0 6px 20px rgba(10, 132, 255, 0.45);
+  transform: translateY(-2px) scale(1.06);
+}
+
+.floating-top-btn:active {
+  transform: translateY(0) scale(0.95);
+}
