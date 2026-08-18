@@ -1,6 +1,6 @@
 <div align="center">
   
-  <img src="assets/mypic.jpg" alt="Ayush Mishra" width="130" height="130" style="border-radius: 50%; border: 3px solid #0A84FF; object-fit: cover;" />
+  <img src="assets/logo.svg" alt="Ayush Mishra" width="130" height="130" style="border-radius: 50%; border: 3px solid #0A84FF; object-fit: cover;" />
 
   # Ayush Mishra
   ### **Multimodal AI Researcher & Computer Scientist**
