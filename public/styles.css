@@ -492,14 +492,23 @@ button, input, select, textarea {
 
 .mobile-toggle {
   display: none;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-subtle);
+  border: 1px solid var(--bg-card-border);
+  cursor: pointer;
+  padding: 8px 7px;
+  position: relative;
   flex-direction: column;
   justify-content: space-between;
-  width: 24px;
-  height: 18px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
+  align-items: center;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-toggle:hover {
+  background: rgba(10, 132, 255, 0.15);
+  border-color: rgba(10, 132, 255, 0.4);
 }
 
 .mobile-toggle .bar {
@@ -507,7 +516,10 @@ button, input, select, textarea {
   height: 2px;
   background-color: var(--text-primary);
   border-radius: 2px;
-  transition: all var(--transition-fast);
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.22s ease,
+              background-color 0.22s ease;
+  transform-origin: center;
 }
 
 /* ==========================================================================
@@ -2145,44 +2157,79 @@ button, input, select, textarea {
 
   /* Navigation & Mobile Drawer */
   .nav-menu {
-    display: none;
+    display: block;
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
-    background: rgba(14, 14, 18, 0.96);
+    background: rgba(14, 16, 22, 0.95);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
     border-bottom: 1px solid var(--bg-card-border);
-    padding: 20px 24px;
-    box-shadow: var(--shadow-lg);
-    border-radius: 0 0 20px 20px;
-    animation: slideDownNav 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    border-radius: 0 0 24px 24px;
+    padding: 16px 20px 22px;
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-16px) scale(0.98);
+    transform-origin: top center;
+    transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0.32s,
+                box-shadow 0.32s;
   }
 
   [data-theme="light"] .nav-menu {
     background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
   }
 
   .nav-menu.mobile-open {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
   }
 
   .nav-list {
     flex-direction: column;
     align-items: stretch;
-    gap: 8px;
+    gap: 6px;
   }
 
   .nav-link {
-    display: block;
-    padding: 10px 14px;
-    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    padding: 12px 16px;
+    border-radius: 12px;
     font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    opacity: 0;
+    transform: translateX(-12px);
+    transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.2s,
+                color 0.2s;
   }
+
+  .nav-menu.mobile-open .nav-link {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Staggered cascading reveal on open */
+  .nav-menu.mobile-open .nav-list li:nth-child(1) .nav-link { transition-delay: 0.04s; }
+  .nav-menu.mobile-open .nav-list li:nth-child(2) .nav-link { transition-delay: 0.08s; }
+  .nav-menu.mobile-open .nav-list li:nth-child(3) .nav-link { transition-delay: 0.12s; }
+  .nav-menu.mobile-open .nav-list li:nth-child(4) .nav-link { transition-delay: 0.16s; }
+  .nav-menu.mobile-open .nav-list li:nth-child(5) .nav-link { transition-delay: 0.20s; }
+  .nav-menu.mobile-open .nav-list li:nth-child(6) .nav-link { transition-delay: 0.24s; }
 
   .nav-link:hover, .nav-link.active {
     background: rgba(10, 132, 255, 0.12);
+    color: var(--accent-blue);
   }
 
   .mobile-toggle {
@@ -2190,13 +2237,14 @@ button, input, select, textarea {
   }
 
   .mobile-toggle.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
+    transform: translateY(7px) rotate(45deg);
   }
   .mobile-toggle.active .bar:nth-child(2) {
     opacity: 0;
+    transform: scaleX(0);
   }
   .mobile-toggle.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   .download-cv-btn {
