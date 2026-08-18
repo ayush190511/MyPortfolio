@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const currentTheme = htmlEl.getAttribute('data-theme') || 'dark';
       const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
       setTheme(newTheme);
-      showToast(`Switched to ${newTheme === 'dark' ? 'Dark' : 'Light'} Mode`);
+      showToast(`Switched to ${newTheme === 'dark' ? 'Dark' : 'Light'} Mode`, newTheme === 'dark' ? '🌙' : '☀️');
     });
   }
 
@@ -283,17 +283,19 @@ document.addEventListener('DOMContentLoaded', () => {
   // 8. TOAST NOTIFICATION
   const toastNotification = document.getElementById('toastNotification');
   const toastMsg = document.getElementById('toastMsg');
+  const toastIcon = toastNotification ? toastNotification.querySelector('.toast-icon') : null;
   let toastTimer = null;
 
-  function showToast(message) {
+  function showToast(message, icon = '✓') {
     if (!toastNotification || !toastMsg) return;
     toastMsg.textContent = message;
+    if (toastIcon) toastIcon.textContent = icon;
     toastNotification.classList.add('active');
 
     if (toastTimer) clearTimeout(toastTimer);
     toastTimer = setTimeout(() => {
       toastNotification.classList.remove('active');
-    }, 3200);
+    }, 2800);
   }
 
   // 9. CONTACT FORM INTERACTION
