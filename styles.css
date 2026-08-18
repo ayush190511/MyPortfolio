@@ -1993,37 +1993,43 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   Apple-Style Dynamic Toast Notification (Top Center Island)
+   Apple-Style Dynamic Toast Notification (Frosted Glass Dynamic Island)
    ========================================================================== */
 .toast-notification {
   position: fixed;
-  top: 22px;
+  top: 20px;
   left: 50%;
-  transform: translateX(-50%) translateY(-35px) scale(0.96);
-  background: rgba(16, 18, 26, 0.65);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  transform: translateX(-50%) translateY(-35px) scale(0.95);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%),
+              rgba(14, 16, 22, 0.45);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: var(--radius-full);
   padding: 8px 18px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  gap: 10px;
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.35),
+              inset 0 -1px 1px 0 rgba(0, 0, 0, 0.2);
   z-index: 100000;
   opacity: 0;
   visibility: hidden;
   pointer-events: none !important;
   user-select: none;
-  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 0.3s;
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.32s;
 }
 
 [data-theme="light"] .toast-notification {
-  background: rgba(255, 255, 255, 0.72);
-  border-color: rgba(0, 0, 0, 0.08);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.45) 100%),
+              rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08),
+              inset 0 1px 2px 0 rgba(255, 255, 255, 0.9),
+              inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04);
 }
 
 .toast-notification.active {
@@ -2041,22 +2047,27 @@ button, input, select, textarea {
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: var(--accent-blue);
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
   color: #FFFFFF;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(10, 132, 255, 0.4);
+  box-shadow: 0 2px 10px rgba(10, 132, 255, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.4);
 }
 
 .toast-message {
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 600;
   color: var(--text-primary);
   letter-spacing: -0.01em;
   white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] .toast-message {
+  text-shadow: none;
 }
 
 /* ==========================================================================
