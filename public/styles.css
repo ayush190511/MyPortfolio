@@ -437,40 +437,68 @@ button, input, select, textarea {
   transition: transform var(--transition-fast);
 }
 
-/* Sticky Frosted Header / Floating Glass Navbar */
+/* Sticky Frosted Header / Floating Dynamic Island Navbar */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
+  padding: 12px 0;
   background: var(--bg-glass);
   backdrop-filter: var(--glass-blur-heavy);
   -webkit-backdrop-filter: var(--glass-blur-heavy);
   border-bottom: 1px solid var(--glass-border);
-  padding: 12px 0;
-  width: 100%;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* Elevated Frosted Glass Navbar on Scroll (Always Visible) */
-.site-header.header-scrolled {
-  background: var(--bg-glass-scrolled);
-  border-bottom: 1px solid var(--glass-border-scrolled);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35),
-              inset 0 1px 0 0 rgba(255, 255, 255, 0.14);
-  padding: 9px 0;
-}
-
-[data-theme="light"] .site-header.header-scrolled {
-  background: rgba(255, 255, 255, 0.88);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08),
-              inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+  transition: top 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease,
+              border-color 0.3s ease,
+              backdrop-filter 0.3s ease;
+  display: flex;
+  justify-content: center;
 }
 
 .header-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  gap: 20px;
+  transition: all 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Scrolled State: Content-Hug Floating Glass Capsule */
+.site-header.header-scrolled {
+  top: 14px;
+  padding: 0;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.site-header.header-scrolled .header-container {
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  margin: 0 auto;
+  padding: 6px 18px 6px 12px;
+  border-radius: var(--radius-full);
+  background: var(--bg-glass-scrolled);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid var(--glass-border-scrolled);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.38),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+              inset 0 -1px 1px 0 rgba(0, 0, 0, 0.15);
+  gap: 18px;
+}
+
+[data-theme="light"] .site-header.header-scrolled .header-container {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08),
+              inset 0 1px 2px 0 rgba(255, 255, 255, 1),
+              inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04);
 }
 
 .brand-logo {
@@ -2386,32 +2414,40 @@ button, input, select, textarea {
     font-size: 0.95rem;
   }
 
-  /* Sticky Header Mobile */
+  /* Sticky Floating Dynamic Island Header Mobile */
   .site-header {
-    padding: 10px 0;
+    padding: 8px 0;
   }
   .site-header.header-scrolled {
-    padding: 8px 0;
+    top: 8px;
+    padding: 0;
+  }
+  .site-header.header-scrolled .header-container {
+    width: calc(100% - 20px);
+    max-width: 100%;
+    padding: 6px 14px 6px 10px;
+    border-radius: 20px;
+    gap: 12px;
   }
 
   /* Navigation & Mobile Drawer */
   .nav-menu {
     display: block;
     position: absolute;
-    top: 100%;
+    top: calc(100% + 8px);
     left: 0;
     width: 100%;
     background: rgba(14, 16, 22, 0.95);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
-    border-bottom: 1px solid var(--glass-border);
-    border-radius: 0 0 24px 24px;
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
     padding: 16px 20px 22px;
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.06);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    transform: translateY(-16px) scale(0.98);
+    transform: translateY(-12px) scale(0.98);
     transform-origin: top center;
     transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
                 transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
