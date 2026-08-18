@@ -358,7 +358,7 @@ function initPortfolio() {
         link.classList.add('active');
       }
     });
-  });
+  }, { passive: true });
 
   // 11. FLOATING BACK TO TOP BUTTON
   const backToTopBtn = document.getElementById('backToTopBtn');
@@ -383,6 +383,62 @@ function initPortfolio() {
         behavior: 'smooth'
       });
     });
+  }
+
+  // 12. SMART AUTO-HIDING & SLIDING HEADER ON SCROLL
+  const siteHeader = document.querySelector('.site-header');
+  if (siteHeader) {
+    let lastScrollY = Math.max(0, window.pageYOffset || document.documentElement.scrollTop || 0);
+    let isHeaderTicking = false;
+    const scrollDeltaThreshold = 6; // minimum pixels to count as deliberate scroll
+
+    const handleHeaderScroll = () => {
+      const currentScrollY = Math.max(0, window.pageYOffset || document.documentElement.scrollTop || 0);
+      const isMobileMenuOpen = navMenu && navMenu.classList.contains('mobile-open');
+
+      // Do not hide header when mobile drawer is open
+      if (isMobileMenuOpen) {
+        siteHeader.classList.remove('header-hidden');
+        lastScrollY = currentScrollY;
+        isHeaderTicking = false;
+        return;
+      }
+
+      // Add elevated frosted glass class when scrolled past top
+      if (currentScrollY > 40) {
+        siteHeader.classList.add('header-scrolled');
+      } else {
+        siteHeader.classList.remove('header-scrolled');
+      }
+
+      const diff = currentScrollY - lastScrollY;
+
+      // Always show at page top
+      if (currentScrollY <= 20) {
+        siteHeader.classList.remove('header-hidden');
+      } 
+      // Scrolling DOWN past header height with deliberate delta -> hide
+      else if (diff > scrollDeltaThreshold && currentScrollY > 80) {
+        siteHeader.classList.add('header-hidden');
+      } 
+      // Scrolling UP with deliberate delta -> slide down into view
+      else if (diff < -scrollDeltaThreshold) {
+        siteHeader.classList.remove('header-hidden');
+      }
+
+      lastScrollY = currentScrollY;
+      isHeaderTicking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!isHeaderTicking) {
+        window.requestAnimationFrame(handleHeaderScroll);
+        isHeaderTicking = true;
+      }
+    }, { passive: true });
+
+    // Initial check
+    handleHeaderScroll();
   }
 }
 
