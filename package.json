@@ -1,0 +1,26 @@
+{
+  "name": "ayush-mishra-portfolio",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Academic and Research Portfolio of Ayush Mishra (Assistant Professor & Multimodal AI Researcher)",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.0.0"
+  },
+  "keywords": [
+    "portfolio",
+    "academic",
+    "researcher",
+    "multimodal-ai",
+    "deep-learning",
+    "astro"
+  ],
+  "author": "Ayush Mishra <ayushmishra642001@gmail.com>",
+  "license": "MIT"
+}

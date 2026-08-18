@@ -1,68 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ayush Mishra | Assistant Professor & AI/ML Researcher</title>
-  <meta name="description" content="Academic and research portfolio of Ayush Mishra. Assistant Professor at Dayananda Sagar College of Engineering (DSCE), Bengaluru. Researcher in Multimodal Fake News Detection, Vision Transformers, and Data Science." />
-  <meta name="keywords" content="Ayush Mishra, DSCE, Dayananda Sagar College of Engineering, SVNIT Surat, Multimodal AI, Fake News Detection, Vision Transformer, BERT, DeBERTa, Data Science, Machine Learning, Assistant Professor" />
-  <meta name="author" content="Ayush Mishra" />
+---
+import Layout from '../layouts/Layout.astro';
+---
 
-  <!-- OpenGraph / Social Sharing -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ayush Mishra | Assistant Professor & AI Researcher" />
-  <meta property="og:description" content="Research scholar specializing in Multimodal Fake News Detection, Transformers, and MLOps. Assistant Professor @ DSCE Bengaluru." />
-  <meta property="og:url" content="https://github.com/ayush190511" />
-  <meta property="og:image" content="assets/mypic.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="assets/mypic.jpg" />
-
-  <!-- Google Fonts: Inter & Outfit & JetBrains Mono -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- Structured Data JSON-LD for Academics -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Ayush Mishra",
-    "jobTitle": "Assistant Professor",
-    "worksFor": {
-      "@type": "EducationalOrganization",
-      "name": "Dayananda Sagar College of Engineering",
-      "department": "Information Science and Engineering"
-    },
-    "alumniOf": [
-      {
-        "@type": "CollegeOrUniversity",
-        "name": "Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat",
-        "hasCredential": "M.Tech in Computer Science and Engineering (Data Science)"
-      },
-      {
-        "@type": "CollegeOrUniversity",
-        "name": "Deenbandhu Chhoturam University of Science and Technology",
-        "hasCredential": "B.Tech in Computer Science and Engineering"
-      }
-    ],
-    "sameAs": [
-      "https://github.com/ayush190511",
-      "https://www.linkedin.com/in/ayush190511/"
-    ],
-    "email": "ayushmishra642001@gmail.com",
-    "telephone": "+91-9992619779"
-  }
-  </script>
-</head>
-<body>
-
+<Layout>
   <!-- Top Announcement Bar (Apple Style) -->
   <div class="top-announcement">
     <div class="container announcement-inner">
@@ -77,7 +17,7 @@
     <div class="container header-container">
       <a href="#" class="brand-logo" aria-label="Ayush Mishra Home">
         <div class="brand-avatar-mark">
-          <img src="assets/mypic.jpg" alt="Ayush Mishra" class="header-avatar-img" />
+          <img src="/assets/mypic.jpg" alt="Ayush Mishra" class="header-avatar-img" />
           <span class="avatar-online-dot"></span>
         </div>
         <div class="logo-text">
@@ -143,7 +83,7 @@
         <div class="hero-profile-showcase">
           <div class="hero-avatar-wrapper">
             <div class="avatar-glow-ring"></div>
-            <img src="assets/mypic.jpg" alt="Ayush Mishra - Assistant Professor &amp; AI Researcher" class="hero-avatar-img" />
+            <img src="/assets/mypic.jpg" alt="Ayush Mishra - Assistant Professor &amp; AI Researcher" class="hero-avatar-img" />
             <div class="avatar-badge">
               <span class="status-dot"></span>
               <span>Assistant Professor @ DSCE ISE</span>
@@ -265,7 +205,7 @@
             <!-- Interactive Architecture Display -->
             <div class="arch-display-area" id="archDisplayArea">
               <div class="arch-image-container">
-                <img src="assets/fusion-arch.svg" alt="Cross-Modal Gated Fusion Architecture Diagram" class="arch-svg-img" id="archSvgImg" />
+                <img src="/assets/fusion-arch.svg" alt="Cross-Modal Gated Fusion Architecture Diagram" class="arch-svg-img" id="archSvgImg" />
               </div>
 
               <!-- Interactive Node Info Card -->
@@ -610,7 +550,7 @@
           <div class="teaching-main-card glass-card">
             <div class="inst-badge-row">
               <div class="inst-photo-wrap">
-                <img src="assets/mypic.jpg" alt="Ayush Mishra - Assistant Professor" class="inst-photo-img" />
+                <img src="/assets/mypic.jpg" alt="Ayush Mishra - Assistant Professor" class="inst-photo-img" />
                 <span class="inst-photo-badge">DSCE</span>
               </div>
               <div class="inst-info">
@@ -1016,8 +956,4 @@
       </div>
     </div>
   </footer>
-
-  <!-- Scripts -->
-  <script src="script.js"></script>
-</body>
-</html>
+</Layout>
