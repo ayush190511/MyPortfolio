@@ -447,18 +447,22 @@ button, input, select, textarea {
   -webkit-backdrop-filter: var(--glass-blur-heavy);
   border-bottom: 1px solid var(--glass-border);
   padding: 12px 0;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
   will-change: transform;
-  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.3s ease,
-              border-color 0.3s ease,
-              box-shadow 0.3s ease,
-              padding 0.3s ease;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.25s ease,
+              border-color 0.25s ease,
+              box-shadow 0.25s ease,
+              padding 0.25s ease;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Smart Header Hidden (Scroll Down) */
 .site-header.header-hidden {
-  transform: translateY(-100%);
+  transform: translate3d(0, -100%, 0);
+  -webkit-transform: translate3d(0, -100%, 0);
   pointer-events: none;
 }
 
@@ -2395,6 +2399,14 @@ button, input, select, textarea {
     font-size: 0.95rem;
   }
 
+  /* Sticky Header Mobile */
+  .site-header {
+    padding: 10px 0;
+  }
+  .site-header.header-scrolled {
+    padding: 8px 0;
+  }
+
   /* Navigation & Mobile Drawer */
   .nav-menu {
     display: block;
@@ -2405,7 +2417,7 @@ button, input, select, textarea {
     background: rgba(14, 16, 22, 0.95);
     backdrop-filter: blur(28px);
     -webkit-backdrop-filter: blur(28px);
-    border-bottom: 1px solid var(--bg-card-border);
+    border-bottom: 1px solid var(--glass-border);
     border-radius: 0 0 24px 24px;
     padding: 16px 20px 22px;
     box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.06);
