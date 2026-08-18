@@ -23,9 +23,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const themeColorMeta = document.getElementById('themeColorMeta');
+
   function setTheme(theme) {
     htmlEl.setAttribute('data-theme', theme);
     localStorage.setItem('theme', theme);
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', theme === 'dark' ? '#08090C' : '#FBFBFD');
+    }
   }
 
   // 2. MOBILE NAVIGATION MENU
