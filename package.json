@@ -2,7 +2,7 @@
   "name": "ayush-mishra-portfolio",
   "type": "module",
   "version": "1.0.0",
-  "description": "Research Portfolio of Ayush Mishra (Multimodal AI Researcher & Computer Scientist)",
+  "description": "Research Portfolio of Ayush Mishra (AI Researcher & Computer Scientist)",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

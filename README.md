@@ -3,7 +3,7 @@
   <img src="assets/logo.svg" alt="Ayush Mishra" width="130" height="130" style="border-radius: 50%; border: 3px solid #0A84FF; object-fit: cover;" />
 
   # Ayush Mishra
-  ### **Multimodal AI Researcher & Computer Scientist**
+  ### **AI Researcher & Computer Scientist**
   *Bengaluru, Karnataka, India • SVNIT Surat Alumnus*
 
   [![GitHub](https://img.shields.io/badge/GitHub-ayush190511-181717?style=for-the-badge&logo=github)](https://github.com/ayush190511)
