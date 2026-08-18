@@ -342,15 +342,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // 11. FLOATING BACK TO TOP BUTTON
   const backToTopBtn = document.getElementById('backToTopBtn');
   if (backToTopBtn) {
-    window.addEventListener('scroll', () => {
-      if (window.pageYOffset > 320) {
+    const handleScroll = () => {
+      const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      if (scrollPos > 100) {
         backToTopBtn.classList.add('visible');
       } else {
         backToTopBtn.classList.remove('visible');
       }
-    });
+    };
 
-    backToTopBtn.addEventListener('click', () => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Check once initially
+
+    backToTopBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       window.scrollTo({
         top: 0,
         behavior: 'smooth'

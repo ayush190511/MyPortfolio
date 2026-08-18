@@ -2161,31 +2161,47 @@ button, input, select, textarea {
    ========================================================================== */
 .floating-top-btn {
   position: fixed;
-  bottom: 28px;
-  right: 28px;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-full);
-  background: var(--bg-glass);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--bg-card-border);
-  color: var(--text-primary);
-  display: flex;
+  bottom: 30px;
+  right: 30px;
+  padding: 10px 16px;
+  height: 42px;
+  border-radius: 9999px;
+  background: rgba(18, 18, 24, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 6px;
   cursor: pointer;
-  z-index: 1200;
-  box-shadow: var(--shadow-md);
+  z-index: 99999;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.08);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(16px) scale(0.9);
-  transition: all var(--transition-normal);
+  pointer-events: none;
+  transform: translateY(20px) scale(0.92);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.3s,
+              background 0.2s,
+              box-shadow 0.2s;
+}
+
+[data-theme="light"] .floating-top-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(0, 0, 0, 0.12);
+  color: #1D1D1F;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
 }
 
 .floating-top-btn.visible {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
   transform: translateY(0) scale(1);
 }
 
@@ -2193,10 +2209,18 @@ button, input, select, textarea {
   background: var(--accent-blue);
   color: #FFFFFF;
   border-color: var(--accent-blue);
-  box-shadow: 0 6px 20px rgba(10, 132, 255, 0.45);
-  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 10px 30px rgba(10, 132, 255, 0.5);
+  transform: translateY(-3px) scale(1.05);
 }
 
 .floating-top-btn:active {
-  transform: translateY(0) scale(0.95);
+  transform: translateY(0) scale(0.96);
+}
+
+.floating-top-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.floating-top-btn:hover svg {
+  transform: translateY(-2px);
 }
