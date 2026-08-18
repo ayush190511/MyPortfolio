@@ -1997,39 +1997,44 @@ button, input, select, textarea {
    ========================================================================== */
 .toast-notification {
   position: fixed;
-  top: 24px;
+  top: 22px;
   left: 50%;
-  transform: translateX(-50%) translateY(-40px) scale(0.95);
-  background: rgba(20, 20, 26, 0.92);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.16);
+  transform: translateX(-50%) translateY(-35px) scale(0.96);
+  background: rgba(16, 18, 26, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: var(--radius-full);
-  padding: 10px 22px;
+  padding: 8px 18px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  gap: 8px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.04);
   z-index: 100000;
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 0.35s;
+  pointer-events: none !important;
+  user-select: none;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.3s;
 }
 
 [data-theme="light"] .toast-notification {
-  background: rgba(255, 255, 255, 0.94);
-  border-color: rgba(0, 0, 0, 0.12);
-  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
 }
 
 .toast-notification.active {
   transform: translateX(-50%) translateY(0) scale(1);
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
+  pointer-events: none !important;
+}
+
+.toast-notification * {
+  pointer-events: none !important;
 }
 
 .toast-icon {
