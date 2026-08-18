@@ -1,21 +1,34 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
-    <linearGradient id="favBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0A84FF" />
-      <stop offset="100%" stop-color="#5E5CE6" />
+    <linearGradient id="apexBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="100%" stop-color="#020408" />
     </linearGradient>
-    <linearGradient id="favBorder" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#64D2FF" />
-      <stop offset="100%" stop-color="#BF5AF2" />
+
+    <linearGradient id="textWing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="100%" stop-color="#0A84FF" />
+    </linearGradient>
+
+    <linearGradient id="visWing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BF5AF2" />
+      <stop offset="100%" stop-color="#FF2D55" />
     </linearGradient>
   </defs>
 
-  <!-- Solid Vibrant Rounded App Tile -->
-  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#favBg)" stroke="url(#favBorder)" stroke-width="2.5"/>
+  <!-- 1. Solid High-Contrast Squircle -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#apexBg)" stroke="#0A84FF" stroke-width="2"/>
 
-  <!-- High-Contrast Bold White Monogram "AM" -->
-  <text x="32" y="44" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', Arial, sans-serif" font-size="29" font-weight="900" letter-spacing="-1.5">AM</text>
-  
-  <!-- Glowing Emerald AI Indicator Dot -->
-  <circle cx="51" cy="13" r="5" fill="#30D158" stroke="#FFFFFF" stroke-width="2" />
+  <!-- 2. Dual-Wing Vision & Language Fusion (Pure, Bold, Iconic) -->
+  <!-- Left Wing (Text/Language Modality) -->
+  <polygon points="32,12 14,48 24,48 32,32" fill="url(#textWing)"/>
+
+  <!-- Right Wing (Vision Modality) -->
+  <polygon points="32,12 50,48 40,48 32,32" fill="url(#visWing)"/>
+
+  <!-- Center Crossbar Nexus (Forms the "A" & "M" Bridge) -->
+  <polygon points="20,38 44,38 41,32 23,32" fill="#FFFFFF"/>
+
+  <!-- Central Apex Diamond Core -->
+  <polygon points="32,12 36,20 32,28 28,20" fill="#FFFFFF"/>
 </svg>

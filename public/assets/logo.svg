@@ -8,39 +8,44 @@
         .brand-sub-txt { fill: #6E6E73; }
       }
     </style>
-    <linearGradient id="logoMarkGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#0A84FF" />
-      <stop offset="50%" stop-color="#5E5CE6" />
-      <stop offset="100%" stop-color="#BF5AF2" />
+    <linearGradient id="logoApexBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B0F19" />
+      <stop offset="100%" stop-color="#020408" />
     </linearGradient>
-    <linearGradient id="markInner" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1A1C29" />
-      <stop offset="100%" stop-color="#0C0D14" />
+
+    <linearGradient id="logoTextWing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" />
+      <stop offset="100%" stop-color="#0A84FF" />
+    </linearGradient>
+
+    <linearGradient id="logoVisWing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BF5AF2" />
+      <stop offset="100%" stop-color="#FF2D55" />
     </linearGradient>
   </defs>
 
-  <!-- Left Logo Mark (Squircle Badge) -->
-  <g transform="translate(4, 4)">
-    <rect x="0" y="0" width="56" height="56" rx="16" fill="url(#markInner)" stroke="url(#logoMarkGrad)" stroke-width="2"/>
+  <!-- Left Logo Mark (Vision-Language Prism Apex Squircle Badge) -->
+  <g transform="translate(6, 6)">
+    <rect x="0" y="0" width="52" height="52" rx="14" fill="url(#logoApexBg)" stroke="#0A84FF" stroke-width="1.8"/>
     
-    <!-- Constellation lines -->
-    <g opacity="0.45" stroke="#64D2FF" stroke-width="1.2">
-      <line x1="12" y1="18" x2="28" y2="12"/>
-      <line x1="28" y1="12" x2="44" y2="18"/>
-      <line x1="12" y1="18" x2="28" y2="30"/>
-      <line x1="44" y1="18" x2="28" y2="30"/>
-      <circle cx="12" cy="18" r="2.5" fill="#0A84FF"/>
-      <circle cx="28" cy="12" r="2.5" fill="#64D2FF"/>
-      <circle cx="44" cy="18" r="2.5" fill="#BF5AF2"/>
-    </g>
+    <g transform="translate(-5, -5) scale(0.96)">
+      <!-- Left Wing (Text/Language Modality) -->
+      <polygon points="32,12 14,48 24,48 32,32" fill="url(#logoTextWing)"/>
 
-    <text x="28" y="41" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', 'Segoe UI', Arial, sans-serif" font-size="20" font-weight="900" letter-spacing="-1">AM</text>
-    <circle cx="28" cy="49" r="2" fill="#30D158"/>
+      <!-- Right Wing (Vision Modality) -->
+      <polygon points="32,12 50,48 40,48 32,32" fill="url(#logoVisWing)"/>
+
+      <!-- Center Crossbar Nexus -->
+      <polygon points="20,38 44,38 41,32 23,32" fill="#FFFFFF"/>
+
+      <!-- Central Apex Diamond Core -->
+      <polygon points="32,12 36,20 32,28 28,20" fill="#FFFFFF"/>
+    </g>
   </g>
 
   <!-- Brand Typography -->
-  <g transform="translate(70, 14)">
-    <text x="0" y="21" class="brand-title-txt" font-family="-apple-system, BlinkMacSystemFont, 'Outfit', 'Inter', 'Segoe UI', sans-serif" font-size="19" font-weight="700" letter-spacing="-0.4">Ayush Mishra</text>
-    <text x="0" y="37" class="brand-sub-txt" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif" font-size="10.5" font-weight="600" letter-spacing="0.08em">AI RESEARCHER</text>
+  <g transform="translate(70, 15)">
+    <text x="0" y="20" class="brand-title-txt" font-family="-apple-system, BlinkMacSystemFont, 'Outfit', 'Inter', 'Segoe UI', sans-serif" font-size="19" font-weight="700" letter-spacing="-0.4">Ayush Mishra</text>
+    <text x="0" y="36" class="brand-sub-txt" font-family="-apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif" font-size="10" font-weight="600" letter-spacing="0.08em">AI RESEARCHER</text>
   </g>
 </svg>

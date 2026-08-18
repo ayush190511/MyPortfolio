@@ -446,22 +446,21 @@ button, input, select, textarea {
   max-width: 100%;
   margin: 0 auto;
   padding: 12px 0;
-  background: var(--bg-glass);
-  backdrop-filter: var(--glass-blur-heavy);
-  -webkit-backdrop-filter: var(--glass-blur-heavy);
-  border: 1px solid var(--glass-border);
-  border-left: none;
-  border-right: none;
-  border-top: none;
+  background-color: rgba(12, 14, 20, 0.75);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-style: solid;
+  border-width: 1px;
+  border-color: transparent transparent rgba(255, 255, 255, 0.1) transparent;
   border-radius: 0;
-  box-shadow: none;
+  box-shadow: 0 0 0 transparent;
   transition: top 0.55s cubic-bezier(0.16, 1, 0.3, 1),
               width 0.55s cubic-bezier(0.16, 1, 0.3, 1),
               max-width 0.55s cubic-bezier(0.16, 1, 0.3, 1),
               padding 0.55s cubic-bezier(0.16, 1, 0.3, 1),
               border-radius 0.55s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.55s cubic-bezier(0.16, 1, 0.3, 1),
-              background 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.55s cubic-bezier(0.16, 1, 0.3, 1),
               box-shadow 0.55s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -482,13 +481,11 @@ button, input, select, textarea {
   max-width: 1120px;
   padding: 8px 0;
   border-radius: var(--radius-full);
-  background: var(--bg-glass-scrolled);
-  backdrop-filter: blur(28px) saturate(190%);
-  -webkit-backdrop-filter: blur(28px) saturate(190%);
-  border: 1px solid var(--glass-border-scrolled);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35),
-              inset 0 1px 1px 0 rgba(255, 255, 255, 0.18),
-              inset 0 -1px 1px 0 rgba(0, 0, 0, 0.15);
+  background-color: rgba(14, 17, 24, 0.88);
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45),
+              0 2px 6px rgba(0, 0, 0, 0.25),
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.14);
 }
 
 .site-header.header-scrolled .header-container {
@@ -496,51 +493,69 @@ button, input, select, textarea {
   padding: 0 20px;
 }
 
+/* Light Mode Header — Rich Frosted Glassmorphism with Specular Refraction */
+[data-theme="light"] .site-header {
+  background: rgba(255, 255, 255, 0.62);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border-color: transparent transparent rgba(0, 0, 0, 0.08) transparent;
+}
+
 [data-theme="light"] .site-header.header-scrolled {
-  background: rgba(255, 255, 255, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.95);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08),
-              inset 0 1px 2px 0 rgba(255, 255, 255, 1),
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.74) 0%, rgba(245, 248, 255, 0.60) 100%);
+  backdrop-filter: blur(32px) saturate(210%);
+  -webkit-backdrop-filter: blur(32px) saturate(210%);
+  border-color: rgba(0, 0, 0, 0.13);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.07),
+              0 4px 14px rgba(0, 0, 0, 0.03),
+              inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95),
               inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04);
 }
 
 .brand-logo {
   display: flex;
   align-items: center;
+  gap: 12px;
   text-decoration: none;
   transition: transform var(--transition-fast), opacity var(--transition-fast);
 }
 
 .brand-logo:hover {
-  opacity: 0.9;
+  opacity: 0.92;
   transform: translateY(-1px);
 }
 
-.header-brand-logo {
+.brand-avatar-mark {
+  position: relative;
+  width: 38px;
   height: 38px;
-  width: auto;
-  display: block;
-  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.header-avatar-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  object-fit: cover;
+  border: 1.5px solid var(--accent-blue);
+  box-shadow: 0 2px 8px rgba(10, 132, 255, 0.3);
   transition: transform var(--transition-fast);
 }
 
-[data-theme="light"] .header-brand-logo {
-  filter: invert(0.92) hue-rotate(180deg) contrast(1.1);
+.brand-logo:hover .header-avatar-img {
+  transform: scale(1.05);
 }
 
-.logo-mark {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-  color: #FFFFFF;
-  font-weight: 800;
-  font-size: 0.95rem;
-  letter-spacing: -0.5px;
-  box-shadow: 0 2px 10px rgba(10, 132, 255, 0.4);
+.avatar-online-dot {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-green);
+  border: 2px solid var(--bg-surface);
+  box-shadow: 0 0 6px var(--accent-green);
 }
 
 .logo-text {
@@ -551,15 +566,18 @@ button, input, select, textarea {
 .logo-name {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1.02rem;
   line-height: 1.2;
   color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 .logo-role {
   font-size: 0.72rem;
   color: var(--text-tertiary);
-  font-weight: 500;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .nav-menu {
@@ -2224,19 +2242,18 @@ button, input, select, textarea {
   top: 20px;
   left: 50%;
   transform: translateX(-50%) translateY(-35px) scale(0.95);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%),
-              rgba(14, 16, 22, 0.45);
-  backdrop-filter: blur(28px) saturate(190%);
-  -webkit-backdrop-filter: blur(28px) saturate(190%);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(14, 16, 22, 0.28);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-full);
-  padding: 8px 18px;
+  padding: 7px 16px;
   display: flex;
   align-items: center;
   gap: 10px;
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35),
-              inset 0 1px 1px 0 rgba(255, 255, 255, 0.35),
-              inset 0 -1px 1px 0 rgba(0, 0, 0, 0.2);
+              inset 0 1px 1px 0 rgba(255, 255, 255, 0.22),
+              inset 0 -1px 1px 0 rgba(0, 0, 0, 0.15);
   z-index: 100000;
   opacity: 0;
   visibility: hidden;
@@ -2248,12 +2265,13 @@ button, input, select, textarea {
 }
 
 [data-theme="light"] .toast-notification {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.45) 100%),
-              rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.85);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08),
-              inset 0 1px 2px 0 rgba(255, 255, 255, 0.9),
-              inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04);
+  background: rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.06),
+              inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.95),
+              inset 0 -1px 1px 0 rgba(0, 0, 0, 0.03);
 }
 
 .toast-notification.active {
