@@ -36,7 +36,7 @@ function initPortfolio() {
     }
   }
 
-  // 2. MOBILE NAVIGATION MENU
+  // 2. MOBILE NAVIGATION MENU & SMOOTH SCROLLING
   const mobileToggle = document.getElementById('mobileToggle');
   const navMenu = document.getElementById('navMenu');
 
@@ -63,6 +63,32 @@ function initPortfolio() {
       }
     });
   }
+
+  // Header-offset-aware smooth scrolling for all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#' || targetId === '#about') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      if (targetId && targetId.length > 1) {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          const headerOffset = 88;
+          const elementPosition = targetEl.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
 
   // 3. RESEARCH ARCHITECTURE INTERACTIVE VISUALIZER
   const archTabs = document.querySelectorAll('.arch-tab-btn');
