@@ -65,7 +65,7 @@ Accepted and presented at the **International Conference on Intelligent Computin
 
 ## 💻 Featured Projects & Systems
 
-1. **[AllAgeCalculator.com](https://allagecalculator.com)** — Live chronological and date analytics web application engineered for speed, clean UX, and algorithmic precision.
+1. **[AllAgeCalculator.com](https://allagecalculators.com)** — Live chronological and date analytics web application engineered for speed, clean UX, and algorithmic precision.
 2. **Cross-Modal Gated Misinformation Detector** — PyTorch deep learning framework implementing gated cross-attention across DeBERTa and Swin Transformer encoders.
 3. **Coccidiosis Disease Classification Pipeline** — Computer vision image classification system achieving **96.55% accuracy** and 0.12 validation loss with **DVC** and **GitHub Actions CI/CD**.
 4. **Student Math Score Regression & MLOps** — End-to-end regression benchmarking across 8 models (XGBoost, CatBoost, Random Forest, R² > 90%) tracked with **MLflow + DagsHub**, explained via **SHAP**, deployed via **Streamlit**.
