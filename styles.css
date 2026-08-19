@@ -639,18 +639,18 @@ button, input, select, textarea {
 
 .mobile-toggle {
   display: none;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: var(--radius-sm);
   background: var(--bg-subtle);
   border: 1px solid var(--bg-card-border);
   cursor: pointer;
-  padding: 8px 7px;
+  padding: 0;
   position: relative;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
 }
 
 .mobile-toggle:hover {
@@ -658,15 +658,48 @@ button, input, select, textarea {
   border-color: rgba(10, 132, 255, 0.4);
 }
 
+.mobile-toggle.active {
+  background: rgba(10, 132, 255, 0.15);
+  border-color: var(--accent-blue);
+}
+
 .mobile-toggle .bar {
-  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 18px;
   height: 2px;
+  margin-top: -1px;
+  margin-left: -9px;
   background-color: var(--text-primary);
   border-radius: 2px;
-  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.22s ease,
-              background-color 0.22s ease;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.2s ease,
+              background-color 0.2s ease;
   transform-origin: center;
+}
+
+.mobile-toggle .bar:nth-child(1) {
+  transform: translateY(-6px);
+}
+.mobile-toggle .bar:nth-child(2) {
+  transform: translateY(0);
+}
+.mobile-toggle .bar:nth-child(3) {
+  transform: translateY(6px);
+}
+
+.mobile-toggle.active .bar:nth-child(1) {
+  transform: translateY(0) rotate(45deg);
+  background-color: var(--accent-blue);
+}
+.mobile-toggle.active .bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.mobile-toggle.active .bar:nth-child(3) {
+  transform: translateY(0) rotate(-45deg);
+  background-color: var(--accent-blue);
 }
 
 /* ==========================================================================
@@ -2588,17 +2621,6 @@ button, input, select, textarea {
 
   .mobile-toggle {
     display: flex;
-  }
-
-  .mobile-toggle.active .bar:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-  .mobile-toggle.active .bar:nth-child(2) {
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  .mobile-toggle.active .bar:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
   }
 
   .download-cv-btn {
