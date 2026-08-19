@@ -670,19 +670,43 @@ button, input, select, textarea {
 }
 
 /* ==========================================================================
-   Hero Section
+   Hero Section (Apple Keynote Aesthetic)
    ========================================================================== */
 
 .hero-section {
-  padding: 60px 0 60px;
   position: relative;
+  min-height: calc(100vh - var(--header-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  padding: 60px 0 80px;
+  overflow: hidden;
+}
+
+/* Background Ambient Neural Network / Particle Mesh Canvas */
+.hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+  transition: opacity 0.5s ease;
+}
+
+[data-theme="light"] .hero-canvas {
+  opacity: 0.35;
 }
 
 .hero-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 /* Hero Profile Showcase */
@@ -695,8 +719,8 @@ button, input, select, textarea {
 
 .hero-avatar-wrapper {
   position: relative;
-  width: 144px;
-  height: 144px;
+  width: 148px;
+  height: 148px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -705,15 +729,21 @@ button, input, select, textarea {
 
 .avatar-glow-ring {
   position: absolute;
-  top: -4px;
-  left: -4px;
-  right: -4px;
-  bottom: -4px;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-green));
-  opacity: 0.9;
-  filter: blur(2px);
+  opacity: 0.95;
+  filter: blur(4px);
   z-index: 1;
+  animation: glow-pulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes glow-pulse {
+  0% { opacity: 0.75; transform: scale(0.98); }
+  100% { opacity: 1; transform: scale(1.03); filter: blur(6px); }
 }
 
 .hero-avatar-img {
@@ -722,14 +752,15 @@ button, input, select, textarea {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 12%;
   border-radius: 50%;
   border: 3px solid var(--bg-surface);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
   transition: transform var(--transition-normal);
 }
 
 .hero-avatar-wrapper:hover .hero-avatar-img {
-  transform: scale(1.03);
+  transform: scale(1.04);
 }
 
 .avatar-badge {
@@ -808,13 +839,13 @@ button, input, select, textarea {
   font-weight: 800;
   letter-spacing: -0.03em;
   margin-bottom: 20px;
-  max-width: 900px;
+  max-width: 920px;
 }
 
 .hero-subtitle {
   font-size: 1.18rem;
   color: var(--text-secondary);
-  max-width: 740px;
+  max-width: 760px;
   line-height: 1.65;
   margin-bottom: 36px;
 }
@@ -829,7 +860,7 @@ button, input, select, textarea {
   justify-content: center;
   gap: 14px;
   flex-wrap: wrap;
-  margin-bottom: 56px;
+  margin-bottom: 48px;
 }
 
 /* Hero Key Metric Bento Tiles */
@@ -838,7 +869,6 @@ button, input, select, textarea {
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   width: 100%;
-  margin-top: 10px;
 }
 
 .stat-card {
@@ -846,6 +876,24 @@ button, input, select, textarea {
   text-align: left;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stat-card:hover::before {
+  opacity: 1;
 }
 
 .stat-icon-wrapper {
@@ -859,6 +907,11 @@ button, input, select, textarea {
   backdrop-filter: var(--glass-blur-sm);
   -webkit-backdrop-filter: var(--glass-blur-sm);
   box-shadow: var(--glass-inset-glow);
+  transition: transform 0.25s ease;
+}
+
+.stat-card:hover .stat-icon-wrapper {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .stat-icon-wrapper.blue { background: rgba(10, 132, 255, 0.15); color: var(--accent-blue); border: 1px solid rgba(10, 132, 255, 0.25); }
@@ -887,6 +940,23 @@ button, input, select, textarea {
   font-size: 0.75rem;
   color: var(--text-tertiary);
 }
+
+@media (max-width: 992px) {
+  .hero-bento-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .hero-bento-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* ==========================================================================
    Section Headers & Common Structure

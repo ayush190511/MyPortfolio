@@ -418,6 +418,140 @@ function initPortfolio() {
     handleHeaderScroll();
   }
 
+  // 13. SUBTLE BACKGROUND AMBIENT CONSTELLATION / PARTICLE CANVAS
+  const heroCanvas = document.getElementById('heroCanvas');
+  if (heroCanvas) {
+    const ctx = heroCanvas.getContext('2d');
+    let width = (heroCanvas.width = heroCanvas.parentElement.offsetWidth || window.innerWidth);
+    let height = (heroCanvas.height = heroCanvas.parentElement.offsetHeight || 650);
+
+    const particles = [];
+    const particleCount = Math.min(Math.floor((width * height) / 18000), 45);
+    const mouse = { x: null, y: null, maxDist: 130 };
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.vx = (Math.random() - 0.5) * 0.5;
+        this.vy = (Math.random() - 0.5) * 0.5;
+        this.radius = Math.random() * 1.8 + 1.0;
+        this.baseColor = Math.random() > 0.4 ? '10, 132, 255' : (Math.random() > 0.5 ? '191, 90, 242' : '100, 210, 255');
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0) this.x = width;
+        else if (this.x > width) this.x = 0;
+        if (this.y < 0) this.y = height;
+        else if (this.y > height) this.y = 0;
+
+        // Gentle mouse interaction
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = mouse.x - this.x;
+          const dy = mouse.y - this.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.maxDist && dist > 0) {
+            const force = (mouse.maxDist - dist) / mouse.maxDist;
+            this.x -= (dx / dist) * force * 1.2;
+            this.y -= (dy / dist) * force * 1.2;
+          }
+        }
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${this.baseColor}, 0.65)`;
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    function connect() {
+      const maxConnDist = 115;
+      for (let a = 0; a < particles.length; a++) {
+        for (let b = a + 1; b < particles.length; b++) {
+          const dx = particles[a].x - particles[b].x;
+          const dy = particles[a].y - particles[b].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < maxConnDist) {
+            const opacity = (1 - dist / maxConnDist) * 0.28;
+            ctx.strokeStyle = `rgba(10, 132, 255, ${opacity})`;
+            ctx.lineWidth = 0.9;
+            ctx.beginPath();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(particles[b].x, particles[b].y);
+            ctx.stroke();
+          }
+        }
+
+        // Connect with mouse
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = particles[a].x - mouse.x;
+          const dy = particles[a].y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.maxDist) {
+            const opacity = (1 - dist / mouse.maxDist) * 0.45;
+            ctx.strokeStyle = `rgba(100, 210, 255, ${opacity})`;
+            ctx.lineWidth = 1.0;
+            ctx.beginPath();
+            ctx.moveTo(particles[a].x, particles[a].y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    let isVisible = true;
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(([entry]) => {
+        isVisible = entry.isIntersecting;
+      });
+      observer.observe(heroCanvas);
+    }
+
+    function animate() {
+      if (isVisible) {
+        ctx.clearRect(0, 0, width, height);
+        particles.forEach(p => {
+          p.update();
+          p.draw();
+        });
+        connect();
+      }
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+
+    const handleResize = () => {
+      width = heroCanvas.width = heroCanvas.parentElement.offsetWidth || window.innerWidth;
+      height = heroCanvas.height = heroCanvas.parentElement.offsetHeight || 650;
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    const heroSection = document.getElementById('about');
+    if (heroSection) {
+      heroSection.addEventListener('mousemove', (e) => {
+        const rect = heroCanvas.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+      });
+      heroSection.addEventListener('mouseleave', () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+    }
+  }
+
 }
 
 if (document.readyState === 'loading') {
