@@ -27,117 +27,120 @@
   </defs>
 
   <!-- Background Base -->
-  <rect width="900" height="480" rx="24" fill="#0C0D12" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+  <rect width="900" height="480" rx="20" fill="#0C0D12" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
 
   <!-- Grid Pattern Overlay -->
-  <g opacity="0.15">
+  <g opacity="0.12">
     <path d="M 0,60 L 900,60 M 0,120 L 900,120 M 0,180 L 900,180 M 0,240 L 900,240 M 0,300 L 900,300 M 0,360 L 900,360 M 0,420 L 900,420" stroke="#FFFFFF" stroke-dasharray="3 3"/>
     <path d="M 150,0 L 150,480 M 300,0 L 300,480 M 450,0 L 450,480 M 600,0 L 600,480 M 750,0 L 750,480" stroke="#FFFFFF" stroke-dasharray="3 3"/>
   </g>
 
-  <!-- Header Text inside diagram -->
-  <text x="450" y="42" text-anchor="middle" fill="#98989D" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" font-weight="600" letter-spacing="1.5">CROSS-MODAL GATED FUSION ARCHITECTURE (AYUSH MISHRA ET AL.)</text>
+  <!-- Header Text -->
+  <text x="450" y="38" text-anchor="middle" fill="#98989D" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12.5" font-weight="600" letter-spacing="1.2">BERT + VISION TRANSFORMER MULTIMODAL ARCHITECTURE (IC2NS2 '26 • SPRINGER)</text>
 
   <!-- INPUT STREAM 1: TEXT MODALITY -->
   <g id="node-text-input">
-    <rect x="40" y="80" width="180" height="120" rx="16" fill="url(#cardBg)" stroke="#0A84FF" stroke-width="1.5" stroke-opacity="0.6"/>
-    <rect x="52" y="92" width="32" height="32" rx="8" fill="#0A84FF" fill-opacity="0.2"/>
-    <text x="68" y="113" text-anchor="middle" fill="#64D2FF" font-family="sans-serif" font-size="16">📄</text>
-    <text x="94" y="112" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">News Article / Text</text>
-    <text x="52" y="145" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Claim text, headlines, &amp; body</text>
-    <rect x="52" y="160" width="156" height="24" rx="6" fill="rgba(10,132,255,0.15)"/>
-    <text x="130" y="176" text-anchor="middle" fill="#64D2FF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600">Tokenized Sequences</text>
+    <rect x="35" y="70" width="165" height="135" rx="14" fill="url(#cardBg)" stroke="#0A84FF" stroke-width="1.5" stroke-opacity="0.6"/>
+    <rect x="47" y="82" width="28" height="28" rx="6" fill="#0A84FF" fill-opacity="0.2"/>
+    <text x="61" y="101" text-anchor="middle" fill="#64D2FF" font-family="sans-serif" font-size="14">📄</text>
+    <text x="83" y="100" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">News Text</text>
+    <text x="47" y="128" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5">Input sequence X = [x₁..x_L]</text>
+    <rect x="47" y="145" width="141" height="22" rx="5" fill="rgba(10,132,255,0.15)"/>
+    <text x="117" y="160" text-anchor="middle" fill="#64D2FF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5" font-weight="600">BERT Tokenizer</text>
   </g>
 
   <!-- INPUT STREAM 2: IMAGE MODALITY -->
   <g id="node-image-input">
-    <rect x="40" y="280" width="180" height="120" rx="16" fill="url(#cardBg)" stroke="#BF5AF2" stroke-width="1.5" stroke-opacity="0.6"/>
-    <rect x="52" y="292" width="32" height="32" rx="8" fill="#BF5AF2" fill-opacity="0.2"/>
-    <text x="68" y="313" text-anchor="middle" fill="#BF5AF2" font-family="sans-serif" font-size="16">🖼️</text>
-    <text x="94" y="312" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="14" font-weight="700">Associated Image</text>
-    <text x="52" y="345" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">Visual evidence &amp; context</text>
-    <rect x="52" y="360" width="156" height="24" rx="6" fill="rgba(191,90,242,0.15)"/>
-    <text x="130" y="376" text-anchor="middle" fill="#BF5AF2" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600">Patched Visual Tensor (224x224)</text>
+    <rect x="35" y="265" width="165" height="135" rx="14" fill="url(#cardBg)" stroke="#BF5AF2" stroke-width="1.5" stroke-opacity="0.6"/>
+    <rect x="47" y="277" width="28" height="28" rx="6" fill="#BF5AF2" fill-opacity="0.2"/>
+    <text x="61" y="296" text-anchor="middle" fill="#BF5AF2" font-family="sans-serif" font-size="14">🖼️</text>
+    <text x="83" y="295" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">News Image</text>
+    <text x="47" y="323" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5">Visual context I ∈ ℝ^(224×224×3)</text>
+    <rect x="47" y="340" width="141" height="22" rx="5" fill="rgba(191,90,242,0.15)"/>
+    <text x="117" y="355" text-anchor="middle" fill="#BF5AF2" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5" font-weight="600">16×16 Patch Partition</text>
   </g>
 
-  <!-- TEXT ENCODER -->
+  <!-- TEXT ENCODER: BERT + BiGRU -->
   <g id="node-text-encoder">
-    <rect x="270" y="80" width="170" height="120" rx="16" fill="url(#cardBg)" stroke="#0A84FF" stroke-width="1.5"/>
-    <text x="355" y="112" text-anchor="middle" fill="#64D2FF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">Text Encoder</text>
-    <text x="355" y="132" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">DeBERTa / BERT</text>
-    <line x1="285" y1="145" x2="425" y2="145" stroke="rgba(255,255,255,0.1)"/>
-    <text x="355" y="165" text-anchor="middle" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5">Contextual Embeddings</text>
-    <text x="355" y="183" text-anchor="middle" fill="#0A84FF" font-family="monospace" font-size="11">h_text ∈ ℝ^(B×d)</text>
+    <rect x="235" y="70" width="195" height="135" rx="14" fill="url(#cardBg)" stroke="#0A84FF" stroke-width="1.5"/>
+    <text x="332" y="96" text-anchor="middle" fill="#64D2FF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12.5" font-weight="700">BERT–BiGRU Encoder</text>
+    <text x="332" y="116" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5" font-weight="600">H = BERT(X) ∈ ℝ^(L×d)</text>
+    <line x1="250" y1="126" x2="415" y2="126" stroke="rgba(255,255,255,0.1)"/>
+    <text x="332" y="146" text-anchor="middle" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">Bidirectional GRU Narrative Flow</text>
+    <rect x="250" y="156" width="165" height="24" rx="5" fill="rgba(10,132,255,0.18)"/>
+    <text x="332" y="172" text-anchor="middle" fill="#64D2FF" font-family="monospace" font-size="11" font-weight="600">t = [h⃗_fin || h⃖_fin] ∈ ℝ^dt</text>
   </g>
 
-  <!-- VISION ENCODER -->
+  <!-- VISION ENCODER: Vision Transformer ViT-B/16 -->
   <g id="node-vision-encoder">
-    <rect x="270" y="280" width="170" height="120" rx="16" fill="url(#cardBg)" stroke="#BF5AF2" stroke-width="1.5"/>
-    <text x="355" y="312" text-anchor="middle" fill="#BF5AF2" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">Vision Transformer</text>
-    <text x="355" y="332" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="600">Swin / CLIP-ViT</text>
-    <line x1="285" y1="345" x2="425" y2="345" stroke="rgba(255,255,255,0.1)"/>
-    <text x="355" y="365" text-anchor="middle" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5">Hierarchical Features</text>
-    <text x="355" y="383" text-anchor="middle" fill="#BF5AF2" font-family="monospace" font-size="11">h_vis ∈ ℝ^(B×d)</text>
+    <rect x="235" y="265" width="195" height="135" rx="14" fill="url(#cardBg)" stroke="#BF5AF2" stroke-width="1.5"/>
+    <text x="332" y="291" text-anchor="middle" fill="#BF5AF2" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12.5" font-weight="700">Vision Transformer</text>
+    <text x="332" y="311" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5" font-weight="600">ViT-B/16 (Torchvision)</text>
+    <line x1="250" y1="321" x2="415" y2="321" stroke="rgba(255,255,255,0.1)"/>
+    <text x="332" y="341" text-anchor="middle" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">Global Patch Self-Attention</text>
+    <rect x="250" y="351" width="165" height="24" rx="5" fill="rgba(191,90,242,0.18)"/>
+    <text x="332" y="367" text-anchor="middle" fill="#BF5AF2" font-family="monospace" font-size="11" font-weight="600">v = ReLU(W_v v_raw + b_v)</text>
   </g>
 
-  <!-- NOVEL GATED CROSS-MODAL FUSION MODULE -->
+  <!-- FEATURE CONCATENATION FUSION MODULE -->
   <g id="node-fusion-module">
-    <rect x="490" y="150" width="190" height="180" rx="20" fill="#14151F" stroke="url(#orangeGrad)" stroke-width="2" filter="url(#glow)"/>
-    <rect x="490" y="150" width="190" height="180" rx="20" fill="url(#cardBg)" stroke="url(#orangeGrad)" stroke-width="2"/>
+    <rect x="470" y="140" width="205" height="190" rx="18" fill="#14151F" stroke="url(#orangeGrad)" stroke-width="2" filter="url(#glow)"/>
+    <rect x="470" y="140" width="205" height="190" rx="18" fill="url(#cardBg)" stroke="url(#orangeGrad)" stroke-width="2"/>
     
-    <text x="585" y="180" text-anchor="middle" fill="#FF9F0A" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="800">NOVEL GATED FUSION</text>
+    <text x="572" y="170" text-anchor="middle" fill="#FF9F0A" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12.5" font-weight="800">FEATURE CONCATENATION</text>
+    <text x="572" y="188" text-anchor="middle" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10">Computational Efficiency O(L²d + P²dv)</text>
     
-    <rect x="508" y="196" width="154" height="28" rx="8" fill="rgba(255,159,10,0.15)"/>
-    <text x="585" y="215" text-anchor="middle" fill="#FFD60A" font-family="monospace" font-size="11">Gate g = σ(W_g · [h_t, h_v])</text>
+    <rect x="486" y="200" width="173" height="32" rx="7" fill="rgba(255,159,10,0.15)"/>
+    <text x="572" y="221" text-anchor="middle" fill="#FFD60A" font-family="monospace" font-size="11.5" font-weight="700">f = [ t || v ] ∈ ℝ^(dt + dv)</text>
 
-    <rect x="508" y="232" width="154" height="28" rx="8" fill="rgba(191,90,242,0.15)"/>
-    <text x="585" y="251" text-anchor="middle" fill="#BF5AF2" font-family="monospace" font-size="11">Cross-Attention Alignment</text>
+    <rect x="486" y="240" width="173" height="34" rx="7" fill="rgba(100,210,255,0.12)"/>
+    <text x="572" y="258" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5" font-weight="600">Dense Projection Layer</text>
+    <text x="572" y="271" text-anchor="middle" fill="#64D2FF" font-family="monospace" font-size="10">h_proj = ReLU(W_f f + b_f)</text>
 
-    <rect x="508" y="268" width="154" height="42" rx="8" fill="rgba(100,210,255,0.12)"/>
-    <text x="585" y="286" text-anchor="middle" fill="#FFFFFF" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11" font-weight="600">Adaptive Joint Vector</text>
-    <text x="585" y="302" text-anchor="middle" fill="#64D2FF" font-family="monospace" font-size="10.5">h_fused = g⊙h_t + (1-g)⊙h_v</text>
+    <rect x="486" y="282" width="173" height="24" rx="6" fill="rgba(48,209,88,0.15)"/>
+    <text x="572" y="298" text-anchor="middle" fill="#30D158" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5" font-weight="600">Low-Latency Deployment</text>
   </g>
 
   <!-- CLASSIFICATION HEAD -->
   <g id="node-classifier">
-    <rect x="725" y="170" width="135" height="140" rx="16" fill="url(#cardBg)" stroke="#30D158" stroke-width="1.5"/>
-    <text x="792" y="200" text-anchor="middle" fill="#30D158" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" font-weight="700">Classification</text>
-    <text x="792" y="218" text-anchor="middle" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11">MLP + Softmax</text>
+    <rect x="715" y="155" width="150" height="160" rx="14" fill="url(#cardBg)" stroke="#30D158" stroke-width="1.5"/>
+    <text x="790" y="185" text-anchor="middle" fill="#30D158" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12.5" font-weight="700">Classifier Head</text>
+    <text x="790" y="203" text-anchor="middle" fill="#86868B" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="10.5">ŷ = softmax(W_c h + b_c)</text>
     
-    <rect x="738" y="232" width="108" height="30" rx="8" fill="rgba(48,209,88,0.2)"/>
-    <text x="792" y="252" text-anchor="middle" fill="#30D158" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Real News</text>
+    <rect x="728" y="218" width="124" height="28" rx="6" fill="rgba(48,209,88,0.2)"/>
+    <text x="790" y="236" text-anchor="middle" fill="#30D158" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5" font-weight="700">Real News (0)</text>
 
-    <rect x="738" y="268" width="108" height="30" rx="8" fill="rgba(255,69,58,0.2)"/>
-    <text x="792" y="288" text-anchor="middle" fill="#FF453A" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="12" font-weight="700">Fake News</text>
+    <rect x="728" y="252" width="124" height="28" rx="6" fill="rgba(255,69,58,0.2)"/>
+    <text x="790" y="270" text-anchor="middle" fill="#FF453A" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5" font-weight="700">Fake News (1)</text>
+
+    <text x="790" y="299" text-anchor="middle" fill="#86868B" font-family="monospace" font-size="9.5">Loss: Binary Cross-Entropy</text>
   </g>
 
   <!-- CONNECTING ARROWS & DATA FLOW -->
-  <!-- Text to Text Encoder -->
-  <path d="M 220,140 L 270,140" stroke="#0A84FF" stroke-width="2" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
-  <!-- Image to Vision Encoder -->
-  <path d="M 220,340 L 270,340" stroke="#BF5AF2" stroke-width="2" stroke-linecap="round"/>
+  <!-- Text Input -> BERT -->
+  <path d="M 200,137 L 235,137" stroke="#0A84FF" stroke-width="2" stroke-linecap="round"/>
+  <!-- Image Input -> ViT -->
+  <path d="M 200,332 L 235,332" stroke="#BF5AF2" stroke-width="2" stroke-linecap="round"/>
 
-  <!-- Encoders to Fusion -->
-  <path d="M 440,140 C 465,140 465,200 490,200" fill="none" stroke="#0A84FF" stroke-width="2.5" stroke-linecap="round"/>
-  <path d="M 440,340 C 465,340 465,280 490,280" fill="none" stroke="#BF5AF2" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Encoders to Concatenation Fusion -->
+  <path d="M 430,137 C 452,137 452,195 470,195" fill="none" stroke="#0A84FF" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 430,332 C 452,332 452,275 470,275" fill="none" stroke="#BF5AF2" stroke-width="2.5" stroke-linecap="round"/>
 
   <!-- Fusion to Classifier -->
-  <path d="M 680,240 L 725,240" fill="none" stroke="#FF9F0A" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M 675,235 L 715,235" fill="none" stroke="#FF9F0A" stroke-width="2.5" stroke-linecap="round"/>
 
-  <!-- Pulsing data particles simulation -->
-  <circle cx="245" cy="140" r="4" fill="#64D2FF"/>
-  <circle cx="245" cy="340" r="4" fill="#BF5AF2"/>
-  <circle cx="465" cy="170" r="4" fill="#64D2FF"/>
-  <circle cx="465" cy="310" r="4" fill="#BF5AF2"/>
-  <circle cx="702" cy="240" r="4.5" fill="#FFD60A"/>
+  <!-- Glowing flow particles -->
+  <circle cx="217" cy="137" r="3.5" fill="#64D2FF"/>
+  <circle cx="217" cy="332" r="3.5" fill="#BF5AF2"/>
+  <circle cx="452" cy="165" r="3.5" fill="#64D2FF"/>
+  <circle cx="452" cy="305" r="3.5" fill="#BF5AF2"/>
+  <circle cx="695" cy="235" r="4" fill="#FFD60A"/>
 
-  <!-- Dataset Badges Bottom -->
-  <g transform="translate(140, 430)">
-    <rect x="0" y="0" width="280" height="30" rx="15" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
-    <text x="140" y="19" text-anchor="middle" fill="#F5F5F7" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5">📊 <tspan font-weight="700">Fakeddit</tspan>: 91.15% Acc | 89.78% F1</text>
-  </g>
-  <g transform="translate(480, 430)">
-    <rect x="0" y="0" width="280" height="30" rx="15" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
-    <text x="140" y="19" text-anchor="middle" fill="#F5F5F7" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5">⚡ <tspan font-weight="700">SPECTRA</tspan>: 96.66% Acc | 96.75% F1</text>
+  <!-- Dataset Benchmarks Bar -->
+  <g transform="translate(160, 424)">
+    <rect x="0" y="0" width="580" height="34" rx="17" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)"/>
+    <text x="290" y="22" text-anchor="middle" fill="#F5F5F7" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="11.5">
+      📊 <tspan font-weight="700">Fakeddit Benchmark</tspan> (30,900 Test Samples): <tspan fill="#30D158" font-weight="700">90.18% Accuracy</tspan> • <tspan fill="#64D2FF" font-weight="600">0.9485 ROC-AUC</tspan> • <tspan fill="#FFD60A" font-weight="600">0.9084 Macro F1</tspan>
+    </text>
   </g>
 </svg>

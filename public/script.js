@@ -106,53 +106,57 @@ function initPortfolio() {
 
   const archData = {
     all: {
-      title: 'Unified Multimodal Misinformation Framework',
-      desc: 'Real-world fake news leverages both misleading imagery and biased linguistic phrasing. Our framework extracts deep contextual embeddings from text using DeBERTa/RoBERTa and visual feature hierarchies with Swin Transformer & CLIP-ViT.',
+      title: 'A Unified Multimodal Fake News Detection Framework',
+      desc: 'Dual-branch multimodal architecture combining a BERT–BiGRU text encoder for sequential and contextual semantics with a Vision Transformer (ViT-B/16) for global visual representations, coupled via efficient feature concatenation.',
       details: [
-        { label: 'Text Encoders:', val: 'DeBERTa-v3, RoBERTa, BERT' },
-        { label: 'Vision Encoders:', val: 'Swin-B, CLIP-ViT-B/16' },
-        { label: 'Fusion Mechanism:', val: 'Gated Unit: g = σ(W_g · [h_t; h_v])' },
-        { label: 'Loss Objective:', val: 'Cross-Entropy with Label Smoothing' }
+        { label: 'Text Encoder:', val: 'BERT-Base + BiGRU' },
+        { label: 'Vision Encoder:', val: 'Vision Transformer (ViT-B/16)' },
+        { label: 'Fusion Method:', val: 'Feature Concatenation f = [t || v]' },
+        { label: 'Classification Head:', val: 'Dense ReLU + Softmax Classifier' },
+        { label: 'Benchmark:', val: 'Fakeddit Dataset (30,900 test samples)' },
+        { label: 'Test Accuracy:', val: '90.18% (0.9485 ROC-AUC)' }
       ]
     },
     text: {
-      title: 'Text Representation Stream (DeBERTa / BERT)',
-      desc: 'Processes the textual article headline and body. DeBERTa-v3 disentangles content and positional vectors using relative position matrices, extracting fine-grained semantic subtleties and sensationalist sentiment cues.',
+      title: 'Text Encoding Stream (BERT–BiGRU)',
+      desc: 'Contextual token embeddings H = BERT(X) ∈ ℝ^(L×d) are refined through a Bidirectional GRU layer. While BERT captures bidirectional context through self-attention, BiGRU explicitly models sequential narrative flow and temporal ordering in deceptive text.',
       details: [
-        { label: 'Tokenizer:', val: 'Subword Byte-Pair (BPE) (50,265 vocab size)' },
-        { label: 'Hidden Dimension:', val: 'd_text = 768 / 1024' },
-        { label: 'Max Token Length:', val: '512 tokens' },
-        { label: 'Key Feature:', val: 'Enhanced Mask Decoder with Disentangled Attention' }
+        { label: 'Base Model:', val: 'BERT-Base (Hugging Face Transformers)' },
+        { label: 'Sequence Layer:', val: 'Bidirectional GRU (BiGRU)' },
+        { label: 'Representation:', val: 't = [h→_final || h←_final] ∈ ℝ^(d_t)' },
+        { label: 'Key Benefit:', val: 'Captures narrative dependencies and contextual deception cues' }
       ]
     },
     vision: {
-      title: 'Visual Feature Stream (Swin ViT / CLIP-ViT)',
-      desc: 'Processes visual evidence through shifted window self-attention (Swin Transformer) or joint semantic-visual projections (CLIP-ViT). Captures multi-scale contextual features from low-level manipulation artifacts to high-level semantic scenes.',
+      title: 'Vision Backbone (Vision Transformer ViT-B/16)',
+      desc: 'Visual features are extracted using a pre-trained Vision Transformer (ViT-B/16), capturing global receptive fields across 16×16 non-overlapping image patches to detect contextual and semantic discrepancies.',
       details: [
-        { label: 'Input Resolution:', val: '224 × 224 × 3 RGB' },
-        { label: 'Patch Size:', val: '4 × 4 pixels / 16 × 16 ViT' },
-        { label: 'Feature Dimension:', val: 'd_vis = 768' },
-        { label: 'Key Benefit:', val: 'Hierarchical multi-scale shifted windows' }
+        { label: 'Architecture:', val: 'ViT-B/16 (Torchvision 0.17.2)' },
+        { label: 'Patch Size:', val: '16 × 16 image patches' },
+        { label: 'Latent Projection:', val: 'v = ReLU(W_v v_raw + b_v) ∈ ℝ^(d_v)' },
+        { label: 'Key Benefit:', val: 'Global attention modelling superior to CNN backbones (ResNet50)' }
       ]
     },
     fusion: {
-      title: 'Adaptive Gated Cross-Modal Alignment Layer',
-      desc: 'Computes dynamic gate weights g = σ(W_g · [h_t, h_v]). The gate dynamically balances textual credibility indicators against visual incongruities, preventing one noisy modality from corrupting classification.',
+      title: 'Multimodal Feature Concatenation & Classification',
+      desc: 'Modality vectors are concatenated f = [t || v] and fed into a fully-connected classification network. This deliberately avoids computationally expensive cross-attention while maintaining robust multi-modal performance.',
       details: [
-        { label: 'Gating Equation:', val: 'h_fused = g ⊙ h_t + (1 - g) ⊙ h_v' },
-        { label: 'Cross Attention:', val: 'Multi-Head Cross-Modal Key-Value Projections' },
-        { label: 'Weight Matrix:', val: 'W_g ∈ ℝ^(2d × d)' },
-        { label: 'Benefit:', val: 'Robust to missing or weakly-correlated image-text pairs' }
+        { label: 'Fusion Formulation:', val: 'f = [t || v]' },
+        { label: 'Classifier:', val: 'ŷ = softmax(W_c(ReLU(W_f f + b_f)) + b_c)' },
+        { label: 'Loss Function:', val: 'Binary Cross-Entropy Loss L' },
+        { label: 'Complexity:', val: 'T_total ≈ O(L²d + P²d_v) (Linear Scalability)' }
       ]
     },
     benchmarks: {
-      title: 'Empirical Verification & SOTA Benchmarks',
-      desc: 'Rigorous ablation and empirical benchmarking on two leading multimodal fake news datasets demonstrate consistent outperformance against traditional single-modality and simple concatenation baselines.',
+      title: 'Fakeddit Benchmark Experimental Results',
+      desc: 'Evaluated on the large-scale multimodal Fakeddit benchmark using 30,900 test samples. The model demonstrates high discrimination between legitimate and misleading multimodal samples.',
       details: [
-        { label: 'Fakeddit Benchmark:', val: '91.15% Accuracy | 89.78% Macro F1' },
-        { label: 'SPECTRA Benchmark:', val: '96.66% Accuracy | 96.75% Macro F1' },
-        { label: 'Validation Strategy:', val: '5-Fold Cross Validation' },
-        { label: 'Optimization:', val: 'AdamW with Cosine Annealing (lr = 2e-5)' }
+        { label: 'Overall Accuracy:', val: '90.18%' },
+        { label: 'Precision:', val: '0.9019 (Real: 0.9258, Fake: 0.8946)' },
+        { label: 'Recall:', val: '0.9018 (Real: 0.9214, Fake: 0.8921)' },
+        { label: 'F1-Score:', val: '0.9018 (Macro-averaged: 0.9084)' },
+        { label: 'ROC-AUC:', val: '0.9485' },
+        { label: 'Hardware/Stack:', val: 'PyTorch 2.2.2, Intel Xeon, NVIDIA CUDA GPU' }
       ]
     }
   };
@@ -214,13 +218,13 @@ function initPortfolio() {
   const copyBibtexBtns = document.querySelectorAll('.copy-bibtex-btn');
 
   const bibtexEntries = {
-    ic2ns2_2026: `@inproceedings{mishra2026multimodal,
+    ic2ns2_2026: `@inproceedings{mishra2026unified,
   title={A Unified Multimodal Framework for Fake News Detection Using BERT and Vision Transformers},
-  author={Mishra, Ayush and others},
-  booktitle={Proceedings of the International Conference on Intelligent Computing, Cognitive Networks, and Smart Systems (IC2NS2)},
+  author={Mishra, Ayush and Kumar, Naveen},
+  booktitle={Proceedings of the International Conference on Intelligent Computing, Cognitive Networks, and Smart Systems (IC2NS2 2026)},
   year={2026},
-  note={Accepted and Presented; Forthcoming in December 2026},
-  organization={IEEE/Springer}
+  note={Paper ID: 182; Accepted and Presented},
+  publisher={Springer}
 }`
   };
 
@@ -309,33 +313,77 @@ function initPortfolio() {
     }, 2500);
   }
 
-  // 6. CONTACT FORM INTERACTION
+  // 6. CONTACT FORM INTERACTION (DIRECT EMAIL DELIVERY)
   const contactForm = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
   const submitBtn = document.getElementById('submitBtn');
+  const hiddenSubject = document.getElementById('hiddenSubject');
+  const subjectSelect = document.getElementById('subject');
 
   if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       const originalText = submitBtn.textContent;
 
       submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
 
-      setTimeout(() => {
-        if (formStatus) {
-          formStatus.className = 'form-status success';
-          formStatus.textContent = 'Thank you! Your message has been received. I will connect with you shortly.';
-        }
-        submitBtn.textContent = 'Sent Successfully ✓';
-        showToast('Message sent! Ayush Mishra will connect shortly.');
-        contactForm.reset();
+      const formData = new FormData(contactForm);
+      const selectedSubject = subjectSelect ? subjectSelect.value : 'Portfolio Inquiry';
+      if (hiddenSubject) {
+        hiddenSubject.value = `[Portfolio Inquiry] ${selectedSubject} - from ${formData.get('name')}`;
+      }
 
+      const payload = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        subject: selectedSubject,
+        message: formData.get('message'),
+        _subject: `[Portfolio Inquiry] ${selectedSubject} - from ${formData.get('name')}`,
+        _template: 'table',
+        _captcha: 'false'
+      };
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/ayushmishra642001@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          if (formStatus) {
+            formStatus.className = 'form-status success';
+            formStatus.textContent = 'Thank you! Your message has been sent directly to Ayush Mishra (ayushmishra642001@gmail.com).';
+          }
+          submitBtn.textContent = 'Sent Successfully ✓';
+          showToast('Message sent to Ayush Mishra!');
+          contactForm.reset();
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (err) {
+        // Direct mailto fallback in case of network or ad-blocker disruption
+        const mailtoUrl = `mailto:ayushmishra642001@gmail.com?subject=${encodeURIComponent('[Portfolio] ' + selectedSubject)}&body=${encodeURIComponent('From: ' + payload.name + ' (' + payload.email + ')\n\n' + payload.message)}`;
+        if (formStatus) {
+          formStatus.className = 'form-status';
+          formStatus.style.display = 'block';
+          formStatus.style.backgroundColor = 'rgba(234, 88, 12, 0.1)';
+          formStatus.style.borderColor = 'rgba(234, 88, 12, 0.3)';
+          formStatus.style.color = 'var(--text-bold)';
+          formStatus.innerHTML = `Could not send automatically. Click to open in email: <a href="${mailtoUrl}" style="font-weight:600; text-decoration:underline;">Send via Email Client ↗</a>`;
+        }
+        submitBtn.textContent = 'Send via Email ↗';
+        window.open(mailtoUrl, '_blank');
+      } finally {
         setTimeout(() => {
           submitBtn.textContent = originalText;
           submitBtn.disabled = false;
-        }, 4000);
-      }, 800);
+        }, 5000);
+      }
     });
   }
 }

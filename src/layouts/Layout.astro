@@ -202,28 +202,27 @@ const isActive = (path: string) => {
       <div class="modal-body">
         <div class="arch-tabs" id="archTabs">
           <button class="arch-tab-btn active" data-target="all">Overview</button>
-          <button class="arch-tab-btn" data-target="text">Text Stream (DeBERTa)</button>
-          <button class="arch-tab-btn" data-target="vision">Vision Stream (Swin/CLIP)</button>
-          <button class="arch-tab-btn" data-target="fusion">Novel Gated Fusion</button>
-          <button class="arch-tab-btn" data-target="benchmarks">Benchmarks</button>
+          <button class="arch-tab-btn" data-target="text">Text (BERT-BiGRU)</button>
+          <button class="arch-tab-btn" data-target="vision">Vision (ViT-B/16)</button>
+          <button class="arch-tab-btn" data-target="fusion">Concatenation Fusion</button>
+          <button class="arch-tab-btn" data-target="benchmarks">Fakeddit Results</button>
         </div>
 
         <div class="arch-display-area" id="archDisplayArea">
           <div class="arch-image-container">
-            <img src="/assets/fusion-arch.svg" alt="Cross-Modal Gated Fusion Architecture Diagram" class="arch-svg-img" id="archSvgImg" />
+            <img src="/assets/fusion-arch.svg" alt="BERT + ViT Multimodal Architecture Diagram" class="arch-svg-img" id="archSvgImg" />
           </div>
 
           <div class="arch-info-panel" id="archInfoPanel">
-            <h4 id="panelTitle">Unified Multimodal Misinformation Framework</h4>
+            <h4 id="panelTitle">Unified Multimodal Fake News Framework</h4>
             <p id="panelDesc">
-              Real-world fake news leverages both misleading imagery and biased linguistic phrasing. 
-              Our framework extracts deep contextual embeddings from text using <strong>DeBERTa/RoBERTa</strong> and visual feature hierarchies with <strong>Swin Transformer &amp; CLIP-ViT</strong>.
+              A streamlined end-to-end framework integrating deep contextual and sequential textual features from <strong>BERT–BiGRU</strong> with global visual context from a <strong>Vision Transformer (ViT-B/16)</strong> via efficient feature concatenation.
             </p>
             <div class="panel-details" id="panelDetails">
-              <div class="detail-item"><span class="detail-label">Text Encoders:</span><span class="detail-val">DeBERTa-v3, RoBERTa, BERT</span></div>
-              <div class="detail-item"><span class="detail-label">Vision Encoders:</span><span class="detail-val">Swin-B, CLIP-ViT-B/16</span></div>
-              <div class="detail-item"><span class="detail-label">Fusion Mechanism:</span><span class="detail-val">Gated Unit \( g = \sigma(W_g \cdot [h_t; h_v]) \)</span></div>
-              <div class="detail-item"><span class="detail-label">Loss Objective:</span><span class="detail-val">Cross-Entropy with Label Smoothing</span></div>
+              <div class="detail-item"><span class="detail-label">Text Encoder:</span><span class="detail-val">BERT-Base + BiGRU</span></div>
+              <div class="detail-item"><span class="detail-label">Vision Backbone:</span><span class="detail-val">ViT-B/16 (Torchvision)</span></div>
+              <div class="detail-item"><span class="detail-label">Fusion Strategy:</span><span class="detail-val">Feature Concatenation f = [t || v]</span></div>
+              <div class="detail-item"><span class="detail-label">Test Accuracy:</span><span class="detail-val">90.18% (0.9485 ROC-AUC)</span></div>
             </div>
           </div>
         </div>
@@ -244,13 +243,13 @@ const isActive = (path: string) => {
         <button class="modal-close-btn" id="closeModalBtn" aria-label="Close Modal">&times;</button>
       </div>
       <div class="modal-body">
-        <pre><code id="bibtexCode">{`@inproceedings{mishra2026multimodal,
+        <pre><code id="bibtexCode">{`@inproceedings{mishra2026unified,
   title={A Unified Multimodal Framework for Fake News Detection Using BERT and Vision Transformers},
-  author={Mishra, Ayush and others},
-  booktitle={Proceedings of the International Conference on Intelligent Computing, Cognitive Networks, and Smart Systems (IC2NS2)},
+  author={Mishra, Ayush and Kumar, Naveen},
+  booktitle={Proceedings of the International Conference on Intelligent Computing, Cognitive Networks, and Smart Systems (IC2NS2 2026)},
   year={2026},
-  note={Accepted and Presented; Forthcoming in December 2026},
-  organization={IEEE/Springer}
+  note={Paper ID: 182; Accepted and Presented},
+  publisher={Springer}
 }`}</code></pre>
       </div>
       <div class="modal-footer">

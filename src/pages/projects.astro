@@ -9,26 +9,28 @@ import Layout from '../layouts/Layout.astro';
   </p>
 
   <ul class="editorial-list" style="margin-top: 2rem;">
-    <!-- Project 1 -->
+    <!-- Project 1: Flagship Research Publication System -->
     <li class="editorial-item" id="fake-news-framework">
       <h2 class="item-title" style="border: none; margin-top: 0; padding-bottom: 0;">
-        <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">Multimodal Fake News Detection via BERT &amp; Vision Transformers</a>
-        <span class="badge badge-green">96.66% SOTA Acc</span>
+        <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">A Unified Multimodal Fake News Detection Framework (BERT + ViT)</a>
+        <span class="badge badge-green">90.18% Test Acc</span>
+        <span class="badge">0.9485 ROC-AUC</span>
       </h2>
-      <div class="item-meta">Deep Learning • Transformer Architectures • PyTorch</div>
+      <div class="item-meta">Deep Learning • Multimodal Transformers • Springer IC2NS2 '26</div>
       <p class="item-desc">
-        End-to-end framework integrating text encodings from DeBERTa-v3 with visual patch embeddings from Swin Transformer and CLIP-ViT. Features cross-modal attention, gated linear units, and 5-fold cross-validation delivering 96.75% Macro F1.
+        End-to-end multimodal detection pipeline combining a <strong>BERT–BiGRU</strong> text encoder for narrative and contextual representation learning with a <strong>Vision Transformer (ViT-B/16)</strong> for visual patch understanding. Features efficient feature concatenation fusion delivering 90.18% accuracy on the 30,900-sample Fakeddit benchmark.
       </p>
       <div class="item-links">
         <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">[GitHub Repository]</a>
-        <button class="action-btn-link open-arch-modal-btn">[View Architecture Diagram ↗]</button>
+        <button class="action-btn-link open-arch-modal-btn">[View Architecture Deep-Dive ↗]</button>
       </div>
       <div class="tag-strip">
         <span class="tech-tag">PyTorch</span>
-        <span class="tech-tag">Hugging Face</span>
-        <span class="tech-tag">Swin Transformer</span>
-        <span class="tech-tag">DeBERTa</span>
-        <span class="tech-tag">CLIP-ViT</span>
+        <span class="tech-tag">BERT-Base</span>
+        <span class="tech-tag">BiGRU</span>
+        <span class="tech-tag">ViT-B/16</span>
+        <span class="tech-tag">Feature Concatenation</span>
+        <span class="tech-tag">Fakeddit</span>
       </div>
     </li>
 
@@ -55,26 +57,27 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </li>
 
-    <!-- Project 3 -->
-    <li class="editorial-item" id="churn-engine">
+    <!-- Project 3: GPUCalc -->
+    <li class="editorial-item" id="gpucalc">
       <h2 class="item-title" style="border: none; margin-top: 0; padding-bottom: 0;">
-        <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">Real-Time Customer Churn &amp; Score Prediction Engine</a>
-        <span class="badge">&lt;50ms Latency</span>
+        <a href="https://gpu-calc.ayushmishra642001.workers.dev/" target="_blank" rel="noopener noreferrer">GPUCalc — Deep Learning &amp; LLM VRAM Sizing Engine</a>
+        <span class="badge badge-green">Live Tool</span>
       </h2>
-      <div class="item-meta">Machine Learning • Explainable AI • FastAPI</div>
+      <div class="item-meta">Deep Learning Infrastructure • Memory Analytics • Cloudflare Workers</div>
       <p class="item-desc">
-        High-throughput ML inference engine benchmarking 8 ensemble models (XGBoost, CatBoost, GradientBoost). Provides local and global model explainability via <strong>SHAP</strong>, RESTful microservices via <strong>FastAPI</strong>, and interactive dashboards via <strong>Streamlit</strong>.
+        High-precision hardware sizing and VRAM calculation engine for deep learning and Large Language Model (LLM) training and inference. Computes model parameter footprint, KV cache allocation, activation memory, optimizer state overhead (AdamW/SGD), and multi-GPU tensor/pipeline parallelism configurations.
       </p>
       <div class="item-links">
-        <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">[Source &amp; Explainability]</a>
+        <a href="https://gpu-calc.ayushmishra642001.workers.dev/" target="_blank" rel="noopener noreferrer">[Visit Live Calculator ↗]</a>
+        <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">[GitHub Repository]</a>
       </div>
       <div class="tag-strip">
-        <span class="tech-tag">XGBoost</span>
-        <span class="tech-tag">CatBoost</span>
-        <span class="tech-tag">FastAPI</span>
-        <span class="tech-tag">SHAP</span>
-        <span class="tech-tag">Streamlit</span>
-        <span class="tech-tag">Docker</span>
+        <span class="tech-tag">Cloudflare Workers</span>
+        <span class="tech-tag">Deep Learning Hardware</span>
+        <span class="tech-tag">VRAM Analytics</span>
+        <span class="tech-tag">LLM Inference &amp; Training</span>
+        <span class="tech-tag">Parallelism (TP/PP/DP)</span>
+        <span class="tech-tag">JavaScript ES6+</span>
       </div>
     </li>
 
@@ -90,6 +93,7 @@ import Layout from '../layouts/Layout.astro';
       </p>
       <div class="item-links">
         <a href="https://allagecalculators.com" target="_blank" rel="noopener noreferrer">[Visit Live Platform ↗]</a>
+        <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">[GitHub Repository]</a>
       </div>
       <div class="tag-strip">
         <span class="tech-tag">JavaScript ES6+</span>

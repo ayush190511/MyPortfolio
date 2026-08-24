@@ -92,36 +92,40 @@ body {
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
-  font-weight: 600;
+  font-weight: 400;
   color: var(--text-bold);
-  line-height: 1.3;
+  line-height: 1.35;
 }
 
 h1 {
-  font-size: 2.1rem;
+  font-size: 1.6rem;
+  font-weight: 400;
   margin-bottom: 0.8rem;
-  letter-spacing: -0.015em;
+  letter-spacing: -0.012em;
+  color: var(--text-primary);
 }
 
 h2 {
-  font-size: 1.55rem;
-  margin-top: 2.2rem;
-  margin-bottom: 0.9rem;
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin-top: 2.1rem;
+  margin-bottom: 0.85rem;
   padding-bottom: 0.35rem;
   border-bottom: 1px solid var(--border-color);
 }
 
 h3 {
-  font-size: 1.25rem;
-  margin-top: 1.4rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.18rem;
+  font-weight: 400;
+  margin-top: 1.25rem;
+  margin-bottom: 0.45rem;
 }
 
 h4 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin-top: 1rem;
-  margin-bottom: 0.4rem;
+  font-size: 1.02rem;
+  font-weight: 500;
+  margin-top: 0.95rem;
+  margin-bottom: 0.35rem;
 }
 
 p {
@@ -376,16 +380,17 @@ blockquote {
   border-radius: 50%;
   object-fit: cover;
   object-position: center 15%;
-  border: 2.5px solid var(--border-color);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.09);
-  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  border: 2px solid var(--border-color);
+  box-shadow: 0 0 0 5px var(--bg-surface-subtle), 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
   display: block;
   margin: 0 auto;
 }
 
 .profile-img:hover {
   transform: scale(1.02);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.13);
+  border-color: var(--text-tertiary);
+  box-shadow: 0 0 0 5px var(--border-color), 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 .profile-pill-badge {
@@ -496,9 +501,25 @@ blockquote {
 }
 
 .item-title {
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 1.12rem;
+  font-weight: 500;
   margin-bottom: 0.3rem;
+  color: var(--text-bold);
+}
+
+.item-title a {
+  color: var(--text-bold) !important;
+  text-decoration: none !important;
+  transition: color var(--transition-fast);
+}
+
+.item-title a:visited {
+  color: var(--text-bold) !important;
+}
+
+.item-title a:hover {
+  color: var(--link-color) !important;
+  text-decoration: underline !important;
 }
 
 .item-meta {
@@ -560,6 +581,35 @@ blockquote {
   color: var(--text-secondary);
 }
 
+/* Mathematical Vector Notation */
+.math-vec-r {
+  position: relative;
+  display: inline-block;
+}
+.math-vec-r::before {
+  content: "→";
+  position: absolute;
+  top: -0.6em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.78em;
+  line-height: 1;
+}
+
+.math-vec-l {
+  position: relative;
+  display: inline-block;
+}
+.math-vec-l::before {
+  content: "←";
+  position: absolute;
+  top: -0.6em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.78em;
+  line-height: 1;
+}
+
 /* Categorized Skills Section */
 .skills-list {
   list-style: none;
@@ -573,19 +623,51 @@ blockquote {
 }
 
 .skills-list li strong {
-  display: inline-block;
-  min-width: 170px;
+  font-weight: 600;
 }
 
-/* Pedigree / Education List */
+/* Pedigree / Education Timeline List */
 .pedigree-list {
+  position: relative;
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0 0 0 1.75rem;
+}
+
+.pedigree-list::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 5px;
+  width: 2px;
+  background-color: var(--border-color);
 }
 
 .pedigree-item {
-  margin-bottom: 1.3rem;
+  position: relative;
+  margin-bottom: 1.8rem;
+}
+
+.pedigree-item:last-child {
+  margin-bottom: 0;
+}
+
+.pedigree-node {
+  position: absolute;
+  left: -1.75rem;
+  top: 5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--bg-body);
+  border: 2px solid var(--border-color);
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.pedigree-item:hover .pedigree-node {
+  border-color: var(--link-color);
+  background-color: var(--link-color);
 }
 
 .pedigree-year {
@@ -596,8 +678,8 @@ blockquote {
 }
 
 .pedigree-title {
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 1.02rem;
+  font-weight: 500;
 }
 
 .pedigree-org {

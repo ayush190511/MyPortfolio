@@ -5,16 +5,25 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Contact & Inquiries | Ayush Mishra">
   <h1>Get in Touch</h1>
   <p>
-    I am always open to discussing new engineering opportunities, research collaborations in Multimodal AI and Computer Vision, academic mentorship, or consulting.
+    I am always open to discussing new engineering opportunities, research collaborations in Multimodal AI and Computer Vision, academic mentorship, or technical consulting.
   </p>
 
   <p>
-    Feel free to send a message using the inquiry form below or connect via <a href="https://www.linkedin.com/in/ayush190511/" target="_blank" rel="noopener noreferrer"><strong>LinkedIn</strong></a> and <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer"><strong>GitHub</strong></a>.
+    Feel free to send a message using the inquiry form below or connect directly on <a href="https://www.linkedin.com/in/ayush190511/" target="_blank" rel="noopener noreferrer"><strong>LinkedIn</strong></a> and <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer"><strong>GitHub</strong></a>.
   </p>
 
   <div class="contact-section-box" style="margin-top: 1.5rem;">
     <h3 style="margin-top: 0; margin-bottom: 0.5rem;">Send a Message</h3>
-    <form id="contactForm" class="contact-form">
+    <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+      Your message will be delivered directly to my inbox (<strong>ayushmishra642001@gmail.com</strong>).
+    </p>
+
+    <form id="contactForm" class="contact-form" action="https://formsubmit.co/ayushmishra642001@gmail.com" method="POST">
+      <!-- Hidden Configuration for Direct Delivery -->
+      <input type="hidden" name="_subject" id="hiddenSubject" value="New Portfolio Inquiry" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+
       <div class="form-row">
         <div class="form-group">
           <label for="name">Your Name</label>
@@ -30,9 +39,9 @@ import Layout from '../layouts/Layout.astro';
         <label for="subject">Inquiry Type</label>
         <select id="subject" name="subject">
           <option value="Research Collaboration">Research Collaboration (Multimodal AI / Vision Transformers)</option>
-          <option value="AI / ML Research & Systems Role">AI / ML Research &amp; Systems Roles</option>
-          <option value="IC2NS2 Research Discussion">IC2NS2 Research / Cross-Modal Gated Fusion Discussion</option>
-          <option value="Academic Mentorship">Academic Mentorship &amp; Advising / DSCE</option>
+          <option value="AI / ML Engineering & Systems Roles">AI / ML Engineering &amp; Systems Roles</option>
+          <option value="IC2NS2 2026 Paper Discussion">IC2NS2 2026 Paper &amp; Multimodal Architecture Discussion</option>
+          <option value="Academic Mentorship & DSCE Advising">Academic Mentorship &amp; Advising (DSCE Bengaluru)</option>
           <option value="General Technical Inquiry">General Computer Science &amp; Technical Inquiry</option>
         </select>
       </div>
@@ -46,4 +55,24 @@ import Layout from '../layouts/Layout.astro';
       <div class="form-status" id="formStatus"></div>
     </form>
   </div>
+
+  <h2 style="margin-top: 2.5rem;">Direct Channels &amp; Profiles</h2>
+  <ul class="skills-list" style="margin-top: 1rem;">
+    <li>
+      <strong>Email:</strong>
+      <a href="mailto:ayushmishra642001@gmail.com">ayushmishra642001@gmail.com ↗</a>
+    </li>
+    <li>
+      <strong>LinkedIn:</strong>
+      <a href="https://www.linkedin.com/in/ayush190511/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ayush190511 ↗</a>
+    </li>
+    <li>
+      <strong>GitHub:</strong>
+      <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">github.com/ayush190511 ↗</a>
+    </li>
+    <li>
+      <strong>Academic Affiliation:</strong>
+      Dayananda Sagar College of Engineering (DSCE), Bengaluru, Karnataka, India (Dept. of ISE)
+    </li>
+  </ul>
 </Layout>

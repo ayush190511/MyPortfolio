@@ -5,32 +5,52 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Research & Publications | Ayush Mishra">
   <h1>Research &amp; Publications</h1>
   <p>
-    My research interests span <strong>Multimodal Deep Learning</strong>, <strong>Vision-Language Foundation Models</strong>, <strong>Cross-Modal Attention Fusion</strong>, and <strong>Automated Misinformation Detection</strong>.
+    My research interests span <strong>Multimodal Deep Learning</strong>, <strong>Vision Transformers</strong>, <strong>Transformer-Based Modality Encoders</strong>, and <strong>Automated Misinformation Detection</strong>.
   </p>
 
   <ul class="editorial-list" style="margin-top: 2rem;">
-    <!-- Paper 1 -->
+    <!-- Paper 1: Accepted & Presented at IC2NS2 2026, Springer -->
     <li class="editorial-item">
       <h2 class="item-title" style="border: none; margin-top: 0; padding-bottom: 0;">
         A Unified Multimodal Framework for Fake News Detection Using BERT and Vision Transformers
         <span class="badge badge-green">Accepted &amp; Presented</span>
-        <span class="badge">96.66% SOTA Acc</span>
+        <span class="badge">90.18% Test Acc</span>
+        <span class="badge">0.9485 ROC-AUC</span>
       </h2>
       <div class="item-meta">
-        <strong>Ayush Mishra</strong> et al. • <em>International Conference on Intelligent Computing, Cognitive Networks, and Smart Systems (IC2NS2)</em> • <strong>Accepted &amp; Presented (Tentative Publication: Dec 2026)</strong> • IEEE / Springer
+        <strong>Ayush Mishra</strong> and Naveen Kumar • <em>International Conference on Intelligent Computing, Cognitive Networks, and Smart Systems (IC2NS2 2026)</em> • <strong>Accepted &amp; Presented (Paper ID: 182)</strong> • Springer
       </div>
       <p class="item-desc">
-        Pioneered an end-to-end multimodal architecture combining disentangled contextual language representations (DeBERTa-v3 / RoBERTa / BERT) and visual feature hierarchies (Swin Transformer, CLIP-ViT). Introduced an adaptive <strong>Cross-Modal Gated Fusion layer</strong> that dynamically balances text and visual cues, outperforming competitive baselines on the Fakeddit (<strong>91.15%</strong>) and SPECTRA (<strong>96.66%</strong>) benchmarks.
+        Developed an end-to-end multimodal fake news detection framework that couples high-capacity modality-specific encoders with a streamlined, computationally efficient decision pipeline. The architecture utilizes a <strong>BERT–BiGRU</strong> network to capture deep contextual semantics alongside sequential narrative dependencies in news text, combined with a <strong>Vision Transformer (ViT-B/16)</strong> to model global visual context from images. By leveraging efficient feature concatenation rather than computationally expensive cross-attention, the model achieves state-of-the-art robustness with linear scalability:
       </p>
 
-      <div style="background-color: var(--bg-surface-subtle); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.25rem; margin: 1rem 0;">
-        <h4 style="margin-top: 0; margin-bottom: 0.5rem;">Key Empirical Findings &amp; SOTA Benchmarks:</h4>
-        <ul style="margin-left: 1.25rem; font-size: 0.95rem; line-height: 1.6;">
-          <li><strong>SPECTRA Dataset:</strong> 96.66% Accuracy | 96.75% Macro F1 (SOTA Benchmark)</li>
-          <li><strong>Fakeddit Dataset:</strong> 91.15% Accuracy | 89.78% Macro F1</li>
-          <li><strong>Text Stream:</strong> DeBERTa-v3 disentangled content and position vectors with relative position matrices.</li>
-          <li><strong>Vision Stream:</strong> Swin-B shifted window hierarchical attention + CLIP-ViT visual projections.</li>
-          <li><strong>Novel Gated Fusion:</strong> \( g = \sigma(W_g \cdot [h_t; h_v]) \) dynamically filtering incongruent noise.</li>
+      <div style="background-color: var(--bg-surface-subtle); border: 1px solid var(--border-color); border-radius: 6px; padding: 1.15rem 1.35rem; margin: 1.15rem 0;">
+        <h4 style="margin-top: 0; margin-bottom: 0.65rem;">Mathematical Formulation &amp; Architecture Pipeline:</h4>
+        <ul style="margin-left: 1.25rem; font-size: 0.94rem; line-height: 1.7;">
+          <li>
+            <strong>Text Encoding (BERT–BiGRU):</strong> Contextual embeddings from BERT are refined through a Bidirectional GRU to capture temporal and narrative flow:
+            <div style="font-family: var(--font-mono); margin: 0.45rem 0; font-size: 0.9rem; color: var(--text-bold);">
+              t = [<span class="math-vec-r">h</span><sub>final</sub> &parallel; <span class="math-vec-l">h</span><sub>final</sub>] &isin; &reals;<sup>d<sub>t</sub></sup>
+            </div>
+          </li>
+          <li>
+            <strong>Image Encoding (ViT-B/16):</strong> Visual patch features are extracted through the Vision Transformer and projected into a latent subspace:
+            <div style="font-family: var(--font-mono); margin: 0.45rem 0; font-size: 0.9rem; color: var(--text-bold);">
+              v = ReLU(W<sub>v</sub> &middot; v<sub>raw</sub> + b<sub>v</sub>) &isin; &reals;<sup>d<sub>v</sub></sup>
+            </div>
+          </li>
+          <li>
+            <strong>Multimodal Concatenation Fusion &amp; Classification:</strong>
+            <div style="font-family: var(--font-mono); margin: 0.45rem 0; font-size: 0.9rem; color: var(--text-bold);">
+              f = [t &parallel; v], &nbsp; &#375; = softmax(W<sub>c</sub>(ReLU(W<sub>f</sub> &middot; f + b<sub>f</sub>)) + b<sub>c</sub>)
+            </div>
+          </li>
+          <li>
+            <strong>Empirical Performance (Fakeddit Benchmark):</strong> Evaluated on 30,900 test samples achieving <strong>90.18% Accuracy</strong>, <strong>0.9019 Precision</strong>, <strong>0.9018 Recall</strong>, <strong>0.9018 F1-Score</strong> (Macro F1: <strong>0.9084</strong>), and <strong>0.9485 ROC-AUC</strong>.
+          </li>
+          <li>
+            <strong>Computational Complexity:</strong> T<sub>total</sub> &approx; O(L<sup>2</sup>d + P<sup>2</sup>d<sub>v</sub>), preserving high-throughput real-world scalability.
+          </li>
         </ul>
       </div>
 
@@ -41,27 +61,32 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div class="tag-strip">
-        <span class="tech-tag">PyTorch</span>
-        <span class="tech-tag">DeBERTa-v3</span>
-        <span class="tech-tag">Swin ViT</span>
-        <span class="tech-tag">CLIP-ViT</span>
-        <span class="tech-tag">Gated Cross-Attention</span>
-        <span class="tech-tag">5-Fold CV</span>
+        <span class="tech-tag">PyTorch 2.2.2</span>
+        <span class="tech-tag">BERT-Base</span>
+        <span class="tech-tag">BiGRU</span>
+        <span class="tech-tag">ViT-B/16</span>
+        <span class="tech-tag">Feature Concatenation</span>
+        <span class="tech-tag">Fakeddit Benchmark</span>
+        <span class="tech-tag">ROC-AUC 0.9485</span>
+        <span class="tech-tag">IC2NS2 '26 Springer</span>
       </div>
     </li>
   </ul>
 
-  <!-- Ongoing Research & Topics -->
-  <h2 style="margin-top: 2.5rem;">Current Research Focus Areas</h2>
+  <!-- Ongoing Research & Future Focus -->
+  <h2 style="margin-top: 2.5rem;">Current Research Focus Areas (Forthcoming Work)</h2>
   <ul class="skills-list" style="margin-top: 1rem;">
     <li>
-      <strong>Cross-Modal Gated Alignment:</strong> Designing non-linear gating mechanisms that evaluate modality trustworthiness and mitigate hallucinated or ungrounded correlations in vision-language models.
+      <strong>Adaptive Cross-Modal Gated Alignment <span class="badge" style="font-size: 0.7rem;">In Preparation</span>:</strong>
+      Designing non-linear gating mechanisms combining disentangled language representations (<strong>DeBERTa-v3</strong>) with hierarchical shifted-window attention (<strong>Swin-B / CLIP-ViT</strong>) to dynamically evaluate modality trustworthiness and filter incongruent noise.
     </li>
     <li>
-      <strong>Hierarchical Vision Transformers:</strong> Exploring multi-scale self-attention mechanisms (Swin Transformer, MaxViT) for high-resolution visual artifact detection.
+      <strong>Hierarchical Vision Transformers &amp; Artifact Detection:</strong>
+      Exploring multi-scale patch attention mechanisms (Swin Transformer, MaxViT) to localize fine-grained manipulation boundaries and deepfake artifacts in social imagery.
     </li>
     <li>
-      <strong>Explainable Multimodal AI:</strong> Integrating attribution maps and gradient-based cross-attention rollouts to make multimodal decisions interpretable.
+      <strong>Explainable Multimodal Decisions:</strong>
+      Developing gradient-weighted attribution maps and cross-attention rollout visualizations for verifiable misinformation auditing in production streams.
     </li>
   </ul>
 </Layout>
