@@ -5,19 +5,19 @@
 
 /* Design Tokens & Theme Variables */
 :root {
-  /* Light Theme (Default - Clean Paper Editorial) */
-  --bg-body: #fdfdfd;
+  /* Light Theme (Editorial Warm Off-White Paper) */
+  --bg-body: #f8f7f4;
   --bg-surface: #ffffff;
-  --bg-surface-subtle: #f5f5f7;
-  --bg-code: #f0f3fa;
+  --bg-surface-subtle: #f0ede6;
+  --bg-code: #eae7de;
   --text-primary: #262930;
   --text-bold: #383c48;
   --text-secondary: #5e626e;
   --text-tertiary: #7b7f8c;
-  --border-color: #e8e8e8;
-  --border-subtle: #f0f0f0;
+  --border-color: #e4e1d7;
+  --border-subtle: #eceae1;
   
-  --link-color: #4d74eb;
+  --link-color: #3b66de;
   --link-visited: #1337a6;
   --link-hover: #262930;
   
@@ -26,12 +26,12 @@
   --accent-purple: #9933cc;
   --accent-orange: #f56300;
   
-  --badge-bg: #eef3ff;
+  --badge-bg: #eaeffc;
   --badge-text: #2b56d8;
-  --badge-border: #d4e1ff;
+  --badge-border: #ccd8f5;
 
-  --bg-footer: #f0f2f7;
-  --border-footer: #e1e4ed;
+  --bg-footer: #eeece5;
+  --border-footer: #dedbd0;
 
   --font-serif: "Lora", Georgia, Cambria, "Times New Roman", Times, serif;
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
