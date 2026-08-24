@@ -19,7 +19,6 @@ function initPortfolio() {
       const currentTheme = htmlEl.getAttribute('data-theme') || 'light';
       const newTheme = currentTheme === 'light' ? 'dark' : 'light';
       setTheme(newTheme);
-      showToast(`Switched to ${newTheme === 'dark' ? 'Dark' : 'Light'} Mode`, newTheme === 'dark' ? '🌙' : '☀️');
     });
   }
 
@@ -36,20 +35,34 @@ function initPortfolio() {
   const navLinks = document.getElementById('navLinks');
 
   if (mobileNavToggle && navLinks) {
+    const toggleMenu = (forceState) => {
+      const isOpen = typeof forceState === 'boolean' ? forceState : !navLinks.classList.contains('mobile-open');
+      navLinks.classList.toggle('mobile-open', isOpen);
+      mobileNavToggle.classList.toggle('open', isOpen);
+      mobileNavToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    };
+
     mobileNavToggle.addEventListener('click', (e) => {
       e.stopPropagation();
-      navLinks.classList.toggle('mobile-open');
+      toggleMenu();
     });
 
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
-        navLinks.classList.remove('mobile-open');
+        toggleMenu(false);
       });
     });
 
     document.addEventListener('click', (e) => {
       if (!navLinks.contains(e.target) && !mobileNavToggle.contains(e.target)) {
-        navLinks.classList.remove('mobile-open');
+        toggleMenu(false);
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && navLinks.classList.contains('mobile-open')) {
+        toggleMenu(false);
       }
     });
   }
@@ -312,7 +325,7 @@ function initPortfolio() {
       setTimeout(() => {
         if (formStatus) {
           formStatus.className = 'form-status success';
-          formStatus.textContent = 'Thank you! Your message has been received. You can also reach me directly at ayushmishra642001@gmail.com.';
+          formStatus.textContent = 'Thank you! Your message has been received. I will connect with you shortly.';
         }
         submitBtn.textContent = 'Sent Successfully ✓';
         showToast('Message sent! Ayush Mishra will connect shortly.');

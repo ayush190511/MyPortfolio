@@ -9,8 +9,7 @@
   [![Live Website](https://img.shields.io/badge/Live_Portfolio-ayush--mishra--portfolio.pages.dev-4D74EB?style=for-the-badge&logo=cloudflarepages&logoColor=white)](https://ayush-mishra-portfolio.pages.dev)
   [![GitHub](https://img.shields.io/badge/GitHub-ayush190511-181717?style=for-the-badge&logo=github)](https://github.com/ayush190511)
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-Ayush_Mishra-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/ayush190511/)
-  [![Email](https://img.shields.io/badge/Email-ayushmishra642001%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ayushmishra642001@gmail.com)
-  [![Live Utility](https://img.shields.io/badge/Live_App-allagecalculator.com-00C7BE?style=for-the-badge&logo=googlechrome&logoColor=white)](https://allagecalculator.com)
+  [![Live Utility](https://img.shields.io/badge/Live_App-allagecalculators.com-00C7BE?style=for-the-badge&logo=googlechrome&logoColor=white)](https://allagecalculators.com)
 
 </div>
 
@@ -70,7 +69,7 @@ Accepted and presented at the **International Conference on Intelligent Computin
 1. **[Multimodal Fake News Detection](https://github.com/ayush190511)** — PyTorch deep learning framework implementing gated cross-attention across DeBERTa and Swin Transformer encoders.
 2. **[End-to-End MLOps Disease Pipeline](https://github.com/ayush190511)** — Computer vision image classification system achieving **96.55% CV accuracy** with **DVC**, **MLflow**, **Docker**, and **GitHub Actions CI/CD**.
 3. **[Real-Time Customer Churn & Score Engine](https://github.com/ayush190511)** — High-throughput ML inference engine with **FastAPI**, **SHAP** local/global interpretability, and sub-50ms latency.
-4. **[AllAgeCalculator.com](https://allagecalculator.com)** — Live chronological analytics web platform engineered for microsecond execution and algorithmic precision.
+4. **[AllAgeCalculators.com](https://allagecalculators.com)** — Live chronological analytics web platform engineered for microsecond execution and algorithmic precision.
 
 ---
 
@@ -131,8 +130,6 @@ npm run build
 ## 📬 Contact & Academic Collaboration
 
 - 📍 **Affiliation**: Department of Information Science and Engineering, Dayananda Sagar College of Engineering (DSCE), Bengaluru, India.
-- 📧 **Email**: [ayushmishra642001@gmail.com](mailto:ayushmishra642001@gmail.com)
-- 📱 **Phone**: +91-9992619779
 - 🔗 **LinkedIn**: [linkedin.com/in/ayush190511](https://www.linkedin.com/in/ayush190511/)
 - 💻 **GitHub**: [github.com/ayush190511](https://github.com/ayush190511)
 - 🌐 **Website**: [ayush-mishra-portfolio.pages.dev](https://ayush-mishra-portfolio.pages.dev)
