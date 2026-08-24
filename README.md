@@ -1,11 +1,12 @@
 <div align="center">
   
-  <img src="assets/favicon.svg" alt="Ayush Mishra" width="190" height="190" style="border-radius: 42px; border: 3.5px solid #0A84FF; box-shadow: 0 10px 30px rgba(10, 132, 255, 0.35); object-fit: cover;" />
+  <img src="public/assets/favicon.svg" alt="Ayush Mishra" width="120" height="120" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(10, 132, 255, 0.25);" />
 
   # Ayush Mishra
-  ### **AI Researcher & Computer Scientist**
-  *Bengaluru, Karnataka, India • SVNIT Surat Alumnus*
+  ### **Computer Scientist & AI Researcher**
+  *Bengaluru, Karnataka, India • SVNIT Surat Alumnus • DSCE Bengaluru*
 
+  [![Live Website](https://img.shields.io/badge/Live_Portfolio-ayush--mishra--portfolio.pages.dev-4D74EB?style=for-the-badge&logo=cloudflarepages&logoColor=white)](https://ayush-mishra-portfolio.pages.dev)
   [![GitHub](https://img.shields.io/badge/GitHub-ayush190511-181717?style=for-the-badge&logo=github)](https://github.com/ayush190511)
   [![LinkedIn](https://img.shields.io/badge/LinkedIn-Ayush_Mishra-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/ayush190511/)
   [![Email](https://img.shields.io/badge/Email-ayushmishra642001%40gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ayushmishra642001@gmail.com)
@@ -17,12 +18,12 @@
 
 ## 👨‍💻 About Me
 
-I am an **Artificial Intelligence Researcher & Computer Scientist** based in Bengaluru, specializing in **Multimodal Deep Learning**, **Cross-Modal Representation Learning**, and **Computer Vision & NLP Transformers (Vision Transformers, Swin, CLIP-ViT, DeBERTa, BERT)**. Additionally, I mentor and instruct students in machine learning and data science.
+I am a **Computer Scientist & AI Researcher** based in Bengaluru, specializing in **Multimodal Deep Learning**, **Vision Transformers**, and **High-Performance Machine Learning Systems**.
 
-- 🎓 **M.Tech in Computer Science and Engineering (Specialization in Data Science)**  
-  *Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat (2024–2026)* — **CGPA: 8.42 / 10**
-- 🎓 **B.Tech in Computer Science and Engineering**  
-  *Deenbandhu Chhoturam University of Science and Technology (DCRUST), Sonipat (2020–2024)* — **CGPA: 7.81 / 10**
+- 🏛️ **Academic Researcher & Faculty Mentor**: Department of Information Science and Engineering (ISE), Dayananda Sagar College of Engineering (DSCE), Bengaluru (July 20, 2026 – Present).
+- 🎓 **M.Tech in Computer Science and Engineering (Data Science)**: Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat (2024–2026) — **CGPA: 8.42 / 10**.
+- 🎓 **B.Tech in Computer Science and Engineering**: Deenbandhu Chhoturam University of Science and Technology (DCRUST), Sonipat (2020–2024) — **CGPA: 7.81 / 10**.
+- 🏆 **GATE CS 2024 Qualified** (Score: 514).
 
 ---
 
@@ -32,12 +33,12 @@ I am an **Artificial Intelligence Researcher & Computer Scientist** based in Ben
 Combating digital misinformation by integrating textual semantics (**DeBERTa / RoBERTa / BERT**) and visual feature representations (**Swin Transformer / CLIP-ViT**) with a novel **Gated Cross-Modal Fusion Architecture**.
 
 ```
-Text Input ──► [ DeBERTa / BERT ] ──┐
-                                     ├──► [ Novel Gated Fusion ] ──► [ Classifier ] ──► Real / Fake Verdict
-Image Input ─► [ Swin / CLIP-ViT ] ─┘        g = σ(W_g · [h_t, h_v])
+Text Input  ──► [ DeBERTa / BERT ] ──┐
+                                      ├──► [ Novel Gated Fusion ] ──► [ Classifier ] ──► Real / Fake Verdict
+Image Input ──► [ Swin / CLIP-ViT ] ─┘        g = σ(W_g · [h_t, h_v])
 ```
 
-#### 📊 Benchmark Results:
+#### 📊 Empirical Benchmark Results:
 | Benchmark Dataset | Accuracy | Macro F1 Score | Key Highlight |
 | :--- | :---: | :---: | :--- |
 | **SPECTRA Dataset** | **96.66%** | **96.75%** | Peak state-of-the-art multimodal veracity learning |
@@ -49,7 +50,7 @@ Image Input ─► [ Swin / CLIP-ViT ] ─┘        g = σ(W_g · [h_t, h_v])
 
 **A Unified Multimodal Framework for Fake News Detection Using BERT and Vision Transformers**  
 *Ayush Mishra, et al.*  
-Accepted and presented at the **International Conference on Intelligent Computing, Cognitive Networks, and Smart Systems (IC2NS2 2026)**.
+Accepted and presented at the **International Conference on Intelligent Computing, Cognitive Networks, and Smart Systems (IC2NS2 2026)** *(Tentative Publication: December 2026, IEEE / Springer)*.
 
 ```bibtex
 @inproceedings{mishra2026multimodal,
@@ -57,6 +58,7 @@ Accepted and presented at the **International Conference on Intelligent Computin
   author={Mishra, Ayush and others},
   booktitle={Proceedings of the International Conference on Intelligent Computing, Cognitive Networks, and Smart Systems (IC2NS2 2026)},
   year={2026},
+  note={Accepted and Presented; Forthcoming in December 2026},
   organization={IEEE/Springer}
 }
 ```
@@ -65,49 +67,44 @@ Accepted and presented at the **International Conference on Intelligent Computin
 
 ## 💻 Featured Projects & Systems
 
-1. **[AllAgeCalculator.com](https://allagecalculators.com)** — Live chronological and date analytics web application engineered for speed, clean UX, and algorithmic precision.
-2. **Cross-Modal Gated Misinformation Detector** — PyTorch deep learning framework implementing gated cross-attention across DeBERTa and Swin Transformer encoders.
-3. **Coccidiosis Disease Classification Pipeline** — Computer vision image classification system achieving **96.55% accuracy** and 0.12 validation loss with **DVC** and **GitHub Actions CI/CD**.
-4. **Student Math Score Regression & MLOps** — End-to-end regression benchmarking across 8 models (XGBoost, CatBoost, Random Forest, R² > 90%) tracked with **MLflow + DagsHub**, explained via **SHAP**, deployed via **Streamlit**.
+1. **[Multimodal Fake News Detection](https://github.com/ayush190511)** — PyTorch deep learning framework implementing gated cross-attention across DeBERTa and Swin Transformer encoders.
+2. **[End-to-End MLOps Disease Pipeline](https://github.com/ayush190511)** — Computer vision image classification system achieving **96.55% CV accuracy** with **DVC**, **MLflow**, **Docker**, and **GitHub Actions CI/CD**.
+3. **[Real-Time Customer Churn & Score Engine](https://github.com/ayush190511)** — High-throughput ML inference engine with **FastAPI**, **SHAP** local/global interpretability, and sub-50ms latency.
+4. **[AllAgeCalculator.com](https://allagecalculator.com)** — Live chronological analytics web platform engineered for microsecond execution and algorithmic precision.
 
 ---
 
 ## 🛠️ Technical Stack & Expertise
 
-- **Deep Learning & Multimodal AI**: PyTorch, Hugging Face Transformers, DeBERTa, BERT, RoBERTa, Swin Transformer, Vision Transformers (ViT), CLIP, CNN, LSTM.
-- **Data Science & Machine Learning**: Pandas, NumPy, Scikit-learn, XGBoost, CatBoost, Statistical Analysis, EDA, Feature Engineering.
-- **MLOps & Infrastructure**: MLflow, DVC (Data Version Control), DagsHub, SHAP, GitHub Actions CI/CD, Streamlit, Git, Docker.
-- **Languages**: Python, SQL, C++, C, JavaScript, HTML5, CSS3.
-- **Problem Solving**: 250+ DSA problems solved on GeeksforGeeks, GATE 2024 (CS Score 514), Amazon ML Challenge 2025 Participant.
+- **Deep Learning & Multimodal AI**: PyTorch, Hugging Face Transformers, DeBERTa, BERT, RoBERTa, Swin Transformer, Vision Transformers (ViT), CLIP, CNN, Cross-Modal Gated Fusion.
+- **Data Science & ML**: Pandas, NumPy, Scikit-learn, XGBoost, CatBoost, Statistical Hypothesis Testing, Feature Engineering.
+- **MLOps & Cloud**: MLflow, DVC (Data Version Control), Docker, FastAPI, REST APIs, GitHub Actions CI/CD, AWS (EC2, S3), Streamlit.
+- **Languages**: Python, SQL, C++, C, JavaScript, HTML5/CSS3.
+- **Core Algorithms**: 250+ DSA problems solved, GATE Qualified (CS Score 514).
 
 ---
 
-## 🏫 Academic Mentorship & Guidance
-
-- **Academic Mentorship**: Department of Information Science and Engineering (ISE), DSCE Bengaluru.
-- **Core Instruction & Mentorship Areas**:
-  - Data Science & Machine Learning Foundations
-  - Multimodal Deep Learning & Transformers
-  - Natural Language Processing & Computer Vision
-  - Data Structures, Algorithms & Optimization
-
----
-
-## 🌐 Website & Repository Architecture
-
-This portfolio website is designed with an **Apple-inspired aesthetic** (frosted glassmorphism, dynamic Dark/Light themes, interactive architecture inspector, and instant BibTeX modal export).
+## 🌐 Website Architecture (Astro Multi-Page)
 
 ```
-├── index.html              # Main semantic webpage with JSON-LD Schema.org metadata
-├── styles.css              # Apple design system, custom properties, responsive styles
-├── script.js               # Theme engine, interactive visualizer, filters, toasts
-├── assets/                 # SVGs, icons, diagrams & personal portrait
-│   ├── mypic.jpg           # Profile portrait
-│   ├── favicon.svg         # Crisp Apple squircle favicon with neural monogram
-│   ├── logo.svg            # Official branding logo
-│   ├── fusion-arch.svg     # Multimodal architecture diagram
-│   └── academic-badge.svg  # Academic researcher badge
-└── README.md               # Repository documentation
+├── public/
+│   ├── assets/
+│   │   ├── favicon.svg       # Dual-wing multimodal fusion favicon
+│   │   ├── fusion-arch.svg   # Gated cross-modal architecture SVG
+│   │   └── logo2.jpeg        # Profile portrait
+│   ├── styles.css            # Editorial typography & theme engine
+│   └── script.js             # Theme toggle, BibTeX modal, architecture tabs
+├── src/
+│   ├── layouts/
+│   │   └── Layout.astro      # Shared site shell, header & footer
+│   └── pages/
+│       ├── index.astro       # / (About / Concise Bio)
+│       ├── research.astro    # /research (IC2NS2 Paper & Benchmarks)
+│       ├── projects.astro    # /projects (Flagship Systems & Pipelines)
+│       ├── skills.astro      # /skills (Categorized Toolkit Matrix)
+│       ├── education.astro   # /education (Timeline & Appointments)
+│       └── contact.astro     # /contact (Inquiry Form & Contacts)
+└── astro.config.mjs
 ```
 
 ### ⚡ Quick Start Locally
@@ -119,24 +116,28 @@ git clone https://github.com/ayush190511/MyPortfolio.git
 # Navigate to project directory
 cd MyPortfolio
 
-# Launch local server (Python)
-python -m http.server 3000
+# Install dependencies
+npm install
 
-# Open in browser
-# http://localhost:3000
+# Start development server
+npm run dev
+
+# Build production bundle
+npm run build
 ```
 
 ---
 
 ## 📬 Contact & Academic Collaboration
 
-- 📍 **Office**: Department of Information Science and Engineering, Dayananda Sagar College of Engineering (DSCE), Shavige Malleshwara Hills, Kumaraswamy Layout, Bengaluru, Karnataka 560078, India.
+- 📍 **Affiliation**: Department of Information Science and Engineering, Dayananda Sagar College of Engineering (DSCE), Bengaluru, India.
 - 📧 **Email**: [ayushmishra642001@gmail.com](mailto:ayushmishra642001@gmail.com)
 - 📱 **Phone**: +91-9992619779
 - 🔗 **LinkedIn**: [linkedin.com/in/ayush190511](https://www.linkedin.com/in/ayush190511/)
 - 💻 **GitHub**: [github.com/ayush190511](https://github.com/ayush190511)
+- 🌐 **Website**: [ayush-mishra-portfolio.pages.dev](https://ayush-mishra-portfolio.pages.dev)
 
 ---
 <div align="center">
-  <sub>© 2026 Ayush Mishra. Crafted with precision & modern web standards.</sub>
+  <sub>© 2026 Ayush Mishra • Computer Scientist & AI Researcher</sub>
 </div>
