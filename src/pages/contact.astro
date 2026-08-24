@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact & Inquiries | Ayush Mishra">
+  <h1>Get in Touch</h1>
+  <p>
+    I am always open to discussing new engineering opportunities, research collaborations in Multimodal AI and Computer Vision, academic mentorship, or consulting.
+  </p>
+
+  <p>
+    You can reach me directly via email at <a href="mailto:ayushmishra642001@gmail.com"><strong>ayushmishra642001@gmail.com</strong></a> or phone at <a href="tel:+919992619779"><strong>+91-9992619779</strong></a>.
+  </p>
+
+  <div class="contact-section-box" style="margin-top: 1.5rem;">
+    <h3 style="margin-top: 0; margin-bottom: 0.5rem;">Send a Message</h3>
+    <form id="contactForm" class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Dr. Jane Doe / Alex Smith" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="alex@company.com" required />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Inquiry Type</label>
+        <select id="subject" name="subject">
+          <option value="Research Collaboration">Research Collaboration (Multimodal AI / Vision Transformers)</option>
+          <option value="AI / ML Research & Systems Role">AI / ML Research &amp; Systems Roles</option>
+          <option value="IC2NS2 Research Discussion">IC2NS2 Research / Cross-Modal Gated Fusion Discussion</option>
+          <option value="Academic Mentorship">Academic Mentorship &amp; Advising / DSCE</option>
+          <option value="General Technical Inquiry">General Computer Science &amp; Technical Inquiry</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Tell me about your team, problem space, or research project..." required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
+      <div class="form-status" id="formStatus"></div>
+    </form>
+  </div>
+</Layout>

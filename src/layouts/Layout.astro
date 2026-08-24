@@ -5,53 +5,58 @@ interface Props {
 }
 
 const { 
-  title = "Ayush Mishra | AI/ML Researcher & Computer Scientist",
-  description = "Research portfolio of Ayush Mishra. Researcher in Multimodal Deep Learning, Fake News Detection, Vision Transformers, and NLP Architectures."
+  title = "Ayush Mishra | Computer Scientist & AI Researcher",
+  description = "Ayush Mishra — Computer Scientist and AI Researcher specializing in Multimodal Deep Learning, Vision Transformers, and High-Performance ML Systems."
 } = Astro.props;
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (path: string) => {
+  if (path === '/' && currentPath === '/') return 'active';
+  if (path !== '/' && currentPath === path) return 'active';
+  return '';
+};
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#08090C" id="themeColorMeta" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#fdfdfd" id="themeColorMeta" />
   <title>{title}</title>
   <meta name="description" content={description} />
-  <meta name="keywords" content="Ayush Mishra, Multimodal AI, Fake News Detection, Vision Transformer, BERT, DeBERTa, Data Science, Machine Learning, AI Researcher, Deep Learning, SVNIT Surat, DSCE" />
+  <meta name="keywords" content="Ayush Mishra, Computer Scientist, AI Researcher, Multimodal Deep Learning, Vision Transformers, Machine Learning Systems, Computer Vision, MLOps, PyTorch, SVNIT Surat, DSCE Bengaluru" />
   <meta name="author" content="Ayush Mishra" />
 
   <!-- OpenGraph / Social Sharing -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ayush Mishra | AI/ML Researcher & Computer Scientist" />
-  <meta property="og:description" content="Research scholar specializing in Multimodal Fake News Detection, Vision Transformers, Cross-Modal Fusion, and Deep Learning." />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
   <meta property="og:url" content="https://github.com/ayush190511" />
-  <meta property="og:image" content="/assets/mypic.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:image" content="/assets/mypic.jpg" />
+  <meta property="og:image" content="/assets/logo2.jpeg" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content="/assets/logo2.jpeg" />
 
-  <!-- Google Fonts: Inter & Outfit & JetBrains Mono -->
+  <!-- Google Fonts: Lora (Primary Editorial Serif) & Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg?v=2.0" />
-  <link rel="alternate icon" type="image/svg+xml" href="/favicon.svg?v=2.0" />
-  <link rel="apple-touch-icon" href="/assets/favicon.svg?v=2.0" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="/styles.css?v=2.0" />
+  <link rel="stylesheet" href="/styles.css" />
 
-  <!-- Structured Data JSON-LD for Academics -->
+  <!-- Structured Data JSON-LD for Academics & Researchers -->
   <script type="application/ld+json" is:inline>
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Ayush Mishra",
-    "jobTitle": "AI/ML Researcher & Computer Scientist",
+    "jobTitle": "Computer Scientist & AI Researcher",
     "worksFor": {
       "@type": "EducationalOrganization",
       "name": "Dayananda Sagar College of Engineering",
@@ -71,7 +76,9 @@ const {
     ],
     "sameAs": [
       "https://github.com/ayush190511",
-      "https://www.linkedin.com/in/ayush190511/"
+      "https://www.linkedin.com/in/ayush190511/",
+      "https://www.kaggle.com/ayush190511",
+      "https://allagecalculator.com"
     ],
     "email": "ayushmishra642001@gmail.com",
     "telephone": "+91-9992619779"
@@ -79,7 +86,199 @@ const {
   </script>
 </head>
 <body>
-  <slot />
+  <!-- Minimalist Site Header (Chip Huyen style) -->
+  <header class="site-header" role="banner">
+    <div class="wrapper header-inner">
+      <a class="site-title" href="/">
+        <span>Ayush Mishra</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Main Navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a class={`nav-link ${isActive('/')}`} href="/">About</a></li>
+          <li><a class={`nav-link ${isActive('/research')}`} href="/research">Research</a></li>
+          <li><a class={`nav-link ${isActive('/projects')}`} href="/projects">Projects</a></li>
+          <li><a class={`nav-link ${isActive('/skills')}`} href="/skills">Skills</a></li>
+          <li><a class={`nav-link ${isActive('/education')}`} href="/education">Education</a></li>
+          <li><a class={`nav-link ${isActive('/contact')}`} href="/contact">Contact</a></li>
+        </ul>
+
+        <!-- Theme Toggle Button -->
+        <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2" fill="none">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" stroke-width="2" fill="none">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation Menu">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Multi-Page Content -->
+  <main class="page-content">
+    <div class="wrapper">
+      <slot />
+    </div>
+  </main>
+
+  <!-- Minimal Editorial Footer (Chip Huyen style) -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="wrapper">
+      <div class="footer-col-wrapper">
+        <div class="footer-col footer-col-1">
+          <h4>Connect</h4>
+          <ul class="contact-list">
+            <li>
+              <a href="mailto:ayushmishra642001@gmail.com">
+                <span class="icon">
+                  <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                </span>
+                <span>ayushmishra642001@gmail.com</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">
+                <span class="icon">
+                  <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </span>
+                <span>ayush190511</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/ayush190511/" target="_blank" rel="noopener noreferrer">
+                <span class="icon">
+                  <svg viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </span>
+                <span>ayush190511</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.kaggle.com/ayush190511" target="_blank" rel="noopener noreferrer">
+                <span class="icon">
+                  <svg viewBox="0 0 24 24"><path d="M18.825 23.859c-.022.083-.117.141-.281.141h-3.139c-.187 0-.351-.082-.492-.248l-5.178-6.589-1.444 1.378v5.177c0 .188-.07.329-.211.424-.141.094-.282.141-.423.141H5.163c-.141 0-.282-.047-.423-.141-.141-.095-.211-.236-.211-.424V.424c0-.188.07-.329.211-.424C4.881.047.522 0 .663 0h2.494c.141 0 .282.047.423.141.141.095.211.236.211.424v13.774l6.398-6.683c.14-.141.304-.212.492-.212h3.28c.14 0 .245.047.316.141.07.094.082.2.035.318l-5.6 5.8 6.037 9.873c.094.141.094.247 0 .388z"/></svg>
+                </span>
+                <span>ayush190511</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://allagecalculator.com" target="_blank" rel="noopener noreferrer">
+                <span class="icon">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"></circle><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" fill="none"></path></svg>
+                </span>
+                <span>allagecalculator.com</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-col-2">
+          <h4>About this site</h4>
+          <p class="footer-bio-text">
+            I conduct research in Multimodal Deep Learning, Vision Transformers, and Computer Vision, and engineer high-performance ML systems. I write about machine learning system design and reproducible research.
+          </p>
+          <div class="footer-copy">
+            &copy; 2026 Ayush Mishra • Crafted with precision and clean typography.
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Flagship Architecture Modal Dialog -->
+  <div class="modal-backdrop" id="archModal" aria-hidden="true">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <h3 id="archModalTitle">IC2NS2 '26 Cross-Modal Gated Fusion Architecture</h3>
+        <button class="modal-close-btn" id="closeArchModalBtn" aria-label="Close Modal">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="arch-tabs" id="archTabs">
+          <button class="arch-tab-btn active" data-target="all">Overview</button>
+          <button class="arch-tab-btn" data-target="text">Text Stream (DeBERTa)</button>
+          <button class="arch-tab-btn" data-target="vision">Vision Stream (Swin/CLIP)</button>
+          <button class="arch-tab-btn" data-target="fusion">Novel Gated Fusion</button>
+          <button class="arch-tab-btn" data-target="benchmarks">Benchmarks</button>
+        </div>
+
+        <div class="arch-display-area" id="archDisplayArea">
+          <div class="arch-image-container">
+            <img src="/assets/fusion-arch.svg" alt="Cross-Modal Gated Fusion Architecture Diagram" class="arch-svg-img" id="archSvgImg" />
+          </div>
+
+          <div class="arch-info-panel" id="archInfoPanel">
+            <h4 id="panelTitle">Unified Multimodal Misinformation Framework</h4>
+            <p id="panelDesc">
+              Real-world fake news leverages both misleading imagery and biased linguistic phrasing. 
+              Our framework extracts deep contextual embeddings from text using <strong>DeBERTa/RoBERTa</strong> and visual feature hierarchies with <strong>Swin Transformer &amp; CLIP-ViT</strong>.
+            </p>
+            <div class="panel-details" id="panelDetails">
+              <div class="detail-item"><span class="detail-label">Text Encoders:</span><span class="detail-val">DeBERTa-v3, RoBERTa, BERT</span></div>
+              <div class="detail-item"><span class="detail-label">Vision Encoders:</span><span class="detail-val">Swin-B, CLIP-ViT-B/16</span></div>
+              <div class="detail-item"><span class="detail-label">Fusion Mechanism:</span><span class="detail-val">Gated Unit \( g = \sigma(W_g \cdot [h_t; h_v]) \)</span></div>
+              <div class="detail-item"><span class="detail-label">Loss Objective:</span><span class="detail-val">Cross-Entropy with Label Smoothing</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button class="action-btn-link" id="closeArchModalBtn2">Close</button>
+        <button class="submit-btn copy-bibtex-btn" data-paper="ic2ns2_2026" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">Get BibTeX</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BibTeX Citation Modal Dialog -->
+  <div class="modal-backdrop" id="bibtexModal" aria-hidden="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>BibTeX Citation (IC2NS2 2026)</h3>
+        <button class="modal-close-btn" id="closeModalBtn" aria-label="Close Modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <pre><code id="bibtexCode">{`@inproceedings{mishra2026multimodal,
+  title={A Unified Multimodal Framework for Fake News Detection Using BERT and Vision Transformers},
+  author={Mishra, Ayush and others},
+  booktitle={Proceedings of the International Conference on Intelligent Computing, Cognitive Networks, and Smart Systems (IC2NS2)},
+  year={2026},
+  note={Accepted and Presented; Forthcoming in December 2026},
+  organization={IEEE/Springer}
+}`}</code></pre>
+      </div>
+      <div class="modal-footer">
+        <button class="action-btn-link" id="closeModalBtn2">Close</button>
+        <button class="submit-btn" id="copyModalBibtexBtn" style="padding: 0.4rem 0.9rem; font-size: 0.82rem;">Copy Citation</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast-notification" id="toastNotification">
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="toastMsg">Copied to clipboard!</span>
+  </div>
+
+  <!-- Client Script -->
   <script src="/script.js" is:inline></script>
 </body>
 </html>

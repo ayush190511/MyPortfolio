@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Research & Publications | Ayush Mishra">
+  <h1>Research &amp; Publications</h1>
+  <p>
+    My research interests span <strong>Multimodal Deep Learning</strong>, <strong>Vision-Language Foundation Models</strong>, <strong>Cross-Modal Attention Fusion</strong>, and <strong>Automated Misinformation Detection</strong>.
+  </p>
+
+  <ul class="editorial-list" style="margin-top: 2rem;">
+    <!-- Paper 1 -->
+    <li class="editorial-item">
+      <h2 class="item-title" style="border: none; margin-top: 0; padding-bottom: 0;">
+        A Unified Multimodal Framework for Fake News Detection Using BERT and Vision Transformers
+        <span class="badge badge-green">Accepted &amp; Presented</span>
+        <span class="badge">96.66% SOTA Acc</span>
+      </h2>
+      <div class="item-meta">
+        <strong>Ayush Mishra</strong> et al. • <em>International Conference on Intelligent Computing, Cognitive Networks, and Smart Systems (IC2NS2)</em> • <strong>Accepted &amp; Presented (Tentative Publication: Dec 2026)</strong> • IEEE / Springer
+      </div>
+      <p class="item-desc">
+        Pioneered an end-to-end multimodal architecture combining disentangled contextual language representations (DeBERTa-v3 / RoBERTa / BERT) and visual feature hierarchies (Swin Transformer, CLIP-ViT). Introduced an adaptive <strong>Cross-Modal Gated Fusion layer</strong> that dynamically balances text and visual cues, outperforming competitive baselines on the Fakeddit (<strong>91.15%</strong>) and SPECTRA (<strong>96.66%</strong>) benchmarks.
+      </p>
+
+      <div style="background-color: var(--bg-surface-subtle); border: 1px solid var(--border-color); border-radius: 6px; padding: 1rem 1.25rem; margin: 1rem 0;">
+        <h4 style="margin-top: 0; margin-bottom: 0.5rem;">Key Empirical Findings &amp; SOTA Benchmarks:</h4>
+        <ul style="margin-left: 1.25rem; font-size: 0.95rem; line-height: 1.6;">
+          <li><strong>SPECTRA Dataset:</strong> 96.66% Accuracy | 96.75% Macro F1 (SOTA Benchmark)</li>
+          <li><strong>Fakeddit Dataset:</strong> 91.15% Accuracy | 89.78% Macro F1</li>
+          <li><strong>Text Stream:</strong> DeBERTa-v3 disentangled content and position vectors with relative position matrices.</li>
+          <li><strong>Vision Stream:</strong> Swin-B shifted window hierarchical attention + CLIP-ViT visual projections.</li>
+          <li><strong>Novel Gated Fusion:</strong> \( g = \sigma(W_g \cdot [h_t; h_v]) \) dynamically filtering incongruent noise.</li>
+        </ul>
+      </div>
+
+      <div class="item-links">
+        <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">[Source Code on GitHub]</a>
+        <button class="action-btn-link copy-bibtex-btn" data-paper="ic2ns2_2026">[Copy BibTeX Citation]</button>
+        <button class="action-btn-link open-arch-modal-btn">[View Architecture Deep-Dive ↗]</button>
+      </div>
+
+      <div class="tag-strip">
+        <span class="tech-tag">PyTorch</span>
+        <span class="tech-tag">DeBERTa-v3</span>
+        <span class="tech-tag">Swin ViT</span>
+        <span class="tech-tag">CLIP-ViT</span>
+        <span class="tech-tag">Gated Cross-Attention</span>
+        <span class="tech-tag">5-Fold CV</span>
+      </div>
+    </li>
+  </ul>
+
+  <!-- Ongoing Research & Topics -->
+  <h2 style="margin-top: 2.5rem;">Current Research Focus Areas</h2>
+  <ul class="skills-list" style="margin-top: 1rem;">
+    <li>
+      <strong>Cross-Modal Gated Alignment:</strong> Designing non-linear gating mechanisms that evaluate modality trustworthiness and mitigate hallucinated or ungrounded correlations in vision-language models.
+    </li>
+    <li>
+      <strong>Hierarchical Vision Transformers:</strong> Exploring multi-scale self-attention mechanisms (Swin Transformer, MaxViT) for high-resolution visual artifact detection.
+    </li>
+    <li>
+      <strong>Explainable Multimodal AI:</strong> Integrating attribution maps and gradient-based cross-attention rollouts to make multimodal decisions interpretable.
+    </li>
+  </ul>
+</Layout>
