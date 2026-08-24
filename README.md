@@ -4,7 +4,7 @@
 
   # Ayush Mishra
   ### **Computer Scientist & AI Researcher**
-  *Bengaluru, Karnataka, India • SVNIT Surat Alumnus • DSCE Bengaluru*
+  *Bengaluru, Karnataka, India • SVNIT Surat Alumnus*
 
   [![Live Website](https://img.shields.io/badge/Live_Portfolio-ayush--mishra--portfolio.pages.dev-4D74EB?style=for-the-badge&logo=cloudflarepages&logoColor=white)](https://ayush-mishra-portfolio.pages.dev)
   [![GitHub](https://img.shields.io/badge/GitHub-ayush190511-181717?style=for-the-badge&logo=github)](https://github.com/ayush190511)
