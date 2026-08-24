@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Ayush Mishra | Computer Scientist & AI Researcher">
-  <!-- Bio Section with Floated Round Portrait (Chip Huyen style) -->
-  <section id="about" class="intro-bio">
+  <!-- Concise Bio Section (Chip Huyen style) -->
+  <section id="about" class="intro-bio home-hero-bio">
     <div class="profile-container">
       <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer" class="profile-img-link" title="Ayush Mishra">
         <img src="/assets/logo2.jpeg" alt="Ayush Mishra" class="profile-img" />
@@ -16,94 +16,19 @@ import Layout from '../layouts/Layout.astro';
     </div>
 
     <p>
-      I’m <strong>Ayush Mishra</strong>, a Computer Scientist and AI Researcher based in Bengaluru, India. I specialize in <strong>Multimodal Deep Learning</strong>, <strong>Vision Transformers</strong>, and <strong>high-performance ML systems</strong>.
+      I’m <strong>Ayush Mishra</strong>, a Computer Scientist and AI Researcher based in Bengaluru, India. My research centers on <strong>Multimodal Deep Learning</strong>, <strong>Vision Transformers</strong>, and <strong>High-Performance Machine Learning Systems</strong>.
     </p>
 
     <p>
-      Currently, I serve as an <strong>Academic Researcher &amp; Faculty Mentor</strong> in the Department of Information Science and Engineering at <a href="https://www.dsce.edu.in/" target="_blank" rel="noopener noreferrer"><strong>Dayananda Sagar College of Engineering (DSCE), Bengaluru</strong></a>, where I mentor engineering students in Deep Learning architectures and guide applied research initiatives.
+      Currently, I serve as an <strong>Academic Researcher &amp; Faculty Mentor</strong> at <a href="https://www.dsce.edu.in/" target="_blank" rel="noopener noreferrer"><strong>Dayananda Sagar College of Engineering (DSCE), Bengaluru</strong></a>, mentoring engineering students and guiding applied research in deep learning.
     </p>
 
     <p>
-      I completed my <strong>M.Tech in Computer Science and Engineering (Data Science)</strong> from the prestigious <a href="https://www.svnit.ac.in/" target="_blank" rel="noopener noreferrer"><strong>Sardar Vallabhbhai National Institute of Technology (SVNIT), Surat</strong></a> (CGPA 8.42/10). My master’s research culminated in a peer-reviewed paper accepted and presented at the <em>International Conference on Intelligent Computing, Cognitive Networks, and Smart Systems</em> (<a href="/research"><strong>IC2NS2</strong></a>, Tentative Publication: December 2026), introducing a novel Cross-Modal Gated Fusion framework that achieved <strong>96.66% SOTA accuracy</strong> on the benchmark SPECTRA dataset.
+      I earned my <strong>M.Tech in CSE (Data Science)</strong> from <a href="https://www.svnit.ac.in/" target="_blank" rel="noopener noreferrer"><strong>SVNIT Surat</strong></a> (CGPA 8.42/10). My master’s thesis introduced a novel Cross-Modal Gated Fusion architecture accepted &amp; presented at <a href="/research"><strong>IC2NS2 '26</strong></a> (forthcoming Dec 2026), achieving <strong>96.66% SOTA accuracy</strong> on multimodal benchmarks.
     </p>
 
     <p>
-      I also build high-throughput tools and platforms. Some of them include <a href="https://allagecalculator.com" target="_blank" rel="noopener noreferrer"><strong>AllAgeCalculator.com</strong></a> (a zero-latency chronological analytics engine), automated end-to-end MLOps disease classification pipelines (DVC, MLflow, Docker, AWS), and real-time customer churn prediction microservices with sub-50ms inference and SHAP explainability.
+      In addition to academic research, I design production AI systems spanning automated MLOps pipelines (DVC, MLflow, Docker, AWS), low-latency inference services, and live platforms like <a href="https://allagecalculator.com" target="_blank" rel="noopener noreferrer"><strong>AllAgeCalculator.com</strong></a>.
     </p>
-
-    <p>
-      You can find my code on <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer"><strong>GitHub</strong></a>, connect on <a href="https://www.linkedin.com/in/ayush190511/" target="_blank" rel="noopener noreferrer"><strong>LinkedIn</strong></a>, track my competitive benchmarks on <a href="https://www.kaggle.com/ayush190511" target="_blank" rel="noopener noreferrer"><strong>Kaggle</strong></a>, or view my citations on <a href="https://scholar.google.com/" target="_blank" rel="noopener noreferrer"><strong>Google Scholar</strong></a>. Feel free to <a href="/contact">reach out</a> if you'd like to collaborate!
-    </p>
-  </section>
-
-  <!-- Research Preview -->
-  <section class="home-section-preview">
-    <h2>
-      Featured Research
-      <span style="font-size: 0.95rem; font-weight: normal; float: right; margin-top: 0.4rem;">
-        <a href="/research">[All Research &amp; Papers &rarr;]</a>
-      </span>
-    </h2>
-
-    <ul class="editorial-list">
-      <li class="editorial-item">
-        <h3 class="item-title">
-          <a href="/research">A Unified Multimodal Framework for Fake News Detection Using BERT and Vision Transformers</a>
-          <span class="badge badge-green">Accepted &amp; Presented</span>
-          <span class="badge">96.66% SOTA Acc</span>
-        </h3>
-        <div class="item-meta">
-          <strong>Ayush Mishra</strong> et al. • <em>International Conference on Intelligent Computing, Cognitive Networks, and Smart Systems (IC2NS2)</em> • <strong>Accepted &amp; Presented (Tentative Publication: Dec 2026)</strong> • IEEE / Springer
-        </div>
-        <p class="item-desc">
-          Pioneered an end-to-end multimodal architecture combining disentangled contextual language representations (DeBERTa-v3 / RoBERTa / BERT) and visual feature hierarchies (Swin Transformer, CLIP-ViT). Introduced an adaptive <strong>Cross-Modal Gated Fusion layer</strong> that dynamically balances text and visual cues.
-        </p>
-        <div class="item-links">
-          <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">[Code on GitHub]</a>
-          <button class="action-btn-link copy-bibtex-btn" data-paper="ic2ns2_2026">[BibTeX Citation]</button>
-          <button class="action-btn-link open-arch-modal-btn">[Architecture Deep-Dive ↗]</button>
-        </div>
-      </li>
-    </ul>
-  </section>
-
-  <!-- Projects Preview -->
-  <section class="home-section-preview">
-    <h2>
-      Featured Systems
-      <span style="font-size: 0.95rem; font-weight: normal; float: right; margin-top: 0.4rem;">
-        <a href="/projects">[All Projects &amp; Systems &rarr;]</a>
-      </span>
-    </h2>
-
-    <ul class="editorial-list">
-      <li class="editorial-item">
-        <h3 class="item-title">
-          <a href="/projects#disease-pipeline">End-to-End MLOps Disease Classification Pipeline</a>
-          <span class="badge">96.55% CV Acc</span>
-        </h3>
-        <div class="item-meta">MLOps • Containerization • CI/CD • AWS</div>
-        <p class="item-desc">
-          Production-ready automated image classification system featuring dataset versioning with <strong>DVC</strong>, experiment logging with <strong>MLflow</strong>, containerization with <strong>Docker</strong>, and automated deployment to AWS EC2 via <strong>GitHub Actions</strong>.
-        </p>
-        <div class="item-links">
-          <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">[Pipeline Source Code]</a>
-        </div>
-      </li>
-
-      <li class="editorial-item">
-        <h3 class="item-title">
-          <a href="/projects#churn-engine">Real-Time Customer Churn &amp; Score Prediction Engine</a>
-          <span class="badge">&lt;50ms Latency</span>
-        </h3>
-        <div class="item-meta">Machine Learning • Explainable AI • FastAPI</div>
-        <p class="item-desc">
-          High-throughput ML inference engine benchmarking 8 ensemble models (XGBoost, CatBoost, GradientBoost). Provides local and global model explainability via <strong>SHAP</strong>, RESTful microservices via <strong>FastAPI</strong>, and interactive dashboards via <strong>Streamlit</strong>.
-        </p>
-        <div class="item-links">
-          <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">[Source &amp; Explainability]</a>
-        </div>
-      </li>
-    </ul>
   </section>
 </Layout>
