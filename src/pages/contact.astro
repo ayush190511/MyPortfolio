@@ -14,11 +14,8 @@ import Layout from '../layouts/Layout.astro';
 
   <div class="contact-section-box" style="margin-top: 1.5rem;">
     <h3 style="margin-top: 0; margin-bottom: 0.5rem;">Send a Message</h3>
-    <p style="font-size: 0.92rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
-      Your message will be delivered directly to my inbox (<strong>ayushmishra642001@gmail.com</strong>).
-    </p>
 
-    <form id="contactForm" class="contact-form" action="https://formsubmit.co/ayushmishra642001@gmail.com" method="POST">
+    <form id="contactForm" class="contact-form" action="https://formsubmit.co/ayushmishra642001@gmail.com" method="POST" novalidate>
       <!-- Hidden Configuration for Direct Delivery -->
       <input type="hidden" name="_subject" id="hiddenSubject" value="New Portfolio Inquiry" />
       <input type="hidden" name="_captcha" value="false" />
@@ -28,10 +25,12 @@ import Layout from '../layouts/Layout.astro';
         <div class="form-group">
           <label for="name">Your Name</label>
           <input type="text" id="name" name="name" placeholder="Dr. Jane Doe / Alex Smith" required />
+          <span id="nameError" class="input-error-msg">Please enter your name.</span>
         </div>
         <div class="form-group">
           <label for="email">Email Address</label>
           <input type="email" id="email" name="email" placeholder="alex@company.com" required />
+          <span id="emailError" class="input-error-msg">Please enter a valid email address (e.g. name@domain.com).</span>
         </div>
       </div>
 
@@ -49,6 +48,7 @@ import Layout from '../layouts/Layout.astro';
       <div class="form-group">
         <label for="message">Message</label>
         <textarea id="message" name="message" rows="5" placeholder="Tell me about your team, problem space, or research project..." required></textarea>
+        <span id="messageError" class="input-error-msg">Please enter your message.</span>
       </div>
 
       <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
@@ -58,10 +58,6 @@ import Layout from '../layouts/Layout.astro';
 
   <h2 style="margin-top: 2.5rem;">Direct Channels &amp; Profiles</h2>
   <ul class="skills-list" style="margin-top: 1rem;">
-    <li>
-      <strong>Email:</strong>
-      <a href="mailto:ayushmishra642001@gmail.com">ayushmishra642001@gmail.com ↗</a>
-    </li>
     <li>
       <strong>LinkedIn:</strong>
       <a href="https://www.linkedin.com/in/ayush190511/" target="_blank" rel="noopener noreferrer">linkedin.com/in/ayush190511 ↗</a>

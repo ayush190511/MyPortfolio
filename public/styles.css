@@ -742,6 +742,24 @@ blockquote {
   border-color: var(--link-color);
 }
 
+.form-group input.invalid,
+.form-group textarea.invalid {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 1px #ef4444 !important;
+}
+
+.input-error-msg {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: #dc2626;
+  margin-top: 0.2rem;
+  display: none;
+}
+
+.input-error-msg.visible {
+  display: block;
+}
+
 .submit-btn {
   font-family: var(--font-sans);
   font-size: 0.9rem;

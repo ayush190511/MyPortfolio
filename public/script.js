@@ -313,33 +313,119 @@ function initPortfolio() {
     }, 2500);
   }
 
-  // 6. CONTACT FORM INTERACTION (DIRECT EMAIL DELIVERY)
+  // 6. CONTACT FORM INTERACTION & EMAIL VALIDATION
   const contactForm = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
   const submitBtn = document.getElementById('submitBtn');
   const hiddenSubject = document.getElementById('hiddenSubject');
   const subjectSelect = document.getElementById('subject');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const messageInput = document.getElementById('message');
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+  const messageError = document.getElementById('messageError');
+
+  function isValidEmail(email) {
+    return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(String(email).trim().toLowerCase());
+  }
 
   if (contactForm) {
+    // Real-time input validation clearance
+    if (nameInput && nameError) {
+      nameInput.addEventListener('input', () => {
+        if (nameInput.value.trim().length > 0) {
+          nameInput.classList.remove('invalid');
+          nameError.classList.remove('visible');
+        }
+      });
+    }
+
+    if (emailInput && emailError) {
+      emailInput.addEventListener('input', () => {
+        if (isValidEmail(emailInput.value)) {
+          emailInput.classList.remove('invalid');
+          emailError.classList.remove('visible');
+        }
+      });
+    }
+
+    if (messageInput && messageError) {
+      messageInput.addEventListener('input', () => {
+        if (messageInput.value.trim().length > 0) {
+          messageInput.classList.remove('invalid');
+          messageError.classList.remove('visible');
+        }
+      });
+    }
+
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const originalText = submitBtn.textContent;
 
+      let isValid = true;
+      const nameVal = nameInput ? nameInput.value.trim() : '';
+      const emailVal = emailInput ? emailInput.value.trim() : '';
+      const messageVal = messageInput ? messageInput.value.trim() : '';
+
+      // Validate Name
+      if (!nameVal) {
+        isValid = false;
+        if (nameInput) nameInput.classList.add('invalid');
+        if (nameError) nameError.classList.add('visible');
+      } else {
+        if (nameInput) nameInput.classList.remove('invalid');
+        if (nameError) nameError.classList.remove('visible');
+      }
+
+      // Validate Email (Strict Regex check)
+      if (!emailVal || !isValidEmail(emailVal)) {
+        isValid = false;
+        if (emailInput) {
+          emailInput.classList.add('invalid');
+          if (document.activeElement !== emailInput && !nameInput.classList.contains('invalid')) {
+            emailInput.focus();
+          }
+        }
+        if (emailError) {
+          emailError.textContent = !emailVal ? 'Please enter your email address.' : 'Please enter a valid email address (e.g. name@domain.com).';
+          emailError.classList.add('visible');
+        }
+      } else {
+        if (emailInput) emailInput.classList.remove('invalid');
+        if (emailError) emailError.classList.remove('visible');
+      }
+
+      // Validate Message
+      if (!messageVal) {
+        isValid = false;
+        if (messageInput) messageInput.classList.add('invalid');
+        if (messageError) messageError.classList.add('visible');
+      } else {
+        if (messageInput) messageInput.classList.remove('invalid');
+        if (messageError) messageError.classList.remove('visible');
+      }
+
+      if (!isValid) {
+        showToast('Please correct the highlighted errors.', '⚠️');
+        return;
+      }
+
+      const originalText = submitBtn.textContent;
       submitBtn.textContent = 'Sending...';
       submitBtn.disabled = true;
 
       const formData = new FormData(contactForm);
       const selectedSubject = subjectSelect ? subjectSelect.value : 'Portfolio Inquiry';
       if (hiddenSubject) {
-        hiddenSubject.value = `[Portfolio Inquiry] ${selectedSubject} - from ${formData.get('name')}`;
+        hiddenSubject.value = `[Portfolio Inquiry] ${selectedSubject} - from ${nameVal}`;
       }
 
       const payload = {
-        name: formData.get('name'),
-        email: formData.get('email'),
+        name: nameVal,
+        email: emailVal,
         subject: selectedSubject,
-        message: formData.get('message'),
-        _subject: `[Portfolio Inquiry] ${selectedSubject} - from ${formData.get('name')}`,
+        message: messageVal,
+        _subject: `[Portfolio Inquiry] ${selectedSubject} - from ${nameVal}`,
         _template: 'table',
         _captcha: 'false'
       };
@@ -357,10 +443,10 @@ function initPortfolio() {
         if (response.ok) {
           if (formStatus) {
             formStatus.className = 'form-status success';
-            formStatus.textContent = 'Thank you! Your message has been sent directly to Ayush Mishra (ayushmishra642001@gmail.com).';
+            formStatus.textContent = 'Thank you! Your message has been sent successfully. I will get back to you shortly.';
           }
           submitBtn.textContent = 'Sent Successfully ✓';
-          showToast('Message sent to Ayush Mishra!');
+          showToast('Message sent successfully!');
           contactForm.reset();
         } else {
           throw new Error('Form submission failed');
@@ -374,7 +460,7 @@ function initPortfolio() {
           formStatus.style.backgroundColor = 'rgba(234, 88, 12, 0.1)';
           formStatus.style.borderColor = 'rgba(234, 88, 12, 0.3)';
           formStatus.style.color = 'var(--text-bold)';
-          formStatus.innerHTML = `Could not send automatically. Click to open in email: <a href="${mailtoUrl}" style="font-weight:600; text-decoration:underline;">Send via Email Client ↗</a>`;
+          formStatus.innerHTML = `Could not send automatically. Click to send via email: <a href="${mailtoUrl}" style="font-weight:600; text-decoration:underline;">Open Email App ↗</a>`;
         }
         submitBtn.textContent = 'Send via Email ↗';
         window.open(mailtoUrl, '_blank');
