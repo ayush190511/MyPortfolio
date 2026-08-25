@@ -8,97 +8,194 @@ import Layout from '../layouts/Layout.astro';
     A curated collection of production-grade Machine Learning, Deep Learning, and MLOps systems built with performance, modularity, and reproducible research in mind.
   </p>
 
-  <ul class="editorial-list" style="margin-top: 2rem;">
+  <ul class="project-card-list">
     <!-- Project 1: Flagship Research Publication System -->
-    <li class="editorial-item" id="fake-news-framework">
-      <h2 class="item-title" style="border: none; margin-top: 0; padding-bottom: 0;">
-        <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">A Unified Multimodal Fake News Detection Framework (BERT + ViT)</a>
-        <span class="badge badge-green">90.18% Test Acc</span>
-        <span class="badge">0.9485 ROC-AUC</span>
-      </h2>
-      <div class="item-meta">Deep Learning • Multimodal Transformers • Springer IC2NS2 '26</div>
-      <p class="item-desc">
-        End-to-end multimodal detection pipeline combining a <strong>BERT–BiGRU</strong> text encoder for narrative and contextual representation learning with a <strong>Vision Transformer (ViT-B/16)</strong> for visual patch understanding. Features efficient feature concatenation fusion delivering 90.18% accuracy on the 30,900-sample Fakeddit benchmark.
-      </p>
-      <div class="item-links">
-        <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">[GitHub Repository]</a>
-        <button class="action-btn-link open-arch-modal-btn">[View Architecture Deep-Dive ↗]</button>
+    <li class="project-card" id="fake-news-framework">
+      <div class="project-header">
+        <h2 class="project-title">
+          <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">
+            A Unified Multimodal Fake News Detection Framework (BERT + ViT)
+          </a>
+        </h2>
+        <div class="project-badges">
+          <span class="badge badge-green">90.18% Test Acc</span>
+          <span class="badge">0.9485 ROC-AUC</span>
+        </div>
       </div>
-      <div class="tag-strip">
-        <span class="tech-tag">PyTorch</span>
-        <span class="tech-tag">BERT-Base</span>
-        <span class="tech-tag">BiGRU</span>
-        <span class="tech-tag">ViT-B/16</span>
-        <span class="tech-tag">Feature Concatenation</span>
-        <span class="tech-tag">Fakeddit</span>
+
+      <div class="project-subtitle">
+        Deep Learning • Multimodal Transformers • Springer IC2NS2 '26
+      </div>
+
+      <ul class="project-highlights">
+        <li>
+          Architected an end-to-end multimodal pipeline combining a <strong>BERT–BiGRU</strong> text encoder for narrative and contextual representations with a <strong>Vision Transformer (ViT-B/16)</strong> for visual patch understanding.
+        </li>
+        <li>
+          Implemented efficient feature concatenation fusion, delivering <strong>90.18% accuracy</strong> and a <strong>0.9485 ROC-AUC</strong> across 30,900 test samples on the <strong>Fakeddit benchmark</strong>.
+        </li>
+      </ul>
+
+      <div class="project-footer">
+        <div class="project-actions">
+          <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-primary">
+            <span>GitHub Repository</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+          <button type="button" class="project-btn project-btn-secondary open-arch-modal-btn">
+            <span>Architecture Deep-Dive</span>
+            <span class="btn-arrow">↗</span>
+          </button>
+        </div>
+
+        <div class="project-tags">
+          <span class="tech-tag">PyTorch</span>
+          <span class="tech-tag">BERT-Base</span>
+          <span class="tech-tag">BiGRU</span>
+          <span class="tech-tag">ViT-B/16</span>
+          <span class="tech-tag">Feature Concatenation</span>
+          <span class="tech-tag">Fakeddit</span>
+        </div>
       </div>
     </li>
 
-    <!-- Project 2 -->
-    <li class="editorial-item" id="disease-pipeline">
-      <h2 class="item-title" style="border: none; margin-top: 0; padding-bottom: 0;">
-        <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">End-to-End MLOps Disease Classification Pipeline</a>
-        <span class="badge">96.55% CV Acc</span>
-      </h2>
-      <div class="item-meta">MLOps • Containerization • CI/CD • AWS</div>
-      <p class="item-desc">
-        Production-ready automated image classification system for poultry disease diagnostics. Features dataset versioning with <strong>DVC</strong>, experiment logging with <strong>MLflow</strong>, containerization with <strong>Docker</strong>, and automated deployment to AWS EC2 via <strong>GitHub Actions</strong>.
-      </p>
-      <div class="item-links">
-        <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">[Pipeline Source Code]</a>
+    <!-- Project 2: End-to-End MLOps Pipeline -->
+    <li class="project-card" id="disease-pipeline">
+      <div class="project-header">
+        <h2 class="project-title">
+          <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">
+            End-to-End MLOps Disease Classification Pipeline
+          </a>
+        </h2>
+        <div class="project-badges">
+          <span class="badge">96.55% CV Acc</span>
+        </div>
       </div>
-      <div class="tag-strip">
-        <span class="tech-tag">DVC</span>
-        <span class="tech-tag">MLflow</span>
-        <span class="tech-tag">Docker</span>
-        <span class="tech-tag">FastAPI</span>
-        <span class="tech-tag">AWS EC2</span>
-        <span class="tech-tag">GitHub Actions</span>
+
+      <div class="project-subtitle">
+        MLOps • Containerization • CI/CD • AWS
+      </div>
+
+      <ul class="project-highlights">
+        <li>
+          Built a production-grade automated image classification pipeline achieving <strong>96.55% CV accuracy</strong> for poultry disease diagnostics.
+        </li>
+        <li>
+          Implemented dataset versioning with <strong>DVC</strong>, experiment tracking via <strong>MLflow</strong>, containerized microservices with <strong>Docker &amp; FastAPI</strong>, and continuous deployment to <strong>AWS EC2</strong> via <strong>GitHub Actions</strong>.
+        </li>
+      </ul>
+
+      <div class="project-footer">
+        <div class="project-actions">
+          <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-primary">
+            <span>Pipeline Source Code</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="project-tags">
+          <span class="tech-tag">DVC</span>
+          <span class="tech-tag">MLflow</span>
+          <span class="tech-tag">Docker</span>
+          <span class="tech-tag">FastAPI</span>
+          <span class="tech-tag">AWS EC2</span>
+          <span class="tech-tag">GitHub Actions</span>
+        </div>
       </div>
     </li>
 
     <!-- Project 3: GPUCalc -->
-    <li class="editorial-item" id="gpucalc">
-      <h2 class="item-title" style="border: none; margin-top: 0; padding-bottom: 0;">
-        <a href="https://gpu-calc.ayushmishra642001.workers.dev/" target="_blank" rel="noopener noreferrer">GPUCalc — Deep Learning &amp; LLM VRAM Sizing Engine</a>
-        <span class="badge badge-green">Live Tool</span>
-      </h2>
-      <div class="item-meta">Deep Learning Infrastructure • Memory Analytics • Cloudflare Workers</div>
-      <p class="item-desc">
-        High-precision hardware sizing and VRAM calculation engine for deep learning and Large Language Model (LLM) training and inference. Computes model parameter footprint, KV cache allocation, activation memory, optimizer state overhead (AdamW/SGD), and multi-GPU tensor/pipeline parallelism configurations.
-      </p>
-      <div class="item-links">
-        <a href="https://gpu-calc.ayushmishra642001.workers.dev/" target="_blank" rel="noopener noreferrer">[Visit Live Calculator ↗]</a>
-        <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">[GitHub Repository]</a>
+    <li class="project-card" id="gpucalc">
+      <div class="project-header">
+        <h2 class="project-title">
+          <a href="https://gpu-calc.ayushmishra642001.workers.dev/" target="_blank" rel="noopener noreferrer">
+            GPUCalc — Deep Learning &amp; LLM VRAM Sizing Engine
+          </a>
+        </h2>
+        <div class="project-badges">
+          <span class="badge badge-green">Live Tool</span>
+        </div>
       </div>
-      <div class="tag-strip">
-        <span class="tech-tag">Cloudflare Workers</span>
-        <span class="tech-tag">Deep Learning Hardware</span>
-        <span class="tech-tag">VRAM Analytics</span>
-        <span class="tech-tag">LLM Inference &amp; Training</span>
-        <span class="tech-tag">Parallelism (TP/PP/DP)</span>
-        <span class="tech-tag">JavaScript ES6+</span>
+
+      <div class="project-subtitle">
+        Deep Learning Infrastructure • Memory Analytics • Cloudflare Workers
+      </div>
+
+      <ul class="project-highlights">
+        <li>
+          Engineered a high-precision VRAM calculation engine for <strong>Deep Learning &amp; LLM</strong> training and inference hardware planning.
+        </li>
+        <li>
+          Computes model parameter footprint, dynamic <strong>KV cache</strong>, activation overhead, optimizer states (<strong>AdamW/SGD</strong>), and multi-GPU tensor/pipeline parallelism configurations.
+        </li>
+      </ul>
+
+      <div class="project-footer">
+        <div class="project-actions">
+          <a href="https://gpu-calc.ayushmishra642001.workers.dev/" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-primary">
+            <span>Visit Live Calculator</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+          <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-secondary">
+            <span>GitHub Repository</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="project-tags">
+          <span class="tech-tag">Cloudflare Workers</span>
+          <span class="tech-tag">Deep Learning Hardware</span>
+          <span class="tech-tag">VRAM Analytics</span>
+          <span class="tech-tag">LLM Inference &amp; Training</span>
+          <span class="tech-tag">Parallelism (TP/PP/DP)</span>
+          <span class="tech-tag">JavaScript ES6+</span>
+        </div>
       </div>
     </li>
 
-    <!-- Project 4 -->
-    <li class="editorial-item" id="all-age-calculator">
-      <h2 class="item-title" style="border: none; margin-top: 0; padding-bottom: 0;">
-        <a href="https://allagecalculators.com" target="_blank" rel="noopener noreferrer">AllAgeCalculators.com</a>
-        <span class="badge badge-green">Live Web Platform</span>
-      </h2>
-      <div class="item-meta">Web Platform • Chronological Analytics • Zero-Latency</div>
-      <p class="item-desc">
-        High-precision chronological analytics platform delivering microsecond client calculations, interactive visualization widgets, responsive UI glassmorphism, and comprehensive SEO optimization.
-      </p>
-      <div class="item-links">
-        <a href="https://allagecalculators.com" target="_blank" rel="noopener noreferrer">[Visit Live Platform ↗]</a>
-        <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer">[GitHub Repository]</a>
+    <!-- Project 4: AllAgeCalculators.com -->
+    <li class="project-card" id="all-age-calculator">
+      <div class="project-header">
+        <h2 class="project-title">
+          <a href="https://allagecalculators.com" target="_blank" rel="noopener noreferrer">
+            AllAgeCalculators.com
+          </a>
+        </h2>
+        <div class="project-badges">
+          <span class="badge badge-green">Live Web Platform</span>
+        </div>
       </div>
-      <div class="tag-strip">
-        <span class="tech-tag">JavaScript ES6+</span>
-        <span class="tech-tag">Chronological Algorithms</span>
-        <span class="tech-tag">SEO Optimization</span>
+
+      <div class="project-subtitle">
+        Web Platform • Chronological Analytics • Zero-Latency
+      </div>
+
+      <ul class="project-highlights">
+        <li>
+          Engineered a high-precision chronological analytics platform delivering microsecond client computations and interactive visualization widgets.
+        </li>
+        <li>
+          Architected with zero-dependency algorithmic precision, responsive glassmorphism UI, and comprehensive <strong>SEO optimization</strong>.
+        </li>
+      </ul>
+
+      <div class="project-footer">
+        <div class="project-actions">
+          <a href="https://allagecalculators.com" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-primary">
+            <span>Visit Live Platform</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+          <a href="https://github.com/ayush190511" target="_blank" rel="noopener noreferrer" class="project-btn project-btn-secondary">
+            <span>GitHub Repository</span>
+            <span class="btn-arrow">↗</span>
+          </a>
+        </div>
+
+        <div class="project-tags">
+          <span class="tech-tag">JavaScript ES6+</span>
+          <span class="tech-tag">Chronological Algorithms</span>
+          <span class="tech-tag">SEO Optimization</span>
+        </div>
       </div>
     </li>
   </ul>
