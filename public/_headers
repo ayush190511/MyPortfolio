@@ -17,7 +17,8 @@
   Cache-Control: public, max-age=600, stale-while-revalidate=3600
 
 /styles.css
-  Cache-Control: public, max-age=600, stale-while-revalidate=3600
+  Cache-Control: public, max-age=0, must-revalidate
 
 /script.js
-  Cache-Control: public, max-age=600, stale-while-revalidate=3600
+  Cache-Control: public, max-age=0, must-revalidate
+

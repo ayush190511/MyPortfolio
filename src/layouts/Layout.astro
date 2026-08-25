@@ -48,7 +48,7 @@ const isActive = (path: string) => {
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href={`/styles.css?v=${Date.now()}`} />
 
   <!-- Structured Data JSON-LD for Academics & Researchers -->
   <script type="application/ld+json" is:inline>
@@ -266,6 +266,6 @@ const isActive = (path: string) => {
   </div>
 
   <!-- Client Script -->
-  <script src="/script.js" is:inline></script>
+  <script src={`/script.js?v=${Date.now()}`} is:inline></script>
 </body>
 </html>
