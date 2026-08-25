@@ -8,36 +8,95 @@ import Layout from '../layouts/Layout.astro';
     An overview of technical competencies, frameworks, infrastructure tooling, and algorithms developed across academic research and applied machine learning engineering.
   </p>
 
-  <h2 style="margin-top: 2rem;">Skills Matrix</h2>
-  <ul class="skills-list" style="margin-top: 1rem;">
-    <li>
-      <strong>Deep Learning &amp; AI:</strong>
-      PyTorch, TensorFlow / Keras, Hugging Face Transformers, Vision Transformers (ViT, Swin), BERT / DeBERTa / RoBERTa, CLIP, Cross-Modal Attention, CNNs (ResNet, VGG), OpenCV, Scikit-learn, XGBoost.
+  <h2 style="margin-top: 2.25rem;">Core Competency Matrix</h2>
+  <ul class="project-card-list" style="margin-top: 1.25rem;">
+    <li class="project-card" style="padding: 1.35rem 1.5rem;">
+      <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.05rem; color: var(--text-bold);">
+        Deep Learning &amp; Computer Vision
+      </h3>
+      <p style="margin-bottom: 0.85rem; font-size: 0.94rem; color: var(--text-secondary);">
+        Architecting transformer-based modality encoders, vision backbones, and multimodal fusion mechanisms.
+      </p>
+      <div class="project-tags">
+        <span class="tech-tag">PyTorch</span>
+        <span class="tech-tag">Hugging Face Transformers</span>
+        <span class="tech-tag">Vision Transformers (ViT)</span>
+        <span class="tech-tag">Swin Transformer</span>
+        <span class="tech-tag">BERT / DeBERTa / RoBERTa</span>
+        <span class="tech-tag">CLIP</span>
+        <span class="tech-tag">Cross-Modal Attention</span>
+        <span class="tech-tag">TensorFlow / Keras</span>
+        <span class="tech-tag">OpenCV</span>
+      </div>
     </li>
-    <li>
-      <strong>MLOps &amp; Cloud:</strong>
-      DVC (Data Version Control), MLflow (Experiment Tracking &amp; Model Registry), Docker (Containerization), FastAPI, REST APIs, Streamlit, Git, GitHub Actions CI/CD, AWS (EC2, S3), DagsHub.
+
+    <li class="project-card" style="padding: 1.35rem 1.5rem;">
+      <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.05rem; color: var(--text-bold);">
+        MLOps, Infrastructure &amp; Cloud
+      </h3>
+      <p style="margin-bottom: 0.85rem; font-size: 0.94rem; color: var(--text-secondary);">
+        Production deployment, dataset versioning, artifact logging, and containerized inference microservices.
+      </p>
+      <div class="project-tags">
+        <span class="tech-tag">DVC (Data Version Control)</span>
+        <span class="tech-tag">MLflow</span>
+        <span class="tech-tag">Docker</span>
+        <span class="tech-tag">FastAPI</span>
+        <span class="tech-tag">GitHub Actions CI/CD</span>
+        <span class="tech-tag">AWS EC2 / S3</span>
+        <span class="tech-tag">Cloudflare Workers</span>
+        <span class="tech-tag">Streamlit</span>
+      </div>
     </li>
-    <li>
-      <strong>Languages &amp; Core:</strong>
-      Python, C++, C, SQL (PostgreSQL, MySQL), JavaScript (ES6+), HTML5/CSS3.
+
+    <li class="project-card" style="padding: 1.35rem 1.5rem;">
+      <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.05rem; color: var(--text-bold);">
+        Data Science &amp; Classical Machine Learning
+      </h3>
+      <p style="margin-bottom: 0.85rem; font-size: 0.94rem; color: var(--text-secondary);">
+        Statistical modeling, tabular gradient boosting, feature engineering, and model interpretability.
+      </p>
+      <div class="project-tags">
+        <span class="tech-tag">Scikit-learn</span>
+        <span class="tech-tag">XGBoost</span>
+        <span class="tech-tag">CatBoost</span>
+        <span class="tech-tag">SHAP (Explainable AI)</span>
+        <span class="tech-tag">Pandas</span>
+        <span class="tech-tag">NumPy</span>
+        <span class="tech-tag">Statistical Hypothesis Testing</span>
+      </div>
     </li>
-    <li>
-      <strong>Core Competencies:</strong>
-      Computer Vision, Natural Language Processing, Multimodal Gated Fusion, Data Structures &amp; Algorithms (250+ solved challenges), GATE Qualified (CS 514), Explainable AI (SHAP), Statistical Hypothesis Testing.
+
+    <li class="project-card" style="padding: 1.35rem 1.5rem;">
+      <h3 style="margin-top: 0; margin-bottom: 0.5rem; font-size: 1.05rem; color: var(--text-bold);">
+        Languages &amp; Core Computer Science
+      </h3>
+      <p style="margin-bottom: 0.85rem; font-size: 0.94rem; color: var(--text-secondary);">
+        Algorithmic problem solving, distributed systems fundamentals, database design, and systems engineering.
+      </p>
+      <div class="project-tags">
+        <span class="tech-tag">Python</span>
+        <span class="tech-tag">C++</span>
+        <span class="tech-tag">C</span>
+        <span class="tech-tag">SQL (PostgreSQL, MySQL)</span>
+        <span class="tech-tag">JavaScript (ES6+)</span>
+        <span class="tech-tag">HTML5 / CSS3</span>
+        <span class="tech-tag">DSA (250+ Solved)</span>
+        <span class="tech-tag">GATE CS Qualified (Score 514)</span>
+      </div>
     </li>
   </ul>
 
-  <h2 style="margin-top: 2.5rem;">Development Principles</h2>
-  <ul class="skills-list" style="margin-top: 1rem;">
+  <h2 style="margin-top: 2.75rem;">Engineering Principles</h2>
+  <ul class="skills-list" style="margin-top: 1.25rem;">
     <li>
-      <strong>Reproducibility First:</strong> Strict seed management, deterministic data splits, and DVC pipeline definitions.
+      <strong>Reproducibility First:</strong> Deterministic seed control, immutable DVC pipeline dependencies, and version-pinned containerization.
     </li>
     <li>
-      <strong>Low-Latency Deployment:</strong> Asynchronous FastAPI microservices with optimized torchscript / onnx inference models.
+      <strong>Low-Latency Deployment:</strong> Asynchronous FastAPI endpoints with optimized ONNX/TorchScript graphs and memory-conscious inference engines.
     </li>
     <li>
-      <strong>Continuous Experiment Tracking:</strong> Comprehensive metric and artifact logging with MLflow and automated regression checks.
+      <strong>Continuous Experiment Tracking:</strong> Granular artifact and metric logging with MLflow to ensure verifiable and audited model iterations.
     </li>
   </ul>
 </Layout>

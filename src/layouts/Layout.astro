@@ -2,12 +2,18 @@
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
 }
 
 const { 
   title = "Ayush Mishra | Computer Scientist & AI Researcher",
-  description = "Ayush Mishra — Computer Scientist and AI Researcher specializing in Multimodal Deep Learning, Vision Transformers, and High-Performance ML Systems."
+  description = "Ayush Mishra — Computer Scientist and AI Researcher specializing in Multimodal Deep Learning, Vision Transformers, and High-Performance ML Systems.",
+  image = "/assets/logo2.jpeg"
 } = Astro.props;
+
+const siteUrl = 'https://ayush-mishra-portfolio.pages.dev';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = new URL(image, siteUrl).href;
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isActive = (path: string) => {
@@ -22,22 +28,29 @@ const isActive = (path: string) => {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#fdfdfd" id="themeColorMeta" />
+  <meta name="theme-color" content="#f8f7f4" id="themeColorMeta" />
   <title>{title}</title>
   <meta name="description" content={description} />
   <meta name="keywords" content="Ayush Mishra, Computer Scientist, AI Researcher, Multimodal Deep Learning, Vision Transformers, Machine Learning Systems, Computer Vision, MLOps, PyTorch, SVNIT Surat, DSCE Bengaluru" />
   <meta name="author" content="Ayush Mishra" />
+  <link rel="canonical" href={canonicalURL} />
 
-  <!-- OpenGraph / Social Sharing -->
+  <!-- OpenGraph / Facebook Social Sharing -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Ayush Mishra Portfolio" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:url" content="https://github.com/ayush190511" />
-  <meta property="og:image" content="/assets/logo2.jpeg" />
-  <meta name="twitter:card" content="summary" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:image" content={ogImageUrl} />
+  <meta property="og:image:alt" content="Ayush Mishra — AI Researcher & Computer Scientist" />
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content="/assets/logo2.jpeg" />
+  <meta name="twitter:image" content={ogImageUrl} />
+  <meta name="twitter:creator" content="@ayush190511" />
 
   <!-- Google Fonts: Lora (Primary Editorial Serif) & Inter & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -47,7 +60,7 @@ const isActive = (path: string) => {
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 
-  <!-- Stylesheet -->
+  <!-- Stylesheet with Build-Time Cache Busting -->
   <link rel="stylesheet" href={`/styles.css?v=${Date.now()}`} />
 
   <!-- Structured Data JSON-LD for Academics & Researchers -->
@@ -84,7 +97,7 @@ const isActive = (path: string) => {
   </script>
 </head>
 <body>
-  <!-- Minimalist Site Header (Chip Huyen style) -->
+  <!-- Minimalist Site Header -->
   <header class="site-header" role="banner">
     <div class="wrapper header-inner">
       <a class="site-title" href="/">
@@ -93,12 +106,12 @@ const isActive = (path: string) => {
 
       <nav class="site-nav" aria-label="Main Navigation">
         <ul class="nav-links" id="navLinks">
-          <li><a class={`nav-link ${isActive('/')}`} href="/">About</a></li>
-          <li><a class={`nav-link ${isActive('/research')}`} href="/research">Research</a></li>
-          <li><a class={`nav-link ${isActive('/projects')}`} href="/projects">Projects</a></li>
-          <li><a class={`nav-link ${isActive('/skills')}`} href="/skills">Skills</a></li>
-          <li><a class={`nav-link ${isActive('/education')}`} href="/education">Education</a></li>
-          <li><a class={`nav-link ${isActive('/contact')}`} href="/contact">Contact</a></li>
+          <li><a class={`nav-link ${isActive('/')}`} href="/" aria-current={isActive('/') ? 'page' : undefined}>About</a></li>
+          <li><a class={`nav-link ${isActive('/research')}`} href="/research" aria-current={isActive('/research') ? 'page' : undefined}>Research</a></li>
+          <li><a class={`nav-link ${isActive('/projects')}`} href="/projects" aria-current={isActive('/projects') ? 'page' : undefined}>Projects</a></li>
+          <li><a class={`nav-link ${isActive('/skills')}`} href="/skills" aria-current={isActive('/skills') ? 'page' : undefined}>Skills</a></li>
+          <li><a class={`nav-link ${isActive('/education')}`} href="/education" aria-current={isActive('/education') ? 'page' : undefined}>Education</a></li>
+          <li><a class={`nav-link ${isActive('/contact')}`} href="/contact" aria-current={isActive('/contact') ? 'page' : undefined}>Contact</a></li>
         </ul>
 
         <!-- Theme Toggle Button -->
@@ -119,11 +132,10 @@ const isActive = (path: string) => {
           </svg>
         </button>
 
-        <!-- Mobile Menu Toggle Button (Smooth Animated Hamburger) -->
+        <!-- Mobile Menu Toggle Button (Minimalist 2-Bar Hamburger) -->
         <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
           <span class="hamburger-bar bar-1"></span>
           <span class="hamburger-bar bar-2"></span>
-          <span class="hamburger-bar bar-3"></span>
         </button>
       </nav>
     </div>
